@@ -24,6 +24,7 @@ jobs:
       - run: pnpm prisma:validate
         env:
           DATABASE_URL: postgresql://localhost/free_ai_validation
+      - run: pnpm prisma:generate
       - run: pnpm typecheck
       - run: pnpm web:typecheck
       - run: pnpm api:build
