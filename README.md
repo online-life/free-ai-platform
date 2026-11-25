@@ -1,114 +1,256 @@
-# Free AI Platform
+<p align="center">
+  <img src="docs/assets/brand/repository-banner.png" alt="Free AI Platform brand banner with an original connected-node mark" width="100%">
+</p>
 
-Free AI Platform is a general-purpose, multi-project AI platform.
+<p align="center">
+  <img src="docs/assets/brand/free-ai-mark.png" alt="Free AI Platform connected-node mark" width="76">
+</p>
 
-It receives user instructions, analyzes requirements, plans execution,
-selects authorized agents and tools, executes tasks, validates results,
-and delivers traceable outputs.
+<h1 align="center">Free AI Platform</h1>
 
-## Core Principles
+<p align="center">
+  An open-source, self-hosted control plane for AI projects, provider routing, and restricted task execution.
+</p>
 
-- One shared platform core.
-- Independent project contexts and permissions.
-- Extensible agent ecosystem.
-- Free services and models only.
-- Centralized provider gateway.
-- Isolated execution environments.
-- Human approval for sensitive actions.
-- Auditable and testable workflows.
-- Modular Monolith as the initial implementation architecture.
+<p align="center">
+  <a href="https://github.com/online-life/free-ai-platform/actions/workflows/ci.yml">
+    <img src="https://github.com/online-life/free-ai-platform/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI workflow status">
+  </a>
+  <a href="https://github.com/online-life/free-ai-platform/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/online-life/free-ai-platform?label=license" alt="Apache-2.0 license">
+  </a>
+  <img src="https://img.shields.io/badge/Node.js-%3E%3D22-339933?logo=node.js&logoColor=white" alt="Node.js 22 or newer">
+</p>
 
-## Current Status
+> **Project status: NOT PRODUCTION READY.** Production deployment, live-provider
+> inference, and authenticated full-browser acceptance remain unverified. Read
+> [current status](docs/STATUS.md) before evaluating deployment or release
+> readiness.
 
-The repository contains a local development web console and Node HTTP API. The
-current implementation includes PostgreSQL-backed cookie sessions, one-time
-owner bootstrap, forced first-login password change, user/role/session admin
-routes, project/task APIs, provider metadata, and a local Runtime. The project
-is still under development and is **not production ready**; see
-[`docs/STATUS.md`](docs/STATUS.md) and the closure report for verified scope and
-remaining blockers.
+**Explore:** [Overview](#overview) · [Capabilities](#project-capabilities) ·
+[Architecture](#architecture) · [Providers](#providers-and-models) ·
+[Installation](#installation) · [Documentation](docs/README.md) ·
+[Contributing](CONTRIBUTING.md)
 
-The API binds to loopback by default. The web console is available at
-`http://127.0.0.1:4173`; the API defaults to `http://127.0.0.1:3000` (or the
-configured `API_PORT`). OpenAPI is served at `/openapi.json`.
+## Overview
 
-### Local development
+Free AI Platform is a self-hostable application for managing AI projects,
+provider and model records, project-scoped requests, and controlled Runtime
+jobs through a central API. It combines a Node.js/TypeScript API, a web
+console, PostgreSQL persistence, and a separately bounded Runtime service.
 
-1. Configure PostgreSQL and set `DATABASE_URL` in the shell.
-2. Apply the additive migrations with `pnpm prisma:migrate:deploy`.
-3. Build and start the API with `pnpm api:build` and `pnpm api:start`.
-4. In another terminal, run `pnpm web:dev` and open the URL above.
+**Vision:** make AI-assisted project work inspectable and governable from one
+place. **Mission:** build that control plane around explicit authorization,
+provider policy, and execution boundaries, while clearly separating working
+features from unfinished plans.
 
-Public account self-registration is disabled. A fresh setup requires a
-configured random `BOOTSTRAP_TOKEN` of at least 32 characters and the protected
-owner bootstrap flow. It displays generated credentials once; the owner must
-change the temporary password at first login. Browser sessions use
-server-persisted opaque identifiers in HttpOnly cookies and CSRF protection.
-Provider API credentials require a 32-byte base64 `SECRETS_MASTER_KEY`; do not
-commit it. Provider and model configurations remain disabled until separately
-authorized and tested. The bootstrap flow does not by itself constitute a
-complete packaged installer.
+## Project capabilities
 
-Build and check commands: `pnpm web:build`, `pnpm web:typecheck`, `pnpm typecheck`,
-`pnpm api:build`, `pnpm prisma:validate`, and `pnpm test:e2e` (requires an
-explicitly configured test `DATABASE_URL`).
+| Status | Capability |
+| --- | --- |
+| **Available** | Owner bootstrap, server-side browser sessions, tenant/project APIs, and permission-checked project access. |
+| **Available** | Provider/model administration and central routing through generic OpenAI-compatible or loopback-only local OpenAI-compatible connectors. |
+| **Available** | Paired Runtime management and dispatch of approved work into restricted execution boundaries. |
+| **Partial / not verified** | Project requests are covered with a mock provider; successful live external inference and authenticated full-browser administration acceptance are not verified. |
+| **In progress** | Agent and workflow capabilities are incomplete. Production service lifecycle, deployment hardening, and recovery are not complete. |
 
-Create a reproducible source archive with `scripts/build-release-package.sh
-[output-directory]`. It emits a SHA-256 sidecar. This is a source distribution,
-not a self-contained production installer; it requires Node.js/pnpm and does
-not configure or manage system services.
+These labels describe the current implementation, not a production-readiness
+claim. See [status and evidence](docs/STATUS.md) and the [roadmap](docs/ROADMAP.md).
 
-The latest source candidate is available in
-[`release-candidate-latest/`](release-candidate-latest/). See
-[`provider setup and execution`](docs/13-operations/provider-setup-and-execution.md)
-for configuring a verified-free provider and running a project request through
-the central gateway. Successful live inference remains unverified until an
-approved model endpoint is configured.
+## Architecture
 
-### Public website and provider administration
+The API is the control plane for identity, authorization, project policy,
+provider routing, and Runtime coordination. PostgreSQL stores application
+state. Paired Runtime services execute approved work within restricted
+boundaries. These diagrams describe current code-level boundaries, not a
+production deployment guarantee.
 
-The web app serves public routes for Home, About, Features, Platform Modules,
-AI Providers, Models, Pricing and Plans, Contact, Documentation, FAQ, Terms of
-Service, Privacy Policy, and Login. The authenticated workspace remains
-separate; anonymous hash routes never render private workspace pages. Public
-contact details, footer text, social links, and Terms/Privacy content can be
-updated by an authorized platform owner in **Settings → Public website
-content** and are stored by the API. The default includes no invented contact
-or social accounts.
+<p align="center">
+  <img src="docs/assets/diagrams/system-overview.png" alt="System overview showing client, API control plane, provider gateway, compatible endpoint, paired Runtime, restricted sandbox, PostgreSQL, and a separate partial agent ecosystem" width="100%">
+</p>
 
-Provider identity marks are deliberately neutral: the API currently supports
-the generic OpenAI-compatible connector and local OpenAI-compatible connector.
-No verified official logo assets are required or fabricated. Connection
-status and pricing are taken from provider/model records; unknown remains
-unknown. The project execution form lists only currently eligible
-privacy-approved verified-free or self-hosted models and sends its selected
-model key for server-side revalidation. Provider connection tests perform
-health/catalog discovery, not inference.
+<details>
+  <summary>Detailed platform architecture</summary>
+  <p align="center">
+    <img src="docs/assets/diagrams/platform-architecture.png" alt="Platform architecture showing the modular monolith, persistence, provider boundary, and isolated Runtime execution plane" width="100%">
+  </p>
+</details>
 
-## Repository Structure
+## Providers and models
 
-- apps/: application entry points.
-- packages/: shared contracts and libraries.
-- services/: separately bounded runtime services.
-- infra/: infrastructure definitions.
-- docs/: architecture and specifications.
-- tests/: automated tests.
-- scripts/: project maintenance scripts.
+The current adapter registry supports two connector identities:
+`OPENAI_COMPATIBLE` for remote HTTPS endpoints and
+`LOCAL_OPENAI_COMPATIBLE` for explicitly configured loopback endpoints. These
+are protocol-compatible connectors, not dedicated provider-brand integrations.
+There is no dedicated OpenCode or FreeLLMAPI integration in the current code.
 
-## Development Rule
+The project request form selects only enabled, available, privacy-approved
+text-generation models classified as verified-free or self-hosted. Provider
+health or catalog discovery does not prove that inference works or that a
+model's pricing and data handling are suitable. The form sets fallback count
+to zero. API callers may request up to two fallback attempts for retryable
+provider errors, subject to the model/provider constraints they selected.
 
-No implementation begins before the relevant technical specification,
-security requirements, and acceptance tests are approved.
+<p align="center">
+  <img src="docs/assets/diagrams/provider-model-integration.png" alt="Provider and model integration through the API's central gateway, with remote compatible and local compatible endpoints" width="100%">
+</p>
+
+Details: [provider setup and project requests](docs/13-operations/provider-setup-and-execution.md).
+
+## Agents and workflows
+
+Agent definitions and workflow-related components exist, but end-to-end agent
+orchestration is not wired into the current request flow. The project does not
+claim a complete autonomous agent system.
+
+<p align="center">
+  <img src="docs/assets/diagrams/agent-task-flow.png" alt="Implemented project request path through API policy, model eligibility, and provider gateway, with agent ecosystem marked partial and not wired to the flow" width="100%">
+</p>
+
+## Developer experience
+
+- The running API exposes its OpenAPI document at `/api/v1/openapi.json`.
+- Shared contracts and TypeScript packages support the API and Runtime.
+- CI validates Prisma, API and web types/builds, and Vitest on pushes to `main`
+  and pull requests.
+- The web console serves locally on `http://127.0.0.1:4173`; the API defaults
+  to `http://127.0.0.1:3000`.
+
+The repository does not include verified product screenshots. The images above
+are original diagrams, not screenshots or claims of completed UI acceptance.
+
+## Technology stack
+
+| Area | Technologies |
+| --- | --- |
+| API and Runtime | Node.js 22+, TypeScript |
+| Web | Static web client served by Node.js |
+| Persistence | PostgreSQL, Prisma |
+| Contracts and validation | TypeScript, Zod |
+| Workspace | pnpm 9 |
+| Verification | Vitest, Node.js test runner, PostgreSQL-backed E2E suites |
+
+## Installation
+
+Requirements are Node.js 22+, pnpm 9.12.0, and PostgreSQL. Linux plus
+Bubblewrap and `prlimit` are required for Runtime sandboxed process execution.
+No minimum PostgreSQL version or supported OS matrix is declared, and Docker
+installation is not currently provided. Follow the detailed
+[installation and first-run guide](docs/getting-started/installation.md) for
+database role setup, environment variables, migrations, startup, and
+troubleshooting.
+
+## Quick start
+
+After configuring a disposable local database and the required environment:
+
+```bash
+bash scripts/install-local.sh
+```
+
+The installer applies migrations and builds the services; it does not start
+them or complete owner bootstrap. Node services do not automatically load
+`.env`; load the configured values into each service process as described in
+the installation guide. Start the API and web client in separate terminals:
+
+```bash
+pnpm api:start
+```
+
+```bash
+pnpm web:dev
+```
+
+Complete the one-time owner bootstrap, then sign in and change the temporary
+password. Public self-registration is disabled. See the
+[first-run owner setup](docs/03-specifications/layer-01-platform-core/first-run-owner-setup.md)
+for the credential lifecycle and the
+[user guide](docs/user-guide/README.md) for verified user flows.
+
+## Usage example
+
+After signing in, create a project, configure an eligible provider/model, and
+submit a request from **Run a project request**. Review the returned response
+and routing information. The project request path is covered by a
+mock-provider E2E test; successful live external inference has not been
+verified. Agent definitions and project workflows are documented in the
+[user guide](docs/user-guide/README.md#agents) with their current execution
+limits.
+
+## Configuration
+
+The application requires a PostgreSQL connection and a 32-byte base64
+`SECRETS_MASTER_KEY` for provider credential encryption. The installer
+requires `BOOTSTRAP_TOKEN` and the API uses it only for first-owner bootstrap.
+Keep real credentials out of version control, shell history, screenshots, and
+logs. See [installation](docs/getting-started/installation.md),
+[backup and restore](docs/13-operations/installation-backup-restore.md), and
+[security guidance](docs/SECURITY.md) for supported configuration.
+
+## Testing
+
+Useful local checks:
+
+```bash
+pnpm prisma:validate
+pnpm typecheck
+pnpm web:typecheck
+pnpm api:build
+pnpm web:build
+pnpm exec vitest run
+```
+
+Database-backed E2E tests require an explicitly disposable PostgreSQL
+database, and some suites require different database-role attributes. Read the
+[testing strategy](docs/12-testing/testing-strategy.md) before running them.
+CI does not represent live-provider or production-deployment acceptance.
 
 ## Documentation
 
-- [Architecture](docs/ARCHITECTURE.md)
-- [Installation](docs/INSTALLATION.md)
-- [Development](docs/DEVELOPMENT.md)
-- [Security](docs/SECURITY.md)
-- [Roadmap](docs/ROADMAP.md)
-- [Contributing](CONTRIBUTING.md)
+Start at the [documentation index](docs/README.md) for
+[Getting Started](docs/getting-started/installation.md),
+[User Guide](docs/user-guide/README.md),
+[Developer Guide](docs/developer-guide/README.md),
+[Architecture](docs/ARCHITECTURE.md),
+[API and contracts](docs/README.md#api-and-contracts),
+[Integrations](docs/13-operations/provider-setup-and-execution.md),
+[Deployment and operations](docs/13-operations/installation-backup-restore.md),
+[Security](SECURITY.md), [Contributing](CONTRIBUTING.md), and
+[Roadmap](docs/ROADMAP.md).
+
+## Roadmap
+
+Current work includes completing production service and deployment lifecycle,
+authenticated browser acceptance, and deeper agent/workflow integration. See
+the [roadmap](docs/ROADMAP.md) and [current status](docs/STATUS.md); items in
+specifications or historical reports are not necessarily implemented.
+
+## Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md), the
+[development guide](docs/DEVELOPMENT.md), and the
+[Code of Conduct](CODE_OF_CONDUCT.md) before opening a change. Keep changes
+focused, preserve security boundaries, and include relevant test evidence.
+
+## Security
+
+Do not disclose vulnerabilities, credentials, or private infrastructure
+details in public issues. Follow the [security policy](SECURITY.md) and
+[security implementation guidance](docs/SECURITY.md).
 
 ## License
 
 Free AI Platform is licensed under the [Apache License 2.0](LICENSE).
+
+## Credits and attribution
+
+See [NOTICE](NOTICE) and the
+[project status and publication review](docs/STATUS.md). The provenance/license
+review of some pre-existing SVG and skill-catalog material remains unresolved;
+do not assume that those items are cleared for reuse.
+
+## Contact and support
+
+Use [GitHub Issues](https://github.com/online-life/free-ai-platform/issues) for
+reproducible bugs and scoped feature requests. For security concerns, follow
+the [security policy](SECURITY.md) and do not post sensitive details publicly.

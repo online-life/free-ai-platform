@@ -6,7 +6,7 @@ Implemented handlers: `RUNTIME_HEALTH_CHECK`, workspace list/read/write/delete, 
 
 ## Run
 
-Build with `pnpm --filter @free-ai/ai-runtime build`. Start as a dedicated unprivileged OS account with `FREEAI_API_URL`, a short-lived `FREEAI_PAIRING_CODE` for first enrollment, and an owner-writable identity directory (`FREEAI_RUNTIME_HOME`). The pairing code is consumed once; subsequent starts load the local device identity. Never put tokens in command-line arguments or logs.
+Build with `pnpm --filter @free-ai/ai-runtime build`. Start as a dedicated unprivileged OS account with `FREEAI_API_URL` and a short-lived `FREEAI_PAIRING_CODE` for first enrollment. The identity file defaults to `$HOME/.config/free-ai/runtime-device.json`; set `FREEAI_RUNTIME_IDENTITY_FILE` to choose another path. The Runtime creates the parent directory and stores the identity with owner-only permissions. The pairing code is consumed once; subsequent starts load the local device identity. Never put tokens in command-line arguments or logs.
 
 ## Security and ownership
 

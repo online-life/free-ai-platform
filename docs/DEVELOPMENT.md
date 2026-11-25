@@ -1,26 +1,22 @@
 # Development
 
-## Commands
+See the [Developer Guide](developer-guide/README.md) for repository structure,
+setup, API and database boundaries, Runtime details, and contribution
+references.
+
+Common checks:
 
 ```bash
-pnpm install --frozen-lockfile
 pnpm prisma:validate
 pnpm typecheck
 pnpm web:typecheck
 pnpm api:build
 pnpm web:build
 pnpm exec vitest run
-pnpm test:e2e
 ```
 
-Database-backed E2E tests require a disposable `DATABASE_URL`.
-
-## Rules
-
-- Preserve existing work and avoid destructive Git operations.
-- Do not run reset, clean, force-push, or history-rewrite commands.
-- Never run migrations against production or valuable databases.
-- Keep provider credentials server-side and out of logs.
-- Preserve tenant, project, session, and workspace boundaries.
-- Add focused tests for behavior changes.
-- Do not claim test or production readiness from an unexecuted check.
+Database-backed E2E tests require an explicitly disposable database; read the
+[testing strategy](12-testing/testing-strategy.md) first. Do not run
+migrations or tests against production or valuable data. Keep credentials
+server-side, preserve tenant/project/session/workspace boundaries, and report
+only validation that was actually executed.
