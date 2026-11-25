@@ -17,7 +17,7 @@
     <img src="https://github.com/online-life/free-ai-platform/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI workflow status">
   </a>
   <a href="https://github.com/online-life/free-ai-platform/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/online-life/free-ai-platform?label=license" alt="Apache-2.0 license">
+    <img src="https://img.shields.io/badge/License-Apache--2.0-blue.svg" alt="Apache License 2.0">
   </a>
   <img src="https://img.shields.io/badge/Node.js-%3E%3D22-339933?logo=node.js&logoColor=white" alt="Node.js 22 or newer">
 </p>
