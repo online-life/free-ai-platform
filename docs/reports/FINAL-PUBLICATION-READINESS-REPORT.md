@@ -6,15 +6,21 @@ Authoritative checkout: `/root/Application/free-ai-platform`
 
 Branch: `main`
 
-Baseline and current `HEAD`: `a47781a3805801cccdaebf01d785189596c5afd6`
+Baseline and pre-publication audit `HEAD`: `a47781a3805801cccdaebf01d785189596c5afd6`
 
 ## Decision
 
 **NOT PRODUCTION READY. NOT PUBLICATION READY.**
 
-Local dependency remediation and targeted acceptance tests are complete, but this checkout must not be published yet. The release builder omits `LICENSE` and `NOTICE` while including internal documentation and credential-shaped scripts. Source and asset provenance is not fully established, existing archives are stale, and production deployment and live external-provider acceptance have not been verified.
+## Subsequent owner-directed publication update — 2026-11-25
 
-No staging, commit, push, GitHub repository creation, release packaging, or publication was performed. The source-package reproducibility test created and cleaned temporary archives only; no release archive was created in the checkout. No Git remote is configured.
+After this readiness assessment, the user explicitly authorized a public GitHub push. The repository [online-life/free-ai-platform](https://github.com/online-life/free-ai-platform) was created as **Public**, and the initial source snapshot commit `bf1d0986663d4499a06f838fe0676ab9b6310b69` was pushed to `main` without force. GitHub reported 313 files and 123 directories, and its `main` commit matched the local commit at verification time. The inventory totals below describe the pre-publication audit snapshot, not a claim that only its proposed candidates were uploaded.
+
+The push followed the user's direction to include the non-ignored current project files, including files whose provenance/license review was unresolved. This action does not establish ownership, grant third-party rights, or change the **NOT PRODUCTION READY** assessment. The five SVG assets and 79 skill-catalog entries therefore remain legal/provenance risks. The two maintenance scripts were included only after replacing their embedded loopback database credentials with a credential-free loopback URL. Files matched by `.gitignore`—dependency installations, local environments, generated output, backups, candidate directories, and release archives—were not uploaded or changed. Existing release archives were excluded; the inventory records that they contain old credential-form URLs and omit `LICENSE` and `NOTICE`.
+
+This was the pre-authorization readiness assessment. The release builder omits `LICENSE` and `NOTICE` while including internal documentation and maintenance scripts. Source and asset provenance is not fully established, existing archives are stale, and production deployment and live external-provider acceptance have not been verified; the later push did not resolve these readiness blockers.
+
+At the time of this readiness assessment, no staging, commit, push, GitHub repository creation, release packaging, or publication had been performed, and no Git remote was configured. The source-package reproducibility test created and cleaned temporary archives only; no release archive was created in the checkout.
 
 ## Checkout reconciliation
 
@@ -89,7 +95,7 @@ The current checkout contains authentication, tenant/project APIs, central provi
 - Four installed packages have no adjacent license text: `stackback@0.0.2`, `@esbuild/linux-x64@0.28.2`, `@rollup/rollup-linux-x64-gnu@4.68.7`, and `@rollup/rollup-linux-x64-musl@4.68.7`. The esbuild and Rollup upstream MIT license texts were verified. Stackback declares MIT in metadata but has no upstream license file; keep its notice-text gap unresolved. Installed dependencies are excluded from the source archive.
 - No font binaries or bundled icon library were found. Exclude these five SVG assets pending provenance confirmation: `apps/web/assets/free-ai-platform-app-icon.svg`, `apps/web/assets/free-ai-platform-favicon.svg`, `apps/web/assets/free-ai-platform-logo-dark.svg`, `apps/web/assets/free-ai-platform-logo-light.svg`, and `apps/web/assets/free-ai-platform-symbol.svg`.
 - Exclude `skill-registry/`: all 79 catalog records remain license-unverified and security-review-pending.
-- Exclude `scripts/fix-layer-01-types.sh` and `scripts/resume-layer-01.sh` pending review; each contains a credential-shaped loopback database URL. Values are withheld from reports.
+- At audit time, `scripts/fix-layer-01-types.sh` and `scripts/resume-layer-01.sh` were excluded pending credential review. Before the later user-directed push, their embedded local database credentials were removed and the scripts were included with a credential-free loopback URL.
 - The untracked source tree has no complete provenance history in Git. Its presence in the inventory does not by itself prove authorship or grant rights.
 
 `NOTICE` clarifies that the source builder does not bundle installed dependencies and that a distribution that does include dependency code/assets must carry the applicable notices.
@@ -98,9 +104,9 @@ The current checkout contains authentication, tenant/project APIs, central provi
 
 The full exact path list, Git/snapshot state, proposed status, rationale, internal/generated/sensitive/third-party flags, and builder-inclusion result are in [`FINAL-PUBLICATION-INVENTORY.csv`](FINAL-PUBLICATION-INVENTORY.csv). Proposed application, test, configuration, and documentation paths remain candidates pending owner/provenance review—not approved files.
 
-Exclude internal reports and work products, the `.superpowers/sdd/2026-11-25-free-ai-publication-remediation/` task workspace, generated caches/dependency trees, backup and candidate directories, all existing release archives and sidecars, the skill registry, the five SVG assets pending provenance, and the two credential-shaped scripts. Preserve all of these locally; no cleanup or deletion was performed.
+The audit's recommended exclusions were internal reports and work products, the `.superpowers/sdd/2026-11-25-free-ai-publication-remediation/` task workspace, generated caches/dependency trees, backup and candidate directories, all existing release archives and sidecars, the skill registry, the five SVG assets pending provenance, and the two credential-bearing script versions. The subsequent user instruction superseded the source/asset exclusions for the non-ignored worktree files; ignored local artifacts and archives remain local and untouched.
 
-The source builder `scripts/build-release-package.sh` selects `docs` and `scripts` wholesale, causing excluded/internal report content and the two credential-shaped scripts to be packaged, while omitting root `LICENSE` and `NOTICE`. It conflicts with the reviewed classification and must be corrected and tested before any release package is built.
+The source builder `scripts/build-release-package.sh` selects `docs` and `scripts` wholesale, causing internal report content and the two maintenance scripts to be packaged, while omitting root `LICENSE` and `NOTICE`. It conflicts with the reviewed classification and must be corrected and tested before any release package is built.
 
 Six existing archives and six SHA-256 sidecars were preserved, untouched:
 
@@ -115,4 +121,4 @@ Each archive contains 391–392 entries, lacks `LICENSE` and `NOTICE`, and inclu
 
 ## Owner review required
 
-Before any public release, the owner must review the exact inventory, confirm source and SVG ownership, resolve Stackback notice text, confirm the public/security reporting channels, and approve a corrected release manifest that includes required license files and excludes internal/sensitive content. Live-provider and production deployment acceptance must also be completed. Until then, publication remains unauthorized and this repository remains **NOT PRODUCTION READY**.
+At the time of this report, publication had not been authorized. The later user-directed GitHub push does not resolve the remaining requirements: confirm source and SVG ownership, resolve Stackback notice text, confirm public/security reporting channels, correct the release manifest to include required license files and exclude internal/sensitive content, and complete live-provider and production deployment acceptance. The repository remains **NOT PRODUCTION READY**.

@@ -1,10 +1,12 @@
 # Free AI Platform Status
 
-Last verified: 2026-11-25. Release decision: **NOT PRODUCTION READY** and **NOT PUBLICATION READY**.
+Last verified: 2026-11-25. Publication status: **PUBLIC REPOSITORY PUBLISHED**. Production status: **NOT PRODUCTION READY**.
 
 ## Current authoritative status
 
-The current checkout is on `main` at baseline `a47781a3805801cccdaebf01d785189596c5afd6`. Remediation remains local and uncommitted. No remote is configured; no repository, release archive in the checkout, or publication was created. The source-package test generated and cleaned only temporary archives.
+At the user's explicit direction, the current checkout's tracked changes and non-ignored untracked project files were committed and pushed to [online-life/free-ai-platform](https://github.com/online-life/free-ai-platform), a public repository. The initial publication commit is `bf1d0986663d4499a06f838fe0676ab9b6310b69` on `main`; GitHub confirmed 313 files and 123 directories and the remote commit matched local `main`. No force push or history rewrite was used.
+
+The public push does not change the production-readiness decision or clear provenance/license review. The five SVG assets and 79 skill-catalog entries remain unverified; they were included at the user's explicit direction. Two maintenance scripts had their embedded local database credentials removed before publication; their Prisma-only loopback URL no longer contains username/password data. Files excluded by `.gitignore` (including dependency installations, local environments, generated output, backup/candidate directories, and release archives) remain local and untouched. No release package was generated in the checkout.
 
 - The four identified high-severity production dependency advisories have patched versions in the lockfile. A fresh `pnpm audit --prod --audit-level=high` reported no known vulnerabilities.
 - Current resolved versions: `prisma` and `@prisma/client` 6.19.3, `zod` 4.6.7, `effect` 3.22.1, and `deepmerge-ts` 8.0.2.

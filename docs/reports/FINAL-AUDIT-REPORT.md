@@ -10,9 +10,11 @@ Branch and baseline: `main`, `a47781a3805801cccdaebf01d785189596c5afd6`
 
 The four identified high-severity production dependency advisories have patched versions in the lockfile, and a fresh production audit reports no known vulnerabilities. Targeted type checks, builds, Prisma checks, unit tests, Node tests, and isolated PostgreSQL E2E tests passed as recorded below.
 
-The repository is **not production-ready or publication-ready**. The source-package builder omits `LICENSE` and `NOTICE`, includes internal documentation and credential-shaped maintenance scripts, and existing release archives are stale and lack the license files. Five SVG brand assets and the third-party skill catalog have unresolved provenance. Live external-provider execution and production deployment acceptance were not verified.
+The repository is **not production-ready or publication-ready**. The source-package builder omits `LICENSE` and `NOTICE` and includes internal documentation and maintenance scripts; existing release archives are stale and lack the license files. Five SVG brand assets and the third-party skill catalog have unresolved provenance. Live external-provider execution and production deployment acceptance were not verified.
 
 No file was staged or committed; no remote, repository, release archive in the checkout, or publication was created by this remediation. The source-package reproducibility test built only temporary archives and cleaned its test outputs.
+
+**Subsequent publication update:** At the user's explicit direction, the sanitized current worktree was later committed and pushed to the public repository [online-life/free-ai-platform](https://github.com/online-life/free-ai-platform). This does not change the readiness findings below. The two maintenance scripts were updated to remove embedded local database credentials before they were included.
 
 ## Checkout reconciliation
 
@@ -89,7 +91,7 @@ The current API routes and services include authentication, tenant/project APIs,
 
 ## Publication blockers and remaining risks
 
-`scripts/build-release-package.sh` explicitly archives `docs` and `scripts`, so internal reports and the two credential-shaped maintenance scripts (`scripts/fix-layer-01-types.sh`, `scripts/resume-layer-01.sh`) enter its source list. It does not include root `LICENSE` or `NOTICE`. This conflicts with the inventory and license review. No release archive was generated in the checkout; the package-reproducibility test created and cleaned temporary archives only.
+`scripts/build-release-package.sh` explicitly archives `docs` and `scripts`, so internal reports and the two maintenance scripts (`scripts/fix-layer-01-types.sh`, `scripts/resume-layer-01.sh`) enter its source list. It does not include root `LICENSE` or `NOTICE`. This conflicts with the inventory and license review. No release archive was generated in the checkout; the package-reproducibility test created and cleaned temporary archives only.
 
 Six existing archives and their six checksum sidecars were left untouched under `release-artifacts/`, `release-candidate/`, `release-candidate-2026-11-22/`, `release-candidate-2026-11-22-runtime-config/`, `release-candidate-final/`, and `release-candidate-latest/`. Each archive contains 391–392 entries, omits `LICENSE` and `NOTICE`, and includes two report documents; none is approved as a current release artifact.
 
