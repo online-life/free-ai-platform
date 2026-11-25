@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0e14" />
+    <meta name="description" content="Free AI Platform — one secure workspace for AI projects, models, agents, and workflows." />
+    <meta name="application-name" content="Free AI Platform" />
+    <link rel="icon" type="image/svg+xml" href="/assets/free-ai-platform-favicon.svg" />
+    <link rel="apple-touch-icon" href="/assets/free-ai-platform-app-icon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>Free AI Platform</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script src="/config.js"></script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <div class="public-site" id="public-site" aria-live="polite"></div>
+    <div class="app-shell hidden" id="workspace-app">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#dashboard" aria-label="Free AI Platform home">
+          <img class="brand-symbol" src="/assets/free-ai-platform-symbol.svg" alt="" />
+          <span class="brand-name">Free AI <span>Platform</span></span>
+        </a>
+        <div class="workspace-switch"><span class="workspace-avatar">F</span><span class="workspace-copy"><strong data-i18n="workspace">Free AI Platform Workspace</strong><small data-i18n="personalWorkspace">Personal workspace</small></span><span class="chevron">⌄</span></div>
+        <nav class="nav" aria-label="Main navigation">
+          <p class="nav-label" data-i18n="workspaceNav">WORKSPACE</p>
+          <a href="#dashboard" data-page="dashboard"><span class="nav-icon">⌂</span><span data-i18n="dashboard">Overview</span></a>
+          <a href="#projects" data-page="projects"><span class="nav-icon">▦</span><span data-i18n="projects">Projects</span><span class="nav-count">0</span></a>
+          <a href="#agents" data-page="agents"><span class="nav-icon">✳</span><span data-i18n="agents">Agents</span></a>
+          <p class="nav-label nav-label-spaced" data-i18n="intelligence">INTELLIGENCE</p>
+          <a href="#models" data-page="models"><span class="nav-icon">◈</span><span data-i18n="models">Models</span></a>
+          <a href="#providers" data-page="providers"><span class="nav-icon">⌘</span><span data-i18n="providers">Providers</span></a>
+          <a href="#routing" data-page="routing"><span class="nav-icon">⤳</span><span data-i18n="routing">Smart routing</span></a>
+          <p class="nav-label nav-label-spaced" data-i18n="operations">OPERATIONS</p>
+          <a href="#executions" data-page="executions"><span class="nav-icon">▷</span><span data-i18n="executions">Executions</span></a>
+          <a href="#devices" data-page="devices"><span class="nav-icon">⌁</span><span data-i18n="devices">Connected devices</span></a>
+          <a href="#workspaces" data-page="workspaces"><span class="nav-icon">▣</span><span data-i18n="workspaces">Workspaces</span></a>
+          <a href="#workflows" data-page="workflows"><span class="nav-icon">⑂</span><span data-i18n="workflows">Workflows</span></a>
+          <a href="#monitoring" data-page="monitoring"><span class="nav-icon">⌁</span><span data-i18n="monitoring">Monitoring</span></a>
+          <p class="nav-label nav-label-spaced">ADMINISTRATION</p>
+          <a href="#users" data-page="users"><span class="nav-icon">♙</span><span>Users</span></a>
+          <a href="#roles" data-page="roles"><span class="nav-icon">⊞</span><span>Roles and permissions</span></a>
+          <a href="#sessions" data-page="sessions"><span class="nav-icon">◷</span><span>Sessions</span></a>
+        </nav>
+        <div class="sidebar-bottom"><a href="#settings" data-page="settings"><span class="nav-icon">⚙</span><span data-i18n="settings">Settings</span></a><div class="user-card"><div class="user-avatar">G</div><div class="user-copy"><strong data-i18n="guestUser">Guest user</strong><small data-i18n="localPreview">Local preview</small></div><button class="icon-button" aria-label="More options">···</button></div></div>
+      </aside>
+      <main class="main-area">
+        <header class="topbar"><button class="icon-button mobile-menu" id="menu-toggle" aria-label="Open navigation">☰</button><div class="breadcrumbs"><span data-i18n="workspace">Free AI Platform Workspace</span><span>/</span><strong id="breadcrumb-current">Overview</strong></div><div class="topbar-actions"><span class="api-status"><i></i><span data-i18n="apiOffline">API not connected</span></span><button class="account-button" id="auth-button">Sign in</button><button class="icon-button" id="theme-toggle" aria-label="Toggle theme">☼</button><button class="help-button" data-i18n="help">Help</button></div></header>
+        <div class="content" id="page-content"></div>
+        <footer><span>Free AI Platform <span class="footer-dot">·</span> <span data-i18n="localPreview">Local preview</span></span><span class="footer-right"><i></i><span data-i18n="backendUnavailable">Backend unavailable</span></span></footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <dialog class="auth-dialog" id="auth-dialog"></dialog>
+  </body>
+</html>

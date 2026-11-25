@@ -61,3 +61,13 @@ venv/
 *.pem
 *.key
 secrets/
+!apps/api/src/modules/secrets/
+!apps/api/src/modules/secrets/**/*.ts
+!packages/contracts/src/secrets/
+!packages/contracts/src/secrets/**/*.ts
+.prelaunch-backups/
+.archify/
+.repair-backups/
+release-artifacts/
+release-candidate/
+release-candidate-*/

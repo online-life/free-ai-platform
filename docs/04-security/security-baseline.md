@@ -1,4 +1,4 @@
-# Free AI Security Baseline
+# Free AI Platform Security Baseline
 
 ## Host Security
 

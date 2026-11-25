@@ -1,0 +1,1137 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PlatformSetupState {
+  id        Int      @id @default(1)
+  completed Boolean  @default(false)
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("platform_setup_state")
+}
+
+model GlobalModelPolicy {
+  id                       Int      @id @default(1)
+  freeModelsEnabled       Boolean  @default(false) @map("free_models_enabled")
+  paidModelsEnabled       Boolean  @default(false) @map("paid_models_enabled")
+  localModelsEnabled      Boolean  @default(false) @map("local_models_enabled")
+  customProvidersEnabled Boolean  @default(false) @map("custom_providers_enabled")
+  automaticDiscovery     Boolean  @default(false) @map("automatic_discovery")
+  automaticRefresh       Boolean  @default(false) @map("automatic_refresh")
+  paidSpendingAuthorized Boolean  @default(false) @map("paid_spending_authorized")
+  monthlyCostLimit       Decimal? @db.Decimal(14, 2) @map("monthly_cost_limit")
+  updatedByUserId        String?  @db.Uuid @map("updated_by_user_id")
+  updatedAt              DateTime @updatedAt @map("updated_at")
+
+  @@map("global_model_policy")
+}
+
+model PlatformPublicSettings {
+  id        Int      @id @default(1)
+  value     Json     @default("{}")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("platform_public_settings")
+}
+
+model Tenant {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  slug      String   @unique
+  status    String   @default("ACTIVE")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  projects     Project[]
+  users        User[]
+  sessions     Session[]
+  roles        Role[]
+  permissions  Permission[]
+  userRoles    UserRole[]
+  rolePermissions RolePermission[]
+  settings     Setting[]
+  auditLogs    AuditLog[]
+  outboxEvents OutboxEvent[]
+  secrets      Secret[]
+  storedObjects StoredObject[]
+  projectWorkspaces ProjectWorkspace[]
+  providerConnections ProviderConnection[]
+  providerCredentials ProviderCredential[]
+  providerUsage ProviderUsage[]
+  agents Agent[]
+  agentVersions AgentVersion[]
+  agentEvaluations AgentEvaluation[]
+  agentMemory AgentMemoryEntry[]
+  workflows Workflow[]
+  workflowVersions WorkflowVersion[]
+  workflowRuns WorkflowRun[]
+  workflowApprovals WorkflowApproval[]
+  workflowTraces WorkflowTrace[]
+  runtimeDevices RuntimeDevice[]
+  devicePairings DevicePairing[]
+  deviceProjectGrants DeviceProjectGrant[]
+  localRuntimeWorkspaces LocalRuntimeWorkspace[]
+  runtimeJobs RuntimeJob[]
+  runtimeLogs RuntimeLog[]
+
+  @@map("tenants")
+}
+
+model Project {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String   @db.Uuid @map("tenant_id")
+  name      String
+  slug      String
+  status    String   @default("ACTIVE")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  tenant       Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  settings     Setting[]
+  auditLogs    AuditLog[]
+  outboxEvents OutboxEvent[]
+  secrets      Secret[]
+  storedObjects StoredObject[]
+
+  @@unique([tenantId, slug])
+  @@index([tenantId])
+  @@map("projects")
+}
+
+model User {
+  id            String   @id @default(uuid()) @db.Uuid
+  tenantId      String   @db.Uuid @map("tenant_id")
+  email         String?
+  normalizedEmail String? @map("normalized_email")
+  username      String
+  normalizedUsername String @map("normalized_username")
+  passwordHash  String   @map("password_hash")
+  passwordChangeRequired Boolean @default(false) @map("password_change_required")
+  failedLoginAttempts Int @default(0) @map("failed_login_attempts")
+  lockedUntil DateTime? @map("locked_until")
+  status        String   @default("ACTIVE")
+  emailVerifiedAt DateTime? @map("email_verified_at")
+  mfaEnabled    Boolean  @default(false) @map("mfa_enabled")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  sessions  Session[]
+  userRoles UserRole[]
+  ownedProjectWorkspaces ProjectWorkspace[] @relation("ProjectOwner")
+  createdProjectWorkspaces ProjectWorkspace[] @relation("ProjectCreator")
+  projectMemberships ProjectMember[]
+  assignedProjectTasks ProjectTask[]
+  createdAgents Agent[] @relation("AgentCreator")
+  createdAgentVersions AgentVersion[] @relation("AgentVersionCreator")
+  evaluatedAgents AgentEvaluation[] @relation("AgentEvaluator")
+  createdAgentMemory AgentMemoryEntry[] @relation("AgentMemoryCreator")
+  createdWorkflows Workflow[] @relation("WorkflowCreator")
+  createdWorkflowVersions WorkflowVersion[] @relation("WorkflowVersionCreator")
+  requestedWorkflowRuns WorkflowRun[] @relation("WorkflowRunRequester")
+  runtimeDevices RuntimeDevice[] @relation("RuntimeDeviceOwner")
+  devicePairings DevicePairing[] @relation("DevicePairingOwner")
+  requestedRuntimeJobs RuntimeJob[] @relation("RuntimeJobRequester")
+
+  @@unique([tenantId, normalizedEmail])
+  @@unique([tenantId, normalizedUsername])
+  @@unique([tenantId, id])
+  @@index([tenantId, status])
+  @@map("users")
+}
+
+model Session {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @db.Uuid @map("tenant_id")
+  userId      String   @db.Uuid @map("user_id")
+  tokenHash   String   @unique @map("token_hash")
+  expiresAt   DateTime @map("expires_at")
+  revokedAt   DateTime? @map("revoked_at")
+  csrfTokenHash String? @map("csrf_token_hash")
+  ipAddress   String?  @map("ip_address")
+  userAgent   String?  @map("user_agent")
+  createdAt   DateTime @default(now()) @map("created_at")
+  lastUsedAt  DateTime? @map("last_used_at")
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId])
+  @@index([tenantId, userId, revokedAt, expiresAt], map: "sessions_tenant_user_active_idx")
+  @@index([expiresAt])
+  @@map("sessions")
+}
+
+model Role {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @db.Uuid @map("tenant_id")
+  name        String
+  description String?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  tenant      Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  userRoles   UserRole[]
+  permissions RolePermission[]
+
+  @@unique([tenantId, name])
+  @@index([tenantId])
+  @@map("roles")
+}
+
+model Permission {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @db.Uuid @map("tenant_id")
+  key         String
+  description String?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  roles  RolePermission[]
+
+  @@unique([tenantId, key])
+  @@index([tenantId])
+  @@map("permissions")
+}
+
+model UserRole {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String   @db.Uuid @map("tenant_id")
+  userId    String   @db.Uuid @map("user_id")
+  roleId    String   @db.Uuid @map("role_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role   Role   @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, userId, roleId])
+  @@index([tenantId, userId])
+  @@index([tenantId, roleId])
+  @@map("user_roles")
+}
+
+model RolePermission {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @db.Uuid @map("tenant_id")
+  roleId       String   @db.Uuid @map("role_id")
+  permissionId String   @db.Uuid @map("permission_id")
+  effect       String   @default("ALLOW")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, roleId, permissionId])
+  @@index([tenantId, roleId])
+  @@map("role_permissions")
+}
+
+model Setting {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String   @db.Uuid @map("tenant_id")
+  projectId String?  @db.Uuid @map("project_id")
+  key       String
+  value     Json
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  tenant  Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project Project? @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, projectId])
+  @@map("settings")
+}
+
+model AuditLog {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @db.Uuid @map("tenant_id")
+  projectId    String?  @db.Uuid @map("project_id")
+  actorUserId  String?  @map("actor_user_id")
+  action       String
+  resourceType String   @map("resource_type")
+  resourceId   String?  @map("resource_id")
+  correlationId String  @map("correlation_id")
+  metadata     Json?
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  tenant  Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId, createdAt])
+  @@index([tenantId, projectId, createdAt])
+  @@index([correlationId])
+  @@map("audit_logs")
+}
+
+model OutboxEvent {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @db.Uuid @map("tenant_id")
+  projectId   String?  @db.Uuid @map("project_id")
+  eventType   String   @map("event_type")
+  payload     Json
+  status      String   @default("PENDING")
+  attempts    Int      @default(0)
+  availableAt DateTime @default(now()) @map("available_at")
+  lockedAt    DateTime? @map("locked_at")
+  processedAt DateTime? @map("processed_at")
+  lastError   String?  @map("last_error")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  tenant  Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+
+  @@index([status, availableAt])
+  @@index([tenantId, createdAt])
+  @@map("outbox_events")
+}
+
+model Secret {
+  id             String   @id @default(uuid()) @db.Uuid
+  tenantId       String   @db.Uuid @map("tenant_id")
+  projectId      String?  @db.Uuid @map("project_id")
+  scopeKey       String   @default("_") @map("scope_key")
+  name           String
+  ciphertext     String
+  iv             String
+  authTag        String   @map("auth_tag")
+  keyVersion     String   @map("key_version")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  tenant  Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project Project? @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  @@unique([tenantId, scopeKey, name])
+  @@unique([tenantId, scopeKey, id])
+  @@unique([tenantId, id])
+  @@index([tenantId, projectId])
+  @@map("secrets")
+}
+
+model StoredObject {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @db.Uuid @map("tenant_id")
+  projectId    String?  @db.Uuid @map("project_id")
+  storageKey   String   @unique @map("storage_key")
+  originalName String   @map("original_name")
+  mimeType     String   @map("mime_type")
+  sizeBytes    BigInt   @map("size_bytes")
+  checksum     String?
+  status       String   @default("QUARANTINED")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  tenant  Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project Project? @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, projectId])
+  @@map("stored_objects")
+}
+
+// Layer 02 project/task aggregates are currently isolated from Layer 01's
+// UUID based Project model; see the layer specification before merging them.
+enum ProjectStatus {
+  DRAFT
+  ACTIVE
+  ON_HOLD
+  COMPLETED
+  ARCHIVED
+  CANCELLED
+}
+
+enum ProjectRole {
+  OWNER
+  MANAGER
+  MEMBER
+  VIEWER
+}
+enum ProjectTaskStatus {
+  TODO
+  READY
+  IN_PROGRESS
+  BLOCKED
+  IN_REVIEW
+  DONE
+  CANCELLED
+}
+enum ProjectTaskPriority {
+  LOW
+  NORMAL
+  HIGH
+  CRITICAL
+}
+enum ProjectTaskType {
+  TASK
+  BUG
+  FEATURE
+  RESEARCH
+  DOCUMENTATION
+  TEST
+}
+enum ProjectRequirementType {
+  FUNCTIONAL
+  NON_FUNCTIONAL
+  BUSINESS
+}
+enum ProjectRequirementStatus {
+  PROPOSED
+  APPROVED
+  IMPLEMENTED
+  VERIFIED
+  REJECTED
+}
+enum ProjectDependencyType {
+  BLOCKS
+  REQUIRES
+  RELATES_TO
+}
+enum ProjectIntakeStatus {
+  RECEIVED
+  UNDER_REVIEW
+  ACCEPTED
+  REJECTED
+  CONVERTED
+}
+enum ProjectFileClassification {
+  PUBLIC
+  INTERNAL
+  CONFIDENTIAL
+  RESTRICTED
+}
+enum ProjectContextType {
+  NOTE
+  DECISION
+  CONVENTION
+  RISK
+  GLOSSARY
+}
+enum AgentCapability {
+  GENERAL_PLANNING
+  CODE_GENERATION
+  CODE_REVIEW
+  RESEARCH
+  DESIGN
+  DATA_ANALYSIS
+  TOOL_USE
+}
+enum ModelCapability {
+  TEXT_GENERATION
+  REASONING
+  CODE_GENERATION
+  EMBEDDINGS
+  VISION
+  IMAGE_GENERATION
+  AUDIO
+  AUDIO_INPUT
+  AUDIO_OUTPUT
+  VIDEO_INPUT
+  LONG_CONTEXT
+  SPEECH_TO_TEXT
+  TEXT_TO_SPEECH
+  TOOL_CALLING
+  STRUCTURED_OUTPUT
+}
+
+enum RuntimeDeviceStatus {
+  PAIRED
+  REVOKED
+}
+
+enum RuntimeJobStatus {
+  QUEUED
+  RUNNING
+  CANCEL_REQUESTED
+  SUCCEEDED
+  FAILED
+  CANCELLED
+}
+
+model ProjectWorkspace {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  name String
+  key String
+  description String? @db.Text
+  domain String?
+  category String?
+  status ProjectStatus @default(DRAFT)
+  ownerId String @db.Uuid
+  createdById String @db.Uuid
+  startDate DateTime?
+  targetDate DateTime?
+  settings Json @default("{}")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  members ProjectMember[]
+  intakes ProjectIntake[]
+  requirements ProjectRequirement[]
+  tasks ProjectTask[]
+  specialist ProjectSpecialistProfile[]
+  context ProjectContextEntry[]
+  files ProjectFile[]
+  comments ProjectComment[]
+  workflows Workflow[]
+  workflowRuns WorkflowRun[]
+  agentMemory AgentMemoryEntry[]
+  dependencies ProjectTaskDependency[]
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  owner User @relation("ProjectOwner", fields: [tenantId, ownerId], references: [tenantId, id], onDelete: Restrict)
+  createdBy User @relation("ProjectCreator", fields: [tenantId, createdById], references: [tenantId, id], onDelete: Restrict)
+  providerConnections ProviderConnection[]
+  providerCredentials ProviderCredential[]
+  providerUsage ProviderUsage[]
+  deviceProjectGrants DeviceProjectGrant[]
+  localRuntimeWorkspaces LocalRuntimeWorkspace[]
+  runtimeJobs RuntimeJob[]
+  @@unique([tenantId, key])
+  @@unique([tenantId, id])
+  @@index([tenantId, status])
+  @@index([tenantId, ownerId])
+  @@map("project_workspaces")
+}
+
+model ProjectMember {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String
+  userId String @db.Uuid
+  role ProjectRole @default(VIEWER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  user User @relation(fields: [tenantId, userId], references: [tenantId, id], onDelete: Cascade)
+  @@unique([projectId, userId])
+  @@index([tenantId, userId])
+  @@index([tenantId, projectId, role])
+  @@map("project_members")
+}
+
+model ProjectIntake {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String
+  title String
+  description String @db.Text
+  source String
+  priority ProjectTaskPriority @default(NORMAL)
+  requestedBy String
+  context Json @default("{}")
+  attachmentIds String[] @default([])
+  status ProjectIntakeStatus @default(RECEIVED)
+  reviewNotes String? @db.Text
+  createdById String
+  reviewedById String?
+  reviewedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  @@index([tenantId, projectId, status])
+  @@index([tenantId, createdAt])
+  @@map("project_intakes")
+}
+
+model ProjectRequirement {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String
+  code String
+  title String
+  description String @db.Text
+  type ProjectRequirementType
+  priority ProjectTaskPriority @default(NORMAL)
+  status ProjectRequirementStatus @default(PROPOSED)
+  acceptanceCriteria String[]
+  version Int @default(1)
+  createdById String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  tasks ProjectTask[]
+  @@unique([tenantId, projectId, id])
+  @@unique([projectId, code])
+  @@index([tenantId, projectId, status])
+  @@map("project_requirements")
+}
+
+model ProjectTask {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String
+  title String
+  description String? @db.Text
+  type ProjectTaskType @default(TASK)
+  priority ProjectTaskPriority @default(NORMAL)
+  status ProjectTaskStatus @default(TODO)
+  assigneeId String? @db.Uuid
+  parentTaskId String?
+  requirementId String?
+  estimateMinutes Int?
+  dueDate DateTime?
+  completedAt DateTime?
+  position Int @default(0)
+  createdById String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  requirement ProjectRequirement? @relation(fields: [tenantId, projectId, requirementId], references: [tenantId, projectId, id], onDelete: Restrict)
+  assignee User? @relation(fields: [tenantId, assigneeId], references: [tenantId, id], onDelete: Restrict)
+  parent ProjectTask? @relation("ProjectTaskHierarchy", fields: [tenantId, projectId, parentTaskId], references: [tenantId, projectId, id], onDelete: Restrict)
+  children ProjectTask[] @relation("ProjectTaskHierarchy")
+  dependenciesFrom ProjectTaskDependency[] @relation("ProjectTaskPredecessor")
+  dependenciesTo ProjectTaskDependency[] @relation("ProjectTaskSuccessor")
+  comments ProjectComment[]
+  @@unique([tenantId, projectId, id])
+  @@index([tenantId, projectId, status])
+  @@index([tenantId, projectId, assigneeId])
+  @@index([tenantId, projectId, dueDate])
+  @@index([projectId, parentTaskId])
+  @@map("project_tasks")
+}
+
+model ProjectTaskDependency {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String
+  predecessorId String
+  successorId String
+  type ProjectDependencyType
+  createdById String
+  createdAt DateTime @default(now())
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  predecessor ProjectTask @relation("ProjectTaskPredecessor", fields: [tenantId, projectId, predecessorId], references: [tenantId, projectId, id], onDelete: Cascade)
+  successor ProjectTask @relation("ProjectTaskSuccessor", fields: [tenantId, projectId, successorId], references: [tenantId, projectId, id], onDelete: Cascade)
+  @@unique([projectId, predecessorId, successorId, type])
+  @@index([tenantId, projectId, predecessorId])
+  @@index([tenantId, projectId, successorId])
+  @@map("project_task_dependencies")
+}
+
+model ProjectSpecialistProfile {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String
+  version Int
+  profile Json
+  createdById String
+  createdAt DateTime @default(now())
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  @@unique([projectId, version])
+  @@index([tenantId, projectId, createdAt])
+  @@map("project_specialist_profiles")
+}
+
+model Agent {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  key String
+  name String
+  description String @db.Text
+  status String @default("DRAFT")
+  currentVersion String @default("1.0.0")
+  createdById String @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdBy User @relation("AgentCreator", fields: [tenantId, createdById], references: [tenantId, id], onDelete: Restrict)
+  versions AgentVersion[]
+  evaluations AgentEvaluation[]
+  memory AgentMemoryEntry[]
+  @@unique([tenantId, id])
+  @@unique([tenantId, key])
+  @@index([tenantId, status])
+  @@map("agents")
+}
+
+model AgentVersion {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  agentId String
+  version String
+  definition Json
+  changelog String @default("") @db.Text
+  createdById String @db.Uuid
+  createdAt DateTime @default(now())
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  agent Agent @relation(fields: [tenantId, agentId], references: [tenantId, id], onDelete: Restrict)
+  createdBy User @relation("AgentVersionCreator", fields: [tenantId, createdById], references: [tenantId, id], onDelete: Restrict)
+  @@unique([tenantId, agentId, version])
+  @@unique([tenantId, id])
+  @@index([tenantId, agentId, createdAt])
+  @@map("agent_versions")
+}
+
+model AgentEvaluation {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  agentId String
+  version String
+  testCaseId String
+  score Float
+  passed Boolean
+  durationMs Int
+  metrics Json @default("{}")
+  notes String? @db.Text
+  evaluatedById String? @db.Uuid
+  createdAt DateTime @default(now())
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  agent Agent @relation(fields: [tenantId, agentId], references: [tenantId, id], onDelete: Restrict)
+  evaluatedBy User? @relation("AgentEvaluator", fields: [tenantId, evaluatedById], references: [tenantId, id], onDelete: Restrict)
+  @@index([tenantId, agentId, version, createdAt])
+  @@map("agent_evaluations")
+}
+
+model AgentMemoryEntry {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String
+  agentId String?
+  key String
+  value Json
+  createdById String @db.Uuid
+  version Int @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  agent Agent? @relation(fields: [tenantId, agentId], references: [tenantId, id], onDelete: Restrict)
+  createdBy User @relation("AgentMemoryCreator", fields: [tenantId, createdById], references: [tenantId, id], onDelete: Restrict)
+  @@unique([tenantId, projectId, agentId, key])
+  @@index([tenantId, projectId, agentId, updatedAt])
+  @@map("agent_memory_entries")
+}
+
+model Workflow {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String?
+  scopeKey String @default("_")
+  key String
+  name String
+  status String @default("DRAFT")
+  currentVersion String
+  createdById String @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project ProjectWorkspace? @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  createdBy User @relation("WorkflowCreator", fields: [tenantId, createdById], references: [tenantId, id], onDelete: Restrict)
+  versions WorkflowVersion[]
+  runs WorkflowRun[]
+  @@unique([tenantId, id])
+  @@unique([tenantId, scopeKey, key])
+  @@index([tenantId, projectId, status])
+  @@map("workflows")
+}
+
+model WorkflowVersion {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  workflowId String
+  version String
+  definition Json
+  createdById String @db.Uuid
+  createdAt DateTime @default(now())
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  workflow Workflow @relation(fields: [tenantId, workflowId], references: [tenantId, id], onDelete: Restrict)
+  createdBy User @relation("WorkflowVersionCreator", fields: [tenantId, createdById], references: [tenantId, id], onDelete: Restrict)
+  @@unique([tenantId, workflowId, version])
+  @@index([tenantId, workflowId, createdAt])
+  @@map("workflow_versions")
+}
+
+model WorkflowRun {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  workflowId String
+  workflowVersion String
+  projectId String
+  requestedById String @db.Uuid
+  idempotencyKey String
+  status String @default("PENDING")
+  currentStepId String?
+  state Json @default("{}")
+  startedAt DateTime?
+  completedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  workflow Workflow @relation(fields: [tenantId, workflowId], references: [tenantId, id], onDelete: Restrict)
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  requestedBy User @relation("WorkflowRunRequester", fields: [tenantId, requestedById], references: [tenantId, id], onDelete: Restrict)
+  approvals WorkflowApproval[]
+  traces WorkflowTrace[]
+  @@unique([tenantId, id])
+  @@unique([tenantId, idempotencyKey])
+  @@index([tenantId, projectId, status, createdAt])
+  @@map("workflow_runs")
+}
+
+model WorkflowApproval {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  runId String
+  stepId String
+  status String @default("PENDING")
+  requestedById String @db.Uuid
+  decidedById String? @db.Uuid
+  decision String?
+  comment String? @db.Text
+  requestedAt DateTime @default(now())
+  decidedAt DateTime?
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  run WorkflowRun @relation(fields: [tenantId, runId], references: [tenantId, id], onDelete: Cascade)
+  @@unique([tenantId, runId, stepId])
+  @@index([tenantId, runId, status])
+  @@map("workflow_approvals")
+}
+
+model WorkflowTrace {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  runId String
+  stepId String?
+  event String
+  metadata Json @default("{}")
+  createdAt DateTime @default(now())
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  run WorkflowRun @relation(fields: [tenantId, runId], references: [tenantId, id], onDelete: Cascade)
+  @@index([tenantId, runId, createdAt])
+  @@map("workflow_traces")
+}
+
+model ProjectContextEntry {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String
+  type ProjectContextType
+  title String
+  content String @db.Text
+  tags String[] @default([])
+  version Int @default(1)
+  createdById String
+  createdAt DateTime @default(now())
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  @@index([tenantId, projectId, type])
+  @@index([projectId, title, version])
+  @@map("project_context_entries")
+}
+
+model ProjectFile {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String
+  storageKey String
+  fileName String
+  mimeType String
+  sizeBytes BigInt
+  checksum String
+  classification ProjectFileClassification @default(INTERNAL)
+  uploadedById String
+  createdAt DateTime @default(now())
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  @@unique([tenantId, storageKey])
+  @@index([tenantId, projectId, classification])
+  @@map("project_files")
+}
+
+model ProjectComment {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String
+  taskId String?
+  body String @db.Text
+  authorId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  task ProjectTask? @relation(fields: [tenantId, projectId, taskId], references: [tenantId, projectId, id], onDelete: Cascade)
+  @@index([tenantId, projectId, createdAt])
+  @@index([tenantId, taskId, createdAt])
+  @@map("project_comments")
+}
+
+model ProviderCredential {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String?
+  scopeKey String @default("_")
+  name String
+  ciphertext String
+  iv String
+  authTag String
+  keyVersion String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project ProjectWorkspace? @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  providers ProviderConnection[]
+  @@unique([tenantId, scopeKey, id])
+  @@unique([tenantId, scopeKey, name])
+  @@index([tenantId, projectId])
+  @@map("provider_credentials")
+}
+
+model ProviderConnection {
+  id String @id @default(cuid())
+  key String
+  displayName String
+  providerType String
+  tenantId String @db.Uuid
+  projectId String?
+  scopeKey String @default("_")
+  baseUrl String
+  authenticationType String @default("BEARER")
+  credentialId String?
+  apiVersion String?
+  customHeaders Json @default("{}")
+  timeoutMs Int @default(60000)
+  maxRetries Int @default(0)
+  enabled Boolean @default(false)
+  status String @default("DISABLED")
+  billingMode String @default("UNKNOWN")
+  freeTierStatus String @default("UNKNOWN")
+  pricingMetadata Json @default("{}")
+  privacyMetadata Json @default("{}")
+  metadata Json @default("{}")
+  lastSuccessfulTest DateTime?
+  lastErrorCode String?
+  lastModelSync DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project ProjectWorkspace? @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  credential ProviderCredential? @relation(fields: [tenantId, scopeKey, credentialId], references: [tenantId, scopeKey, id], onDelete: Restrict)
+  models ProviderModel[]
+  healthChecks ProviderHealth[]
+  usage ProviderUsage[]
+  @@unique([tenantId, scopeKey, key])
+  @@unique([tenantId, id])
+  @@index([tenantId, projectId, enabled])
+  @@index([status, enabled])
+  @@map("provider_connections")
+}
+
+model ProviderModel {
+  id String @id @default(cuid())
+  providerId String
+  modelId String
+  displayName String
+  family String?
+  version String?
+  contextWindow Int?
+  maxOutputTokens Int?
+  inputModalities String[] @default([])
+  outputModalities String[] @default([])
+  capabilities Json @default("[]")
+  features Json @default("{}")
+  billingMode String @default("UNKNOWN")
+  freeTierStatus String @default("UNKNOWN")
+  inputPricePerMillion Decimal? @db.Decimal(14, 6)
+  outputPricePerMillion Decimal? @db.Decimal(14, 6)
+  rateLimits Json @default("{}")
+  lifecycle String @default("UNKNOWN")
+  availability String @default("UNKNOWN")
+  privacyApproved Boolean @default(false)
+  officialDocumentationUrl String?
+  lastVerifiedAt DateTime?
+  metadata Json @default("{}")
+  enabled Boolean @default(false)
+  visible Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  provider ProviderConnection @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  usage ProviderUsage[]
+  evaluations ModelEvaluation[]
+  @@unique([providerId, modelId])
+  @@unique([providerId, id])
+  @@index([enabled, availability, freeTierStatus])
+  @@map("provider_models")
+}
+
+model ModelEvaluation {
+  id String @id @default(cuid())
+  providerModelId String
+  testVersion String
+  conditions Json @default("{}")
+  metrics Json
+  createdAt DateTime @default(now())
+  model ProviderModel @relation(fields: [providerModelId], references: [id], onDelete: Cascade)
+  @@index([providerModelId, createdAt])
+  @@map("model_evaluations")
+}
+
+model ProviderHealth {
+  id String @id @default(cuid())
+  providerId String
+  checkedAt DateTime @default(now())
+  available Boolean
+  latencyMs Int?
+  errorCode String?
+  provider ProviderConnection @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  @@index([providerId, checkedAt])
+  @@map("provider_health_checks")
+}
+
+model ProviderUsage {
+  id String @id @default(cuid())
+  tenantId String @db.Uuid
+  projectId String
+  providerId String
+  providerModelId String?
+  requestId String
+  taskId String?
+  operation String
+  status String
+  inputTokens Int?
+  outputTokens Int?
+  cost Decimal? @db.Decimal(14, 8)
+  durationMs Int
+  errorCode String?
+  createdAt DateTime @default(now())
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  provider ProviderConnection @relation(fields: [tenantId, providerId], references: [tenantId, id], onDelete: Restrict)
+  model ProviderModel? @relation(fields: [providerId, providerModelId], references: [providerId, id], onDelete: Restrict)
+  @@index([tenantId, requestId])
+  @@index([tenantId, projectId, createdAt])
+  @@index([providerId, createdAt])
+  @@map("provider_usage")
+}
+
+model DevicePairing {
+  id         String   @id @default(uuid()) @db.Uuid
+  tenantId   String   @db.Uuid @map("tenant_id")
+  ownerId    String   @db.Uuid @map("owner_id")
+  codeHash   String   @unique @map("code_hash")
+  expiresAt  DateTime @map("expires_at")
+  consumedAt DateTime? @map("consumed_at")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  owner  User   @relation("DevicePairingOwner", fields: [tenantId, ownerId], references: [tenantId, id], onDelete: Cascade)
+
+  @@index([tenantId, ownerId, expiresAt])
+  @@map("device_pairings")
+}
+
+model RuntimeDevice {
+  id              String              @id @default(uuid()) @db.Uuid
+  tenantId        String              @db.Uuid @map("tenant_id")
+  ownerId         String              @db.Uuid @map("owner_id")
+  name            String
+  operatingSystem String              @map("operating_system")
+  architecture    String
+  runtimeVersion  String              @map("runtime_version")
+  status          RuntimeDeviceStatus @default(PAIRED)
+  tokenHash       String              @unique @map("token_hash")
+  tokenExpiresAt  DateTime            @map("token_expires_at")
+  lastHeartbeatAt DateTime?           @map("last_heartbeat_at")
+  revokedAt       DateTime?           @map("revoked_at")
+  createdAt       DateTime            @default(now()) @map("created_at")
+  updatedAt       DateTime            @updatedAt @map("updated_at")
+
+  tenant     Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  owner      User                    @relation("RuntimeDeviceOwner", fields: [tenantId, ownerId], references: [tenantId, id], onDelete: Cascade)
+  workspaces LocalRuntimeWorkspace[]
+  projects   DeviceProjectGrant[]
+  jobs       RuntimeJob[]
+  logs       RuntimeLog[]
+
+  @@unique([tenantId, id])
+  @@index([tenantId, ownerId, status])
+  @@index([status, lastHeartbeatAt])
+  @@map("runtime_devices")
+}
+
+model DeviceProjectGrant {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String   @db.Uuid @map("tenant_id")
+  deviceId  String   @db.Uuid @map("device_id")
+  projectId String   @map("project_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  tenant  Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  device  RuntimeDevice    @relation(fields: [tenantId, deviceId], references: [tenantId, id], onDelete: Cascade)
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+
+  @@unique([deviceId, projectId])
+  @@index([tenantId, projectId])
+  @@map("device_project_grants")
+}
+
+model LocalRuntimeWorkspace {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @db.Uuid @map("tenant_id")
+  deviceId     String   @db.Uuid @map("device_id")
+  projectId    String   @map("project_id")
+  name         String
+  rootAlias    String   @map("root_alias")
+  workspaceKey String   @map("workspace_key")
+  canRead      Boolean  @default(true) @map("can_read")
+  canWrite     Boolean  @default(false) @map("can_write")
+  canDelete    Boolean  @default(false) @map("can_delete")
+  canExecute   Boolean  @default(false) @map("can_execute")
+  status       String   @default("ACTIVE")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  tenant  Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  device  RuntimeDevice    @relation(fields: [tenantId, deviceId], references: [tenantId, id], onDelete: Cascade)
+  project ProjectWorkspace @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  jobs    RuntimeJob[]
+
+  @@unique([tenantId, deviceId, workspaceKey])
+  @@unique([tenantId, id])
+  @@index([tenantId, projectId, status])
+  @@map("local_runtime_workspaces")
+}
+
+model RuntimeJob {
+  id             String           @id @default(uuid()) @db.Uuid
+  tenantId       String           @db.Uuid @map("tenant_id")
+  deviceId       String           @db.Uuid @map("device_id")
+  projectId      String           @map("project_id")
+  workspaceId    String           @db.Uuid @map("workspace_id")
+  requestedById  String           @db.Uuid @map("requested_by_id")
+  kind           String
+  payload        Json
+  result         Json?
+  errorCode      String?          @map("error_code")
+  status         RuntimeJobStatus @default(QUEUED)
+  idempotencyKey String?          @map("idempotency_key")
+  createdAt      DateTime         @default(now()) @map("created_at")
+  updatedAt      DateTime         @updatedAt @map("updated_at")
+  startedAt      DateTime?        @map("started_at")
+  finishedAt     DateTime?        @map("finished_at")
+
+  tenant    Tenant                @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  device    RuntimeDevice         @relation(fields: [tenantId, deviceId], references: [tenantId, id], onDelete: Cascade)
+  project   ProjectWorkspace      @relation(fields: [tenantId, projectId], references: [tenantId, id], onDelete: Cascade)
+  workspace LocalRuntimeWorkspace @relation(fields: [tenantId, workspaceId], references: [tenantId, id], onDelete: Cascade)
+  requester User                  @relation("RuntimeJobRequester", fields: [tenantId, requestedById], references: [tenantId, id], onDelete: Restrict)
+
+  @@unique([tenantId, id])
+  @@unique([tenantId, idempotencyKey])
+  @@index([deviceId, status, createdAt])
+  @@index([tenantId, projectId, createdAt])
+  @@map("runtime_jobs")
+}
+
+model RuntimeLog {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String   @db.Uuid @map("tenant_id")
+  deviceId  String   @db.Uuid @map("device_id")
+  event     String
+  detail    String?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  tenant Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  device RuntimeDevice @relation(fields: [tenantId, deviceId], references: [tenantId, id], onDelete: Cascade)
+
+  @@index([tenantId, deviceId, createdAt])
+  @@map("runtime_logs")
+}

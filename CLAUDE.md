@@ -1,8 +1,8 @@
-# Free AI Engineering Instructions
+# Free AI Platform Engineering Instructions
 
 ## Project Identity
 
-Free AI is a general-purpose AI platform.
+Free AI Platform is a general-purpose AI platform.
 It is not tied to one programming language, project, industry,
 database, model provider, or execution environment.
 
@@ -53,3 +53,10 @@ database, model provider, or execution environment.
 
 A task is not complete merely because code was written.
 It is complete only after its acceptance criteria pass.
+
+## Engineering Standards
+Follow `docs/16-standards/engineering-standards.md`,
+`docs/17-architecture/architecture-overview.md`,
+and the relevant data, contract, security, and module specifications.
+Proposed ADRs are not approved technology decisions.
+Do not download models, activate providers, or start services without explicit approval.

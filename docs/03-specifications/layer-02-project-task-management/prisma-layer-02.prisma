@@ -1,0 +1,318 @@
+// Layer 02 schema additions.
+// These models are intentionally isolated from Layer 01 model names.
+// tenantId is stored on every aggregate and child record.
+// Add these enums and models to apps/api/prisma/schema.prisma.
+// Do not replace the existing schema.
+
+enum ProjectStatus {
+  DRAFT
+  ACTIVE
+  ON_HOLD
+  COMPLETED
+  ARCHIVED
+  CANCELLED
+}
+
+enum ProjectRole {
+  OWNER
+  MANAGER
+  MEMBER
+  VIEWER
+}
+
+enum ProjectTaskStatus {
+  TODO
+  READY
+  IN_PROGRESS
+  BLOCKED
+  IN_REVIEW
+  DONE
+  CANCELLED
+}
+
+enum ProjectTaskPriority {
+  LOW
+  NORMAL
+  HIGH
+  CRITICAL
+}
+
+enum ProjectTaskType {
+  TASK
+  BUG
+  FEATURE
+  RESEARCH
+  DOCUMENTATION
+  TEST
+}
+
+enum ProjectRequirementType {
+  FUNCTIONAL
+  NON_FUNCTIONAL
+  BUSINESS
+}
+
+enum ProjectRequirementStatus {
+  PROPOSED
+  APPROVED
+  IMPLEMENTED
+  VERIFIED
+  REJECTED
+}
+
+enum ProjectDependencyType {
+  BLOCKS
+  REQUIRES
+  RELATES_TO
+}
+
+enum ProjectIntakeStatus {
+  RECEIVED
+  UNDER_REVIEW
+  ACCEPTED
+  REJECTED
+  CONVERTED
+}
+
+enum ProjectFileClassification {
+  PUBLIC
+  INTERNAL
+  CONFIDENTIAL
+  RESTRICTED
+}
+
+enum ProjectContextType {
+  NOTE
+  DECISION
+  CONVENTION
+  RISK
+  GLOSSARY
+}
+
+model ProjectWorkspace {
+  id          String        @id @default(cuid())
+  tenantId    String
+  name        String
+  key         String
+  description String?       @db.Text
+  domain      String?
+  category    String?
+  status      ProjectStatus @default(DRAFT)
+  ownerId     String
+  createdById String
+  startDate   DateTime?
+  targetDate  DateTime?
+  settings    Json           @default("{}")
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  members       ProjectMember[]
+  intakes       ProjectIntake[]
+  requirements ProjectRequirement[]
+  tasks         ProjectTask[]
+  specialist    ProjectSpecialistProfile[]
+  context       ProjectContextEntry[]
+  files         ProjectFile[]
+  comments      ProjectComment[]
+  dependencies  ProjectTaskDependency[]
+
+  @@unique([tenantId, key])
+  @@index([tenantId, status])
+  @@index([tenantId, ownerId])
+  @@map("project_workspaces")
+}
+
+model ProjectMember {
+  id        String      @id @default(cuid())
+  tenantId  String
+  projectId String
+  userId    String
+  role      ProjectRole @default(VIEWER)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  project ProjectWorkspace @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, userId])
+  @@index([tenantId, userId])
+  @@index([tenantId, projectId, role])
+  @@map("project_members")
+}
+
+model ProjectIntake {
+  id            String             @id @default(cuid())
+  tenantId      String
+  projectId     String
+  title         String
+  description   String             @db.Text
+  source        String
+  priority      ProjectTaskPriority @default(NORMAL)
+  requestedBy   String
+  context       Json                @default("{}")
+  attachmentIds String[]            @default([])
+  status        ProjectIntakeStatus @default(RECEIVED)
+  reviewNotes   String?             @db.Text
+  createdById   String
+  reviewedById  String?
+  reviewedAt    DateTime?
+  createdAt     DateTime             @default(now())
+  updatedAt     DateTime             @updatedAt
+
+  project ProjectWorkspace @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, projectId, status])
+  @@index([tenantId, createdAt])
+  @@map("project_intakes")
+}
+
+model ProjectRequirement {
+  id                 String                   @id @default(cuid())
+  tenantId           String
+  projectId          String
+  code               String
+  title              String
+  description        String                   @db.Text
+  type               ProjectRequirementType
+  priority           ProjectTaskPriority      @default(NORMAL)
+  status             ProjectRequirementStatus @default(PROPOSED)
+  acceptanceCriteria String[]
+  version            Int                      @default(1)
+  createdById        String
+  createdAt          DateTime                 @default(now())
+  updatedAt          DateTime                 @updatedAt
+
+  project ProjectWorkspace @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  tasks   ProjectTask[]
+
+  @@unique([projectId, code])
+  @@index([tenantId, projectId, status])
+  @@map("project_requirements")
+}
+
+model ProjectTask {
+  id              String            @id @default(cuid())
+  tenantId        String
+  projectId       String
+  title           String
+  description     String?           @db.Text
+  type            ProjectTaskType   @default(TASK)
+  priority        ProjectTaskPriority @default(NORMAL)
+  status          ProjectTaskStatus @default(TODO)
+  assigneeId      String?
+  parentTaskId    String?
+  requirementId   String?
+  estimateMinutes Int?
+  dueDate         DateTime?
+  completedAt     DateTime?
+  position        Int               @default(0)
+  createdById     String
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  project ProjectWorkspace @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  requirement ProjectRequirement? @relation(fields: [requirementId], references: [id], onDelete: SetNull)
+  parent ProjectTask? @relation("ProjectTaskHierarchy", fields: [parentTaskId], references: [id], onDelete: SetNull)
+  children ProjectTask[] @relation("ProjectTaskHierarchy")
+  dependenciesFrom ProjectTaskDependency[] @relation("ProjectTaskPredecessor")
+  dependenciesTo ProjectTaskDependency[] @relation("ProjectTaskSuccessor")
+  comments ProjectComment[]
+
+  @@index([tenantId, projectId, status])
+  @@index([tenantId, projectId, assigneeId])
+  @@index([tenantId, projectId, dueDate])
+  @@index([projectId, parentTaskId])
+  @@map("project_tasks")
+}
+
+model ProjectTaskDependency {
+  id            String                 @id @default(cuid())
+  tenantId      String
+  projectId     String
+  predecessorId String
+  successorId   String
+  type          ProjectDependencyType
+  createdById   String
+  createdAt     DateTime               @default(now())
+
+  project ProjectWorkspace @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  predecessor ProjectTask @relation("ProjectTaskPredecessor", fields: [predecessorId], references: [id], onDelete: Cascade)
+  successor ProjectTask @relation("ProjectTaskSuccessor", fields: [successorId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, predecessorId, successorId, type])
+  @@index([tenantId, projectId, predecessorId])
+  @@index([tenantId, projectId, successorId])
+  @@map("project_task_dependencies")
+}
+
+model ProjectSpecialistProfile {
+  id          String   @id @default(cuid())
+  tenantId    String
+  projectId   String
+  version     Int
+  profile     Json
+  createdById String
+  createdAt   DateTime @default(now())
+
+  project ProjectWorkspace @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, version])
+  @@index([tenantId, projectId, createdAt])
+  @@map("project_specialist_profiles")
+}
+
+model ProjectContextEntry {
+  id          String            @id @default(cuid())
+  tenantId    String
+  projectId   String
+  type        ProjectContextType
+  title       String
+  content     String            @db.Text
+  tags        String[]          @default([])
+  version     Int               @default(1)
+  createdById String
+  createdAt   DateTime          @default(now())
+
+  project ProjectWorkspace @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, projectId, type])
+  @@index([projectId, title, version])
+  @@map("project_context_entries")
+}
+
+model ProjectFile {
+  id               String                   @id @default(cuid())
+  tenantId         String
+  projectId        String
+  storageKey       String
+  fileName         String
+  mimeType         String
+  sizeBytes        BigInt
+  checksum         String
+  classification   ProjectFileClassification @default(INTERNAL)
+  uploadedById     String
+  createdAt        DateTime                 @default(now())
+
+  project ProjectWorkspace @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, storageKey])
+  @@index([tenantId, projectId, classification])
+  @@map("project_files")
+}
+
+model ProjectComment {
+  id        String   @id @default(cuid())
+  tenantId  String
+  projectId String
+  taskId    String?
+  body      String   @db.Text
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  project ProjectWorkspace @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  task ProjectTask? @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, projectId, createdAt])
+  @@index([tenantId, taskId, createdAt])
+  @@map("project_comments")
+}

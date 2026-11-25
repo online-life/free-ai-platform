@@ -1,0 +1,16 @@
+export const ProjectEvents = {
+  CREATED: "project.created",
+  UPDATED: "project.updated",
+  STATUS_CHANGED: "project.status_changed",
+  MEMBER_ADDED: "project.member_added",
+  MEMBER_REMOVED: "project.member_removed",
+  INTAKE_RECEIVED: "project.intake.received",
+  INTAKE_ACCEPTED: "project.intake.accepted",
+  REQUIREMENT_CREATED: "project.requirement.created",
+  TASK_CREATED: "project.task.created",
+  TASK_UPDATED: "project.task.updated",
+  TASK_DEPENDENCY_CREATED: "project.task.dependency.created",
+  CONTEXT_UPDATED: "project.context.updated",
+  FILE_REGISTERED: "project.file.registered",
+  COMMENT_CREATED: "project.comment.created",
+} as const;

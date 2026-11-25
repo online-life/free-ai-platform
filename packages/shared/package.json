@@ -1,0 +1,18 @@
+{
+  "name": "@free-ai/shared",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "require": "./dist/index.js", "default": "./dist/index.js" }
+  },
+  "scripts": {
+    "build": "tsc --module commonjs --moduleResolution node --rootDir src --outDir dist --target ES2022 --declaration --esModuleInterop --strict --skipLibCheck src/index.ts"
+  },
+  "dependencies": {
+    "@free-ai/contracts": "workspace:*"
+  }
+}

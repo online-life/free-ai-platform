@@ -1,0 +1,16 @@
+{
+  "name": "@free-ai/web",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "build": "node build.mjs",
+    "typecheck": "node --check src/main.js && node --check server.mjs && node --check build.mjs"
+  },
+  "dependencies": {
+    "@free-ai/contracts": "workspace:*",
+    "@free-ai/shared": "workspace:*"
+  }
+}

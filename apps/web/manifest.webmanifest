@@ -1,0 +1,12 @@
+{
+  "name": "Free AI Platform",
+  "short_name": "Free AI Platform",
+  "description": "A secure workspace for AI projects, models, agents, and workflows.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#10141d",
+  "theme_color": "#10141d",
+  "icons": [
+    { "src": "/assets/free-ai-platform-app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

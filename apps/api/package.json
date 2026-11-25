@@ -1,0 +1,16 @@
+{
+  "name": "@free-ai/api",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "main": "dist/apps/api/src/main.js",
+  "types": "dist/apps/api/src/main.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json --noEmit false",
+    "start": "node dist/apps/api/src/main.js"
+  },
+  "dependencies": {
+    "@free-ai/contracts": "workspace:*",
+    "@free-ai/shared": "workspace:*"
+  }
+}

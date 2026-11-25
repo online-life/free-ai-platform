@@ -1,0 +1,43 @@
+{
+  "name": "free-ai-platform",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p apps/api/tsconfig.json",
+    "web:dev": "pnpm --filter @free-ai/web dev",
+    "web:build": "pnpm --filter @free-ai/web build",
+    "web:typecheck": "pnpm --filter @free-ai/web typecheck",
+    "api:build": "pnpm --filter @free-ai/shared build && pnpm --filter @free-ai/api build",
+    "api:start": "pnpm --filter @free-ai/api start",
+    "test": "vitest run && node --test tests/security/layer-01/*.test.mjs tests/unit/layer-01/*.test.mjs tests/web/server-startup.test.mjs && node scripts/run-e2e.mjs",
+    "test:layer-01": "vitest run tests/layer-01",
+    "test:watch": "vitest tests/layer-01",
+    "prisma:validate": "prisma validate --schema apps/api/prisma/schema.prisma",
+    "prisma:generate": "prisma generate --schema apps/api/prisma/schema.prisma",
+    "prisma:migrate:deploy": "prisma migrate deploy --schema apps/api/prisma/schema.prisma",
+    "test:e2e": "pnpm api:build && node scripts/run-e2e.mjs",
+    "test:e2e:auth": "pnpm api:build && node --test tests/e2e/auth-session-flow.test.cjs",
+    "check:layer-01": "pnpm prisma:validate && pnpm typecheck && pnpm test:layer-01"
+  },
+  "pnpm": {
+    "overrides": {
+      "@prisma/config>deepmerge-ts": "8.0.2",
+      "@prisma/config>effect": "3.22.1"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "prisma": "6.19.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@prisma/client": "6.19.3",
+    "zod": "4.6.7"
+  }
+}

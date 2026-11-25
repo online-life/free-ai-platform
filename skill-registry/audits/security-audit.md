@@ -1,0 +1,4894 @@
+# Free AI - Skill Security Audit
+
+Generated: 2026-11-23T00:07:33.323031+00:00
+
+**Mode:** Static analysis only. No skill scripts were executed.
+
+**Skills scanned:** 79
+
+## Summary
+
+- high_review_required: 6
+- manual_review_required: 63
+- no_static_indicators_found: 10
+
+## Skill Findings
+
+### academy-guide
+- Result: `manual_review_required`
+- Files: 2
+- Indicators: 13
+- External hosts: academy.claude.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — SKILL.md:30
+- `network_access` — SKILL.md:40
+- `network_access` — SKILL.md:41
+- `network_access` — SKILL.md:42
+- `network_access` — SKILL.md:43
+- `network_access` — SKILL.md:44
+- `network_access` — SKILL.md:90
+- `network_access` — SKILL.md:101
+- `network_access` — SKILL.md:115
+- `network_access` — SKILL.md:124
+- `network_access` — SKILL.md:145
+
+### algorithmic-art
+- Result: `manual_review_required`
+- Files: 4
+- Indicators: 8
+- External hosts: cdnjs.cloudflare.com, fonts.googleapis.com, fonts.gstatic.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — SKILL.md:280
+- `shell_execution` — templates/generator_template.js:133
+- `network_access` — templates/viewer.html:23
+- `network_access` — templates/viewer.html:24
+- `network_access` — templates/viewer.html:25
+- `network_access` — templates/viewer.html:26
+
+### brand-guidelines
+- Result: `manual_review_required`
+- Files: 2
+- Indicators: 2
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+
+### canvas-design
+- Result: `manual_review_required`
+- Files: 83
+- Indicators: 50
+- External hosts: github.com, openfontlicense.org, www.apache.org, www.github.com
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — canvas-fonts/WorkSans-OFL.txt:1
+- `network_access` — canvas-fonts/WorkSans-OFL.txt:5
+- `network_access` — canvas-fonts/Boldonse-OFL.txt:1
+- `network_access` — canvas-fonts/Boldonse-OFL.txt:5
+- `network_access` — canvas-fonts/EricaOne-OFL.txt:6
+- `network_access` — canvas-fonts/PoiretOne-OFL.txt:5
+- `network_access` — canvas-fonts/GeistMono-OFL.txt:1
+- `network_access` — canvas-fonts/GeistMono-OFL.txt:5
+- `network_access` — canvas-fonts/LibreBaskerville-OFL.txt:1
+- `network_access` — canvas-fonts/LibreBaskerville-OFL.txt:5
+- `network_access` — canvas-fonts/CrimsonPro-OFL.txt:1
+- `network_access` — canvas-fonts/CrimsonPro-OFL.txt:5
+- `network_access` — canvas-fonts/NationalPark-OFL.txt:1
+- `network_access` — canvas-fonts/NationalPark-OFL.txt:5
+- `network_access` — canvas-fonts/Silkscreen-OFL.txt:1
+- `network_access` — canvas-fonts/Silkscreen-OFL.txt:5
+- `network_access` — canvas-fonts/Outfit-OFL.txt:1
+- `network_access` — canvas-fonts/Outfit-OFL.txt:5
+- `network_access` — canvas-fonts/PixelifySans-OFL.txt:1
+- `network_access` — canvas-fonts/PixelifySans-OFL.txt:5
+- `network_access` — canvas-fonts/SmoochSans-OFL.txt:1
+- `network_access` — canvas-fonts/SmoochSans-OFL.txt:5
+- `network_access` — canvas-fonts/NothingYouCouldDo-OFL.txt:5
+- `network_access` — canvas-fonts/Lora-OFL.txt:1
+- `network_access` — canvas-fonts/Lora-OFL.txt:5
+- `network_access` — canvas-fonts/Gloock-OFL.txt:1
+- `network_access` — canvas-fonts/Gloock-OFL.txt:5
+- `network_access` — canvas-fonts/RedHatMono-OFL.txt:1
+- `network_access` — canvas-fonts/RedHatMono-OFL.txt:5
+- `network_access` — canvas-fonts/Italiana-OFL.txt:5
+- `network_access` — canvas-fonts/BricolageGrotesque-OFL.txt:1
+- `network_access` — canvas-fonts/BricolageGrotesque-OFL.txt:5
+- `network_access` — canvas-fonts/InstrumentSans-OFL.txt:1
+- `network_access` — canvas-fonts/InstrumentSans-OFL.txt:5
+- `network_access` — canvas-fonts/DMMono-OFL.txt:1
+- `network_access` — canvas-fonts/DMMono-OFL.txt:5
+- `network_access` — canvas-fonts/ArsenalSC-OFL.txt:5
+- `network_access` — canvas-fonts/IBMPlexMono-OFL.txt:5
+- `network_access` — canvas-fonts/BigShoulders-OFL.txt:1
+- `network_access` — canvas-fonts/BigShoulders-OFL.txt:5
+- `network_access` — canvas-fonts/YoungSerif-OFL.txt:1
+- `network_access` — canvas-fonts/YoungSerif-OFL.txt:5
+- `network_access` — canvas-fonts/JetBrainsMono-OFL.txt:1
+- `network_access` — canvas-fonts/JetBrainsMono-OFL.txt:5
+- `network_access` — canvas-fonts/Jura-OFL.txt:1
+- `network_access` — canvas-fonts/Jura-OFL.txt:5
+- `network_access` — canvas-fonts/Tektur-OFL.txt:1
+- `network_access` — canvas-fonts/Tektur-OFL.txt:5
+
+### claude-api
+- Result: `high_review_required`
+- Files: 96
+- Indicators: 580
+- External hosts: ..., api.anthropic.com, api.githubcopilot.com, api.notion.com, aws-external-anthropic.{region}.api.aws, aws.amazon.com, bedrock-mantle.{region}.api.aws, claude.dev, cloud.google.com, example, example.com, github.com, mcp.amplitude.com, mcp.asana.com, mcp.atlassian.com, mcp.box.com, mcp.example.com, mcp.intercom.com, mcp.linear.app, mcp.notion.com, mcp.sentry.dev, mcp.slack.com, modelcontextprotocol.io, my-mcp-server.example.com, my.test.proxy.example.com, my.test.server.example.com, platform.claude.com, proxy.example, pypi.org, slack.com, status.anthropic.com, support.claude.com, token.actions.githubusercontent.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `shell_execution` — SKILL.md:530
+- `network_access` — SKILL.md:23
+- `network_access` — SKILL.md:23
+- `network_access` — SKILL.md:23
+- `network_access` — SKILL.md:27
+- `network_access` — SKILL.md:93
+- `network_access` — SKILL.md:98
+- `network_access` — SKILL.md:98
+- `network_access` — SKILL.md:101
+- `network_access` — SKILL.md:101
+- `network_access` — SKILL.md:105
+- `network_access` — SKILL.md:240
+- `network_access` — SKILL.md:240
+- `network_access` — SKILL.md:317
+- `network_access` — SKILL.md:434
+- `network_access` — SKILL.md:434
+- `network_access` — SKILL.md:434
+- `network_access` — SKILL.md:504
+- `network_access` — SKILL.md:506
+- `network_access` — SKILL.md:506
+- `network_access` — SKILL.md:506
+- `network_access` — SKILL.md:564
+- `network_access` — SKILL.md:573
+- `network_access` — SKILL.md:198
+- `network_access` — SKILL.md:198
+- `credential_access` — SKILL.md:369
+- `credential_access` — SKILL.md:46
+- `credential_access` — SKILL.md:46
+- `credential_access` — SKILL.md:235
+- `credential_access` — SKILL.md:235
+- `credential_access` — SKILL.md:240
+- `credential_access` — SKILL.md:430
+- `credential_access` — SKILL.md:438
+- `credential_access` — SKILL.md:438
+- `credential_access` — SKILL.md:438
+- `credential_access` — SKILL.md:438
+- `credential_access` — SKILL.md:564
+- `network_access` — shared/managed-agents-onboarding-from-quickstart.md:96
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:5
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:16
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:23
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:55
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:69
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:69
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:71
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:71
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:87
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:91
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:92
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:93
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:93
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:93
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:95
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:99
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:162
+- `credential_access` — shared/managed-agents-onboarding-from-quickstart.md:162
+- `network_access` — shared/managed-agents-scheduled-deployments.md:16
+- `network_access` — shared/managed-agents-scheduled-deployments.md:16
+- `network_access` — shared/live-sources.md:65
+- `network_access` — shared/live-sources.md:18
+- `network_access` — shared/live-sources.md:19
+- `network_access` — shared/live-sources.md:20
+- `network_access` — shared/live-sources.md:21
+- `network_access` — shared/live-sources.md:22
+- `network_access` — shared/live-sources.md:28
+- `network_access` — shared/live-sources.md:29
+- `network_access` — shared/live-sources.md:30
+- `network_access` — shared/live-sources.md:31
+- `network_access` — shared/live-sources.md:32
+- `network_access` — shared/live-sources.md:33
+- `network_access` — shared/live-sources.md:39
+- `network_access` — shared/live-sources.md:40
+- `network_access` — shared/live-sources.md:46
+- `network_access` — shared/live-sources.md:47
+- `network_access` — shared/live-sources.md:48
+- `network_access` — shared/live-sources.md:49
+- `network_access` — shared/live-sources.md:50
+- `network_access` — shared/live-sources.md:51
+- `network_access` — shared/live-sources.md:52
+- `network_access` — shared/live-sources.md:53
+- `network_access` — shared/live-sources.md:54
+- `network_access` — shared/live-sources.md:60
+- `network_access` — shared/live-sources.md:61
+- `network_access` — shared/live-sources.md:62
+- `network_access` — shared/live-sources.md:63
+- `network_access` — shared/live-sources.md:64
+- `network_access` — shared/live-sources.md:65
+- `network_access` — shared/live-sources.md:71
+- `network_access` — shared/live-sources.md:72
+- `network_access` — shared/live-sources.md:73
+- `network_access` — shared/live-sources.md:74
+- `network_access` — shared/live-sources.md:75
+- `network_access` — shared/live-sources.md:76
+- `network_access` — shared/live-sources.md:77
+- `network_access` — shared/live-sources.md:78
+- `network_access` — shared/live-sources.md:79
+- `network_access` — shared/live-sources.md:85
+- `network_access` — shared/live-sources.md:86
+- `network_access` — shared/live-sources.md:87
+- `network_access` — shared/live-sources.md:88
+- `network_access` — shared/live-sources.md:89
+- `network_access` — shared/live-sources.md:97
+- `network_access` — shared/live-sources.md:98
+- `network_access` — shared/live-sources.md:99
+- `network_access` — shared/live-sources.md:100
+- `network_access` — shared/live-sources.md:101
+- `network_access` — shared/live-sources.md:102
+- `network_access` — shared/live-sources.md:103
+- `network_access` — shared/live-sources.md:104
+- `network_access` — shared/live-sources.md:105
+- `network_access` — shared/live-sources.md:106
+- `network_access` — shared/live-sources.md:107
+- `network_access` — shared/live-sources.md:108
+- `network_access` — shared/live-sources.md:109
+- `network_access` — shared/live-sources.md:110
+- `network_access` — shared/live-sources.md:111
+- `network_access` — shared/live-sources.md:112
+- `network_access` — shared/live-sources.md:113
+- `network_access` — shared/live-sources.md:114
+- `network_access` — shared/live-sources.md:115
+- `network_access` — shared/live-sources.md:116
+- `network_access` — shared/live-sources.md:117
+- `network_access` — shared/live-sources.md:118
+- `network_access` — shared/live-sources.md:119
+- `network_access` — shared/live-sources.md:127
+- `network_access` — shared/live-sources.md:128
+- `network_access` — shared/live-sources.md:129
+- `network_access` — shared/live-sources.md:130
+- `network_access` — shared/live-sources.md:131
+- `network_access` — shared/live-sources.md:141
+- `network_access` — shared/live-sources.md:142
+- `network_access` — shared/live-sources.md:143
+- `network_access` — shared/live-sources.md:144
+- `network_access` — shared/live-sources.md:145
+- `network_access` — shared/live-sources.md:146
+- `network_access` — shared/live-sources.md:147
+- `network_access` — shared/live-sources.md:157
+- `network_access` — shared/managed-agents-environments.md:154
+- `network_access` — shared/managed-agents-environments.md:178
+- `network_access` — shared/managed-agents-environments.md:197
+- `network_access` — shared/managed-agents-environments.md:218
+- `credential_access` — shared/managed-agents-environments.md:219
+- `credential_access` — shared/managed-agents-environments.md:179
+- `credential_access` — shared/managed-agents-environments.md:179
+- `credential_access` — shared/managed-agents-environments.md:51
+- `network_access` — shared/managed-agents-onboarding.md:77
+- `network_access` — shared/managed-agents-onboarding.md:86
+- `network_access` — shared/managed-agents-onboarding.md:86
+- `network_access` — shared/managed-agents-onboarding.md:3
+- `network_access` — shared/managed-agents-onboarding.md:80
+- `credential_access` — shared/managed-agents-onboarding.md:7
+- `credential_access` — shared/managed-agents-onboarding.md:44
+- `credential_access` — shared/managed-agents-onboarding.md:44
+- `credential_access` — shared/managed-agents-onboarding.md:44
+- `credential_access` — shared/managed-agents-onboarding.md:44
+- `credential_access` — shared/managed-agents-onboarding.md:44
+- `credential_access` — shared/managed-agents-onboarding.md:73
+- `credential_access` — shared/managed-agents-onboarding.md:81
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:42
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:43
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:121
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:122
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:214
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:70
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:71
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:70
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:71
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:266
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:266
+- `credential_access` — shared/managed-agents-self-hosted-sandboxes.md:272
+- `permission_changes` — shared/managed-agents-self-hosted-sandboxes.md:187
+- `permission_changes` — shared/managed-agents-self-hosted-sandboxes.md:247
+- `permission_changes` — shared/managed-agents-self-hosted-sandboxes.md:187
+- `permission_changes` — shared/managed-agents-self-hosted-sandboxes.md:187
+- `network_access` — shared/managed-agents-onboarding-from-url.md:30
+- `network_access` — shared/managed-agents-onboarding-from-url.md:22
+- `network_access` — shared/managed-agents-onboarding-from-url.md:22
+- `network_access` — shared/managed-agents-onboarding-from-url.md:143
+- `network_access` — shared/managed-agents-onboarding-from-url.md:212
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:248
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:18
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:22
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:34
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:53
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:105
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:200
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:207
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:222
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:241
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:245
+- `credential_access` — shared/managed-agents-onboarding-from-url.md:245
+- `network_access` — shared/managed-agents-multiagent.md:182
+- `network_access` — shared/managed-agents-multiagent.md:99
+- `network_access` — shared/managed-agents-multiagent.md:470
+- `credential_access` — shared/managed-agents-multiagent.md:222
+- `shell_execution` — shared/cost-optimization.md:26
+- `network_access` — shared/cost-optimization.md:112
+- `network_access` — shared/cost-optimization.md:114
+- `network_access` — shared/cost-optimization.md:242
+- `destructive_operations` — shared/managed-agents-tools.md:144
+- `network_access` — shared/managed-agents-tools.md:129
+- `network_access` — shared/managed-agents-tools.md:320
+- `network_access` — shared/managed-agents-tools.md:109
+- `network_access` — shared/managed-agents-tools.md:224
+- `network_access` — shared/managed-agents-tools.md:287
+- `network_access` — shared/managed-agents-tools.md:352
+- `network_access` — shared/managed-agents-tools.md:358
+- `credential_access` — shared/managed-agents-tools.md:90
+- `credential_access` — shared/managed-agents-tools.md:322
+- `credential_access` — shared/managed-agents-tools.md:353
+- `credential_access` — shared/managed-agents-tools.md:272
+- `credential_access` — shared/managed-agents-tools.md:274
+- `credential_access` — shared/managed-agents-tools.md:311
+- `credential_access` — shared/managed-agents-tools.md:317
+- `credential_access` — shared/managed-agents-tools.md:319
+- `credential_access` — shared/managed-agents-tools.md:324
+- `credential_access` — shared/managed-agents-tools.md:326
+- `credential_access` — shared/managed-agents-tools.md:326
+- `credential_access` — shared/managed-agents-tools.md:326
+- `credential_access` — shared/managed-agents-tools.md:330
+- `credential_access` — shared/managed-agents-tools.md:332
+- `credential_access` — shared/managed-agents-tools.md:341
+- `credential_access` — shared/managed-agents-tools.md:341
+- `credential_access` — shared/managed-agents-tools.md:341
+- `credential_access` — shared/managed-agents-tools.md:341
+- `credential_access` — shared/managed-agents-tools.md:405
+- `credential_access` — shared/managed-agents-tools.md:413
+- `credential_access` — shared/managed-agents-tools.md:417
+- `credential_access` — shared/managed-agents-tools.md:417
+- `credential_access` — shared/managed-agents-tools.md:417
+- `credential_access` — shared/managed-agents-tools.md:418
+- `credential_access` — shared/managed-agents-tools.md:419
+- `credential_access` — shared/managed-agents-tools.md:420
+- `network_access` — shared/prompt-audit.md:86
+- `network_access` — shared/managed-agents-api-reference.md:259
+- `network_access` — shared/managed-agents-api-reference.md:288
+- `network_access` — shared/managed-agents-api-reference.md:452
+- `network_access` — shared/managed-agents-api-reference.md:460
+- `credential_access` — shared/managed-agents-api-reference.md:34
+- `credential_access` — shared/managed-agents-api-reference.md:34
+- `credential_access` — shared/managed-agents-api-reference.md:34
+- `credential_access` — shared/managed-agents-api-reference.md:40
+- `credential_access` — shared/managed-agents-api-reference.md:144
+- `credential_access` — shared/managed-agents-api-reference.md:144
+- `credential_access` — shared/managed-agents-api-reference.md:144
+- `credential_access` — shared/managed-agents-api-reference.md:155
+- `credential_access` — shared/managed-agents-api-reference.md:157
+- `credential_access` — shared/managed-agents-api-reference.md:161
+- `credential_access` — shared/managed-agents-api-reference.md:162
+- `credential_access` — shared/managed-agents-api-reference.md:162
+- `credential_access` — shared/managed-agents-api-reference.md:163
+- `credential_access` — shared/managed-agents-api-reference.md:164
+- `credential_access` — shared/managed-agents-api-reference.md:165
+- `credential_access` — shared/managed-agents-api-reference.md:166
+- `credential_access` — shared/managed-agents-api-reference.md:167
+- `credential_access` — shared/managed-agents-api-reference.md:297
+- `network_access` — shared/managed-agents-memory.md:201
+- `credential_access` — shared/managed-agents-memory.md:9
+- `credential_access` — shared/managed-agents-memory.md:9
+- `network_access` — shared/admin-api.md:39
+- `network_access` — shared/admin-api.md:76
+- `network_access` — shared/admin-api.md:179
+- `network_access` — shared/admin-api.md:5
+- `network_access` — shared/admin-api.md:130
+- `network_access` — shared/admin-api.md:174
+- `network_access` — shared/admin-api.md:175
+- `network_access` — shared/admin-api.md:176
+- `network_access` — shared/admin-api.md:177
+- `network_access` — shared/admin-api.md:178
+- `network_access` — shared/admin-api.md:179
+- `credential_access` — shared/admin-api.md:19
+- `credential_access` — shared/admin-api.md:26
+- `network_access` — shared/model-migration.md:465
+- `network_access` — shared/model-migration.md:521
+- `network_access` — shared/model-migration.md:545
+- `network_access` — shared/model-migration.md:1364
+- `network_access` — shared/model-migration.md:1377
+- `network_access` — shared/model-migration.md:1423
+- `network_access` — shared/model-migration.md:1549
+- `network_access` — shared/model-migration.md:1684
+- `network_access` — shared/model-migration.md:2024
+- `network_access` — shared/model-migration.md:2026
+- `network_access` — shared/model-migration.md:2190
+- `network_access` — shared/model-migration.md:2355
+- `credential_access` — shared/model-migration.md:1690
+- `permission_changes` — shared/model-migration.md:2369
+- `network_access` — shared/managed-agents-core.md:50
+- `network_access` — shared/managed-agents-core.md:138
+- `network_access` — shared/managed-agents-core.md:371
+- `credential_access` — shared/managed-agents-core.md:149
+- `network_access` — shared/managed-agents-client-patterns.md:5
+- `network_access` — shared/managed-agents-client-patterns.md:5
+- `credential_access` — shared/managed-agents-client-patterns.md:193
+- `credential_access` — shared/managed-agents-client-patterns.md:195
+- `credential_access` — shared/managed-agents-client-patterns.md:198
+- `network_access` — shared/agent-design.md:28
+- `network_access` — shared/managed-agents-overview.md:45
+- `network_access` — shared/managed-agents-overview.md:45
+- `credential_access` — shared/managed-agents-overview.md:28
+- `credential_access` — shared/managed-agents-overview.md:59
+- `credential_access` — shared/managed-agents-overview.md:73
+- `credential_access` — shared/managed-agents-overview.md:73
+- `credential_access` — shared/managed-agents-overview.md:73
+- `network_access` — shared/preserved-thinking-migration.md:243
+- `network_access` — shared/preserved-thinking-migration.md:244
+- `network_access` — shared/preserved-thinking-migration.md:245
+- `network_access` — shared/preserved-thinking-migration.md:246
+- `network_access` — shared/preserved-thinking-migration.md:247
+- `network_access` — shared/preserved-thinking-migration.md:248
+- `credential_access` — shared/preserved-thinking-migration.md:11
+- `network_access` — shared/error-codes.md:167
+- `network_access` — shared/tool-use-concepts.md:71
+- `network_access` — shared/tool-use-concepts.md:491
+- `network_access` — shared/tool-use-concepts.md:149
+- `network_access` — shared/tool-use-concepts.md:269
+- `network_access` — shared/tool-use-concepts.md:279
+- `network_access` — shared/tool-use-concepts.md:364
+- `network_access` — shared/tool-use-concepts.md:382
+- `network_access` — shared/tool-use-concepts.md:394
+- `network_access` — shared/tool-use-concepts.md:406
+- `network_access` — shared/tool-use-concepts.md:473
+- `network_access` — shared/tool-use-concepts.md:577
+- `network_access` — shared/anthropic-cli.md:3
+- `network_access` — shared/anthropic-cli.md:24
+- `network_access` — shared/anthropic-cli.md:57
+- `network_access` — shared/anthropic-cli.md:58
+- `network_access` — shared/anthropic-cli.md:71
+- `network_access` — shared/anthropic-cli.md:24
+- `network_access` — shared/anthropic-cli.md:58
+- `network_access` — shared/anthropic-cli.md:106
+- `credential_access` — shared/anthropic-cli.md:65
+- `credential_access` — shared/anthropic-cli.md:31
+- `credential_access` — shared/anthropic-cli.md:34
+- `credential_access` — shared/anthropic-cli.md:50
+- `credential_access` — shared/anthropic-cli.md:59
+- `credential_access` — shared/anthropic-cli.md:67
+- `credential_access` — shared/anthropic-cli.md:71
+- `credential_access` — shared/anthropic-cli.md:71
+- `credential_access` — shared/anthropic-cli.md:73
+- `credential_access` — shared/anthropic-cli.md:73
+- `credential_access` — shared/anthropic-cli.md:213
+- `credential_access` — shared/anthropic-cli.md:213
+- `credential_access` — shared/anthropic-cli.md:214
+- `credential_access` — shared/anthropic-cli.md:249
+- `permission_changes` — shared/anthropic-cli.md:25
+- `network_access` — shared/managed-agents-outcomes.md:110
+- `shell_execution` — shared/token-counting.md:51
+- `network_access` — shared/claude-platform-on-aws.md:45
+- `credential_access` — shared/claude-platform-on-aws.md:51
+- `credential_access` — shared/claude-platform-on-aws.md:49
+- `network_access` — shared/models.md:35
+- `network_access` — shared/models.md:35
+- `shell_execution` — shared/evals/build-eval.md:213
+- `shell_execution` — shared/evals/eval-hillclimb.md:33
+- `shell_execution` — shared/evals/eval-hillclimb.md:78
+- `network_access` — shared/preserved-thinking-migration/drop_block_probe.py:104
+- `network_access` — shared/preserved-thinking-migration/drop_block_probe.py:427
+- `network_access` — shared/preserved-thinking-migration/drop_block_probe.py:435
+- `network_access` — shared/preserved-thinking-migration/drop_block_probe.py:133
+- `network_access` — shared/preserved-thinking-migration/drop_block_probe.py:441
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:133
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:410
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:411
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:378
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:385
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:425
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:429
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:429
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:429
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:620
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:662
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:871
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:882
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:899
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:5
+- `credential_access` — shared/preserved-thinking-migration/drop_block_probe.py:264
+- `credential_access` — shared/preserved-thinking-migration/prefix_diff.py:1392
+- `network_access` — shared/preserved-thinking-migration/causes.md:62
+- `network_access` — shared/managed-agents-quickstarts/support-to-eng-escalator.md:24
+- `network_access` — shared/managed-agents-quickstarts/support-to-eng-escalator.md:27
+- `network_access` — shared/managed-agents-quickstarts/support-to-eng-escalator.md:30
+- `network_access` — shared/managed-agents-quickstarts/field-monitor.md:24
+- `network_access` — shared/managed-agents-quickstarts/incident-commander.md:22
+- `network_access` — shared/managed-agents-quickstarts/incident-commander.md:25
+- `network_access` — shared/managed-agents-quickstarts/incident-commander.md:28
+- `network_access` — shared/managed-agents-quickstarts/incident-commander.md:31
+- `network_access` — shared/managed-agents-quickstarts/support-agent.md:24
+- `network_access` — shared/managed-agents-quickstarts/support-agent.md:27
+- `network_access` — shared/managed-agents-quickstarts/contract-tracker.md:22
+- `network_access` — shared/managed-agents-quickstarts/contract-tracker.md:25
+- `network_access` — shared/managed-agents-quickstarts/bug-hunter.md:105
+- `network_access` — shared/managed-agents-quickstarts/data-analyst.md:24
+- `network_access` — shared/managed-agents-quickstarts/sprint-retro-facilitator.md:24
+- `network_access` — shared/managed-agents-quickstarts/sprint-retro-facilitator.md:27
+- `network_access` — curl/examples.md:1
+- `network_access` — curl/examples.md:16
+- `network_access` — curl/examples.md:37
+- `network_access` — curl/examples.md:63
+- `network_access` — curl/examples.md:102
+- `network_access` — curl/examples.md:127
+- `network_access` — curl/examples.md:165
+- `network_access` — curl/examples.md:192
+- `network_access` — curl/examples.md:217
+- `network_access` — curl/examples.md:16
+- `network_access` — curl/examples.md:37
+- `network_access` — curl/examples.md:63
+- `network_access` — curl/examples.md:102
+- `network_access` — curl/examples.md:127
+- `network_access` — curl/examples.md:165
+- `network_access` — curl/examples.md:192
+- `network_access` — curl/examples.md:214
+- `network_access` — curl/examples.md:217
+- `network_access` — curl/managed-agents.md:1
+- `network_access` — curl/managed-agents.md:24
+- `network_access` — curl/managed-agents.md:38
+- `network_access` — curl/managed-agents.md:66
+- `network_access` — curl/managed-agents.md:85
+- `network_access` — curl/managed-agents.md:99
+- `network_access` — curl/managed-agents.md:130
+- `network_access` — curl/managed-agents.md:153
+- `network_access` — curl/managed-agents.md:166
+- `network_access` — curl/managed-agents.md:171
+- `network_access` — curl/managed-agents.md:183
+- `network_access` — curl/managed-agents.md:200
+- `network_access` — curl/managed-agents.md:225
+- `network_access` — curl/managed-agents.md:229
+- `network_access` — curl/managed-agents.md:240
+- `network_access` — curl/managed-agents.md:260
+- `network_access` — curl/managed-agents.md:278
+- `network_access` — curl/managed-agents.md:294
+- `network_access` — curl/managed-agents.md:303
+- `network_access` — curl/managed-agents.md:312
+- `network_access` — curl/managed-agents.md:321
+- `network_access` — curl/managed-agents.md:335
+- `network_access` — curl/managed-agents.md:341
+- `network_access` — curl/managed-agents.md:352
+- `network_access` — curl/managed-agents.md:362
+- `network_access` — curl/managed-agents.md:384
+- `network_access` — curl/managed-agents.md:400
+- `network_access` — curl/managed-agents.md:24
+- `network_access` — curl/managed-agents.md:38
+- `network_access` — curl/managed-agents.md:66
+- `network_access` — curl/managed-agents.md:85
+- `network_access` — curl/managed-agents.md:92
+- `network_access` — curl/managed-agents.md:99
+- `network_access` — curl/managed-agents.md:130
+- `network_access` — curl/managed-agents.md:139
+- `network_access` — curl/managed-agents.md:153
+- `network_access` — curl/managed-agents.md:166
+- `network_access` — curl/managed-agents.md:171
+- `network_access` — curl/managed-agents.md:183
+- `network_access` — curl/managed-agents.md:200
+- `network_access` — curl/managed-agents.md:225
+- `network_access` — curl/managed-agents.md:229
+- `network_access` — curl/managed-agents.md:240
+- `network_access` — curl/managed-agents.md:260
+- `network_access` — curl/managed-agents.md:278
+- `network_access` — curl/managed-agents.md:294
+- `network_access` — curl/managed-agents.md:303
+- `network_access` — curl/managed-agents.md:312
+- `network_access` — curl/managed-agents.md:321
+- `network_access` — curl/managed-agents.md:335
+- `network_access` — curl/managed-agents.md:341
+- `network_access` — curl/managed-agents.md:352
+- `network_access` — curl/managed-agents.md:362
+- `network_access` — curl/managed-agents.md:368
+- `network_access` — curl/managed-agents.md:384
+- `network_access` — curl/managed-agents.md:400
+- `credential_access` — curl/managed-agents.md:383
+- `credential_access` — curl/managed-agents.md:393
+- `network_access` — java/claude-api/README.md:194
+- `network_access` — java/claude-api/tool-use.md:214
+- `network_access` — java/managed-agents/README.md:3
+- `network_access` — java/managed-agents/README.md:92
+- `network_access` — java/managed-agents/README.md:342
+- `network_access` — java/managed-agents/README.md:402
+- `network_access` — java/managed-agents/README.md:406
+- `network_access` — java/managed-agents/README.md:448
+- `network_access` — java/managed-agents/README.md:463
+- `network_access` — java/managed-agents/README.md:469
+- `credential_access` — java/managed-agents/README.md:358
+- `credential_access` — java/managed-agents/README.md:370
+- `credential_access` — java/managed-agents/README.md:379
+- `credential_access` — java/managed-agents/README.md:380
+- `credential_access` — java/managed-agents/README.md:381
+- `credential_access` — java/managed-agents/README.md:382
+- `credential_access` — java/managed-agents/README.md:383
+- `credential_access` — java/managed-agents/README.md:384
+- `credential_access` — java/managed-agents/README.md:397
+- `credential_access` — java/managed-agents/README.md:416
+- `network_access` — php/claude-api/README.md:51
+- `credential_access` — php/claude-api/README.md:25
+- `network_access` — php/claude-api/tool-use.md:216
+- `network_access` — php/managed-agents/README.md:3
+- `network_access` — php/managed-agents/README.md:241
+- `network_access` — php/managed-agents/README.md:246
+- `network_access` — php/managed-agents/README.md:80
+- `network_access` — php/managed-agents/README.md:248
+- `network_access` — php/managed-agents/README.md:353
+- `network_access` — php/managed-agents/README.md:406
+- `network_access` — php/managed-agents/README.md:410
+- `network_access` — php/managed-agents/README.md:452
+- `network_access` — php/managed-agents/README.md:466
+- `network_access` — php/managed-agents/README.md:472
+- `credential_access` — php/managed-agents/README.md:407
+- `credential_access` — php/managed-agents/README.md:428
+- `credential_access` — php/managed-agents/README.md:374
+- `credential_access` — php/managed-agents/README.md:386
+- `credential_access` — php/managed-agents/README.md:401
+- `credential_access` — php/managed-agents/README.md:423
+- `network_access` — csharp/claude-api/README.md:363
+- `network_access` — csharp/claude-api/README.md:48
+- `network_access` — python/claude-api/README.md:53
+- `network_access` — python/claude-api/README.md:53
+- `network_access` — python/claude-api/README.md:78
+- `network_access` — python/claude-api/README.md:79
+- `network_access` — python/claude-api/README.md:180
+- `network_access` — python/claude-api/README.md:445
+- `credential_access` — python/claude-api/README.md:20
+- `credential_access` — python/claude-api/README.md:14
+- `network_access` — python/claude-api/tool-use.md:105
+- `network_access` — python/claude-api/tool-use.md:510
+- `network_access` — python/claude-api/sdk-upgrade.md:18
+- `network_access` — python/claude-api/sdk-upgrade.md:18
+- `network_access` — python/claude-api/sdk-upgrade.md:69
+- `network_access` — python/claude-api/sdk-upgrade.md:78
+- `credential_access` — python/claude-api/sdk-upgrade.md:262
+- `network_access` — python/managed-agents/README.md:3
+- `network_access` — python/managed-agents/README.md:75
+- `network_access` — python/managed-agents/README.md:118
+- `network_access` — python/managed-agents/README.md:377
+- `credential_access` — python/managed-agents/README.md:120
+- `credential_access` — python/managed-agents/README.md:24
+- `credential_access` — python/managed-agents/README.md:18
+- `credential_access` — python/managed-agents/README.md:392
+- `credential_access` — python/managed-agents/README.md:400
+- `credential_access` — ruby/claude-api/README.md:20
+- `network_access` — ruby/managed-agents/README.md:3
+- `network_access` — ruby/managed-agents/README.md:77
+- `network_access` — ruby/managed-agents/README.md:297
+- `network_access` — ruby/managed-agents/README.md:341
+- `network_access` — ruby/managed-agents/README.md:345
+- `network_access` — ruby/managed-agents/README.md:387
+- `network_access` — ruby/managed-agents/README.md:401
+- `network_access` — ruby/managed-agents/README.md:407
+- `credential_access` — ruby/managed-agents/README.md:22
+- `credential_access` — ruby/managed-agents/README.md:342
+- `credential_access` — ruby/managed-agents/README.md:363
+- `credential_access` — ruby/managed-agents/README.md:313
+- `credential_access` — ruby/managed-agents/README.md:321
+- `credential_access` — ruby/managed-agents/README.md:336
+- `credential_access` — ruby/managed-agents/README.md:358
+- `network_access` — go/claude-api/README.md:153
+- `network_access` — go/managed-agents/README.md:3
+- `network_access` — go/managed-agents/README.md:112
+- `network_access` — go/managed-agents/README.md:430
+- `network_access` — go/managed-agents/README.md:498
+- `network_access` — go/managed-agents/README.md:502
+- `network_access` — go/managed-agents/README.md:560
+- `network_access` — go/managed-agents/README.md:579
+- `network_access` — go/managed-agents/README.md:587
+- `credential_access` — go/managed-agents/README.md:459
+- `credential_access` — go/managed-agents/README.md:476
+- `credential_access` — go/managed-agents/README.md:493
+- `credential_access` — go/managed-agents/README.md:521
+- `network_access` — typescript/claude-api/README.md:98
+- `network_access` — typescript/claude-api/README.md:346
+- `credential_access` — typescript/claude-api/README.md:20
+- `network_access` — typescript/claude-api/tool-use.md:569
+- `network_access` — typescript/managed-agents/README.md:3
+- `network_access` — typescript/managed-agents/README.md:81
+- `network_access` — typescript/managed-agents/README.md:125
+- `network_access` — typescript/managed-agents/README.md:413
+- `credential_access` — typescript/managed-agents/README.md:127
+- `credential_access` — typescript/managed-agents/README.md:127
+- `credential_access` — typescript/managed-agents/README.md:18
+- `credential_access` — typescript/managed-agents/README.md:428
+- `credential_access` — typescript/managed-agents/README.md:436
+
+### discernment-nudge
+- Result: `manual_review_required`
+- Files: 2
+- Indicators: 2
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+
+### doc-coauthoring
+- Result: `manual_review_required`
+- Files: 1
+- Indicators: 1
+- External hosts: claude.ai
+- License files: Not found
+- `network_access` — SKILL.md:303
+
+### docx
+- Result: `manual_review_required`
+- Files: 61
+- Indicators: 186
+- External hosts: openoffice.org, schemas.microsoft.com, schemas.openxmlformats.org, www.apache.org, www.w3.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — scripts/merge_runs.py:37
+- `network_access` — scripts/comment.py:42
+- `network_access` — scripts/comment.py:43
+- `network_access` — scripts/comment.py:44
+- `network_access` — scripts/comment.py:45
+- `network_access` — scripts/comment.py:46
+- `network_access` — scripts/comment.py:165
+- `network_access` — scripts/comment.py:166
+- `network_access` — scripts/comment.py:167
+- `network_access` — scripts/comment.py:168
+- `shell_execution` — scripts/accept_changes.py:68
+- `shell_execution` — scripts/accept_changes.py:99
+- `network_access` — scripts/accept_changes.py:21
+- `network_access` — scripts/templates/people.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtensible.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsExtended.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/commentsIds.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `network_access` — scripts/templates/comments.xml:2
+- `shell_execution` — scripts/office/soffice.py:56
+- `shell_execution` — scripts/office/soffice.py:152
+- `network_access` — scripts/office/soffice.py:66
+- `network_access` — scripts/office/soffice.py:139
+- `network_access` — scripts/office/soffice.py:139
+- `network_access` — scripts/office/soffice.py:139
+- `network_access` — scripts/office/soffice.py:169
+- `credential_access` — scripts/office/soffice.py:33
+- `network_access` — scripts/office/validate.py:29
+- `network_access` — scripts/office/validators/pptx.py:16
+- `network_access` — scripts/office/validators/pptx.py:312
+- `network_access` — scripts/office/validators/docx.py:22
+- `network_access` — scripts/office/validators/docx.py:23
+- `network_access` — scripts/office/validators/docx.py:24
+- `network_access` — scripts/office/validators/base.py:74
+- `network_access` — scripts/office/validators/base.py:75
+- `network_access` — scripts/office/validators/base.py:78
+- `network_access` — scripts/office/validators/base.py:81
+- `network_access` — scripts/office/validators/base.py:84
+- `network_access` — scripts/office/validators/base.py:90
+- `network_access` — scripts/office/validators/base.py:91
+- `network_access` — scripts/office/validators/base.py:92
+- `network_access` — scripts/office/validators/base.py:93
+- `network_access` — scripts/office/validators/base.py:94
+- `network_access` — scripts/office/validators/base.py:95
+- `network_access` — scripts/office/validators/base.py:96
+- `network_access` — scripts/office/validators/base.py:97
+- `network_access` — scripts/office/validators/base.py:98
+- `network_access` — scripts/office/validators/base.py:99
+- `network_access` — scripts/office/validators/base.py:100
+- `network_access` — scripts/office/validators/base.py:101
+- `network_access` — scripts/office/validators/base.py:102
+- `network_access` — scripts/office/validators/base.py:103
+- `network_access` — scripts/office/validators/base.py:104
+- `network_access` — scripts/office/validators/redlining.py:60
+- `network_access` — scripts/office/validators/redlining.py:166
+- `network_access` — scripts/office/helpers/pptx_theme.py:16
+- `network_access` — scripts/office/helpers/__init__.py:21
+- `permission_changes` — scripts/office/helpers/__init__.py:125
+- `network_access` — scripts/office/helpers/pptx_slide.py:62
+- `network_access` — scripts/office/helpers/pptx_slide.py:63
+
+### frontend-design
+- Result: `manual_review_required`
+- Files: 2
+- Indicators: 1
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+
+### internal-comms
+- Result: `manual_review_required`
+- Files: 6
+- Indicators: 2
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+
+### mcp-builder
+- Result: `high_review_required`
+- Files: 11
+- Indicators: 78
+- External hosts: 127.0.0.1, api.example.com, example.com, github.com, localhost, mcp.example.com, modelcontextprotocol.io, raw.githubusercontent.com, ts.sdk.modelcontextprotocol.io, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — SKILL.md:41
+- `network_access` — SKILL.md:43
+- `network_access` — SKILL.md:70
+- `network_access` — SKILL.md:70
+- `network_access` — SKILL.md:72
+- `network_access` — SKILL.md:75
+- `network_access` — SKILL.md:214
+- `network_access` — SKILL.md:223
+- `network_access` — SKILL.md:224
+- `network_access` — SKILL.md:224
+- `network_access` — SKILL.md:225
+- `network_access` — scripts/evaluation.py:315
+- `network_access` — scripts/evaluation.py:318
+- `credential_access` — scripts/evaluation.py:344
+- `credential_access` — scripts/evaluation.py:344
+- `credential_access` — scripts/connections.py:80
+- `credential_access` — scripts/connections.py:84
+- `network_access` — reference/python_mcp_server.md:260
+- `network_access` — reference/python_mcp_server.md:43
+- `network_access` — reference/python_mcp_server.md:353
+- `credential_access` — reference/python_mcp_server.md:511
+- `credential_access` — reference/python_mcp_server.md:517
+- `network_access` — reference/evaluation.md:456
+- `network_access` — reference/evaluation.md:469
+- `credential_access` — reference/evaluation.md:444
+- `destructive_operations` — reference/node_mcp_server.md:543
+- `network_access` — reference/node_mcp_server.md:603
+- `network_access` — reference/node_mcp_server.md:741
+- `credential_access` — reference/node_mcp_server.md:709
+- `credential_access` — reference/node_mcp_server.md:721
+- `credential_access` — reference/node_mcp_server.md:739
+- `credential_access` — reference/node_mcp_server.md:746
+- `credential_access` — reference/node_mcp_server.md:709
+- `credential_access` — reference/node_mcp_server.md:721
+- `credential_access` — reference/node_mcp_server.md:739
+- `credential_access` — reference/node_mcp_server.md:746
+- `network_access` — reference/node_mcp_server_v2.md:167
+- `network_access` — reference/node_mcp_server_v2.md:315
+- `network_access` — reference/node_mcp_server_v2.md:5
+- `network_access` — reference/node_mcp_server_v2.md:5
+- `network_access` — reference/node_mcp_server_v2.md:294
+- `network_access` — reference/node_mcp_server_v2.md:483
+- `network_access` — reference/node_mcp_server_v2.md:514
+- `network_access` — reference/node_mcp_server_v2.md:524
+- `network_access` — reference/node_mcp_server_v2.md:548
+- `network_access` — reference/node_mcp_server_v2.md:548
+- `network_access` — reference/node_mcp_server_v2.md:548
+- `network_access` — reference/node_mcp_server_v2.md:683
+- `network_access` — reference/node_mcp_server_v2.md:685
+- `network_access` — reference/node_mcp_server_v2.md:695
+- `network_access` — reference/node_mcp_server_v2.md:696
+- `network_access` — reference/node_mcp_server_v2.md:697
+- `network_access` — reference/node_mcp_server_v2.md:698
+- `network_access` — reference/node_mcp_server_v2.md:699
+- `network_access` — reference/node_mcp_server_v2.md:700
+- `network_access` — reference/node_mcp_server_v2.md:701
+- `network_access` — reference/node_mcp_server_v2.md:701
+- `network_access` — reference/node_mcp_server_v2.md:702
+- `network_access` — reference/node_mcp_server_v2.md:702
+- `network_access` — reference/node_mcp_server_v2.md:703
+- `network_access` — reference/node_mcp_server_v2.md:717
+- `credential_access` — reference/node_mcp_server_v2.md:295
+- `credential_access` — reference/node_mcp_server_v2.md:475
+- `credential_access` — reference/node_mcp_server_v2.md:481
+- `credential_access` — reference/node_mcp_server_v2.md:653
+- `credential_access` — reference/node_mcp_server_v2.md:295
+- `credential_access` — reference/node_mcp_server_v2.md:475
+- `credential_access` — reference/node_mcp_server_v2.md:481
+- `credential_access` — reference/node_mcp_server_v2.md:653
+- `credential_access` — reference/node_mcp_server_v2.md:168
+- `credential_access` — reference/node_mcp_server_v2.md:295
+- `credential_access` — reference/node_mcp_server_v2.md:298
+- `credential_access` — reference/node_mcp_server_v2.md:316
+- `credential_access` — reference/node_mcp_server_v2.md:699
+- `credential_access` — reference/node_mcp_server_v2.md:699
+- `credential_access` — reference/node_mcp_server_v2.md:699
+
+### pdf
+- Result: `manual_review_required`
+- Files: 12
+- Indicators: 2
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+
+### pptx
+- Result: `manual_review_required`
+- Files: 58
+- Indicators: 50
+- External hosts: schemas.microsoft.com, schemas.openxmlformats.org, www.apache.org, www.w3.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `shell_execution` — scripts/thumbnail.py:200
+- `network_access` — scripts/add_slide.py:45
+- `network_access` — scripts/add_slide.py:45
+- `network_access` — scripts/add_slide.py:45
+- `network_access` — scripts/add_slide.py:114
+- `network_access` — scripts/add_slide.py:115
+- `network_access` — scripts/add_slide.py:324
+- `shell_execution` — scripts/office/soffice.py:56
+- `shell_execution` — scripts/office/soffice.py:152
+- `network_access` — scripts/office/soffice.py:66
+- `network_access` — scripts/office/soffice.py:139
+- `network_access` — scripts/office/soffice.py:139
+- `network_access` — scripts/office/soffice.py:139
+- `network_access` — scripts/office/soffice.py:169
+- `credential_access` — scripts/office/soffice.py:33
+- `network_access` — scripts/office/validate.py:29
+- `network_access` — scripts/office/validators/pptx.py:16
+- `network_access` — scripts/office/validators/pptx.py:312
+- `network_access` — scripts/office/validators/docx.py:22
+- `network_access` — scripts/office/validators/docx.py:23
+- `network_access` — scripts/office/validators/docx.py:24
+- `network_access` — scripts/office/validators/base.py:74
+- `network_access` — scripts/office/validators/base.py:75
+- `network_access` — scripts/office/validators/base.py:78
+- `network_access` — scripts/office/validators/base.py:81
+- `network_access` — scripts/office/validators/base.py:84
+- `network_access` — scripts/office/validators/base.py:90
+- `network_access` — scripts/office/validators/base.py:91
+- `network_access` — scripts/office/validators/base.py:92
+- `network_access` — scripts/office/validators/base.py:93
+- `network_access` — scripts/office/validators/base.py:94
+- `network_access` — scripts/office/validators/base.py:95
+- `network_access` — scripts/office/validators/base.py:96
+- `network_access` — scripts/office/validators/base.py:97
+- `network_access` — scripts/office/validators/base.py:98
+- `network_access` — scripts/office/validators/base.py:99
+- `network_access` — scripts/office/validators/base.py:100
+- `network_access` — scripts/office/validators/base.py:101
+- `network_access` — scripts/office/validators/base.py:102
+- `network_access` — scripts/office/validators/base.py:103
+- `network_access` — scripts/office/validators/base.py:104
+- `network_access` — scripts/office/validators/redlining.py:60
+- `network_access` — scripts/office/validators/redlining.py:166
+- `network_access` — scripts/office/helpers/pptx_theme.py:16
+- `network_access` — scripts/office/helpers/__init__.py:21
+- `permission_changes` — scripts/office/helpers/__init__.py:125
+- `network_access` — scripts/office/helpers/pptx_slide.py:62
+- `network_access` — scripts/office/helpers/pptx_slide.py:63
+
+### skill-creator
+- Result: `high_review_required`
+- Files: 18
+- Indicators: 22
+- External hosts: cdn.sheetjs.com, fonts.googleapis.com, fonts.gstatic.com, localhost, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `shell_execution` — eval-viewer/generate_review.py:291
+- `network_access` — eval-viewer/generate_review.py:449
+- `network_access` — eval-viewer/viewer.html:666
+- `network_access` — eval-viewer/viewer.html:1012
+- `network_access` — eval-viewer/viewer.html:1044
+- `network_access` — eval-viewer/viewer.html:7
+- `network_access` — eval-viewer/viewer.html:8
+- `network_access` — eval-viewer/viewer.html:9
+- `network_access` — eval-viewer/viewer.html:10
+- `obfuscation` — eval-viewer/viewer.html:832
+- `network_access` — scripts/generate_report.py:39
+- `network_access` — scripts/generate_report.py:40
+- `network_access` — scripts/generate_report.py:41
+- `shell_execution` — scripts/improve_description.py:35
+- `credential_access` — scripts/improve_description.py:33
+- `shell_execution` — scripts/run_eval.py:85
+- `credential_access` — scripts/run_eval.py:83
+- `network_access` — assets/eval_review.html:7
+- `network_access` — assets/eval_review.html:8
+- `network_access` — assets/eval_review.html:9
+
+### slack-gif-creator
+- Result: `manual_review_required`
+- Files: 7
+- Indicators: 2
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+
+### theme-factory
+- Result: `manual_review_required`
+- Files: 13
+- Indicators: 2
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+
+### web-artifacts-builder
+- Result: `high_review_required`
+- Files: 5
+- Indicators: 5
+- External hosts: ui.shadcn.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — SKILL.md:74
+- `network_access` — scripts/init-artifact.sh:283
+- `destructive_operations` — scripts/bundle-artifact.sh:36
+
+### webapp-testing
+- Result: `manual_review_required`
+- Files: 6
+- Indicators: 9
+- External hosts: localhost, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — SKILL.md:59
+- `network_access` — examples/console_logging.py:5
+- `network_access` — examples/element_discovery.py:10
+- `shell_execution` — scripts/with_server.py:69
+- `shell_execution` — scripts/with_server.py:88
+- `network_access` — scripts/with_server.py:28
+- `network_access` — scripts/with_server.py:30
+
+### xlsx
+- Result: `manual_review_required`
+- Files: 53
+- Indicators: 49
+- External hosts: openoffice.org, schemas.microsoft.com, schemas.openxmlformats.org, www.apache.org, www.w3.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `shell_execution` — scripts/recalc.py:49
+- `shell_execution` — scripts/recalc.py:199
+- `network_access` — scripts/recalc.py:38
+- `network_access` — scripts/recalc.py:238
+- `network_access` — scripts/recalc.py:239
+- `permission_changes` — scripts/recalc.py:825
+- `shell_execution` — scripts/office/soffice.py:56
+- `shell_execution` — scripts/office/soffice.py:152
+- `network_access` — scripts/office/soffice.py:66
+- `network_access` — scripts/office/soffice.py:139
+- `network_access` — scripts/office/soffice.py:139
+- `network_access` — scripts/office/soffice.py:139
+- `network_access` — scripts/office/soffice.py:169
+- `credential_access` — scripts/office/soffice.py:33
+- `network_access` — scripts/office/validate.py:29
+- `network_access` — scripts/office/validators/pptx.py:16
+- `network_access` — scripts/office/validators/pptx.py:312
+- `network_access` — scripts/office/validators/docx.py:22
+- `network_access` — scripts/office/validators/docx.py:23
+- `network_access` — scripts/office/validators/docx.py:24
+- `network_access` — scripts/office/validators/base.py:74
+- `network_access` — scripts/office/validators/base.py:75
+- `network_access` — scripts/office/validators/base.py:78
+- `network_access` — scripts/office/validators/base.py:81
+- `network_access` — scripts/office/validators/base.py:84
+- `network_access` — scripts/office/validators/base.py:90
+- `network_access` — scripts/office/validators/base.py:91
+- `network_access` — scripts/office/validators/base.py:92
+- `network_access` — scripts/office/validators/base.py:93
+- `network_access` — scripts/office/validators/base.py:94
+- `network_access` — scripts/office/validators/base.py:95
+- `network_access` — scripts/office/validators/base.py:96
+- `network_access` — scripts/office/validators/base.py:97
+- `network_access` — scripts/office/validators/base.py:98
+- `network_access` — scripts/office/validators/base.py:99
+- `network_access` — scripts/office/validators/base.py:100
+- `network_access` — scripts/office/validators/base.py:101
+- `network_access` — scripts/office/validators/base.py:102
+- `network_access` — scripts/office/validators/base.py:103
+- `network_access` — scripts/office/validators/base.py:104
+- `network_access` — scripts/office/validators/redlining.py:60
+- `network_access` — scripts/office/validators/redlining.py:166
+- `network_access` — scripts/office/helpers/pptx_theme.py:16
+- `network_access` — scripts/office/helpers/__init__.py:21
+- `permission_changes` — scripts/office/helpers/__init__.py:125
+- `network_access` — scripts/office/helpers/pptx_slide.py:62
+- `network_access` — scripts/office/helpers/pptx_slide.py:63
+
+### template
+- Result: `no_static_indicators_found`
+- Files: 1
+- Indicators: 0
+- External hosts: None detected
+- License files: Not found
+
+### api-contract-review
+- Result: `no_static_indicators_found`
+- Files: 1
+- Indicators: 0
+- External hosts: None detected
+- License files: Not found
+
+### ci-failure-triage
+- Result: `manual_review_required`
+- Files: 1
+- Indicators: 1
+- External hosts: None detected
+- License files: Not found
+- `credential_access` — SKILL.md:18
+
+### code-review
+- Result: `no_static_indicators_found`
+- Files: 1
+- Indicators: 0
+- External hosts: None detected
+- License files: Not found
+
+### codebase-onboarding
+- Result: `no_static_indicators_found`
+- Files: 1
+- Indicators: 0
+- External hosts: None detected
+- License files: Not found
+
+### database-migration-review
+- Result: `no_static_indicators_found`
+- Files: 1
+- Indicators: 0
+- External hosts: None detected
+- License files: Not found
+
+### dependency-health
+- Result: `no_static_indicators_found`
+- Files: 1
+- Indicators: 0
+- External hosts: None detected
+- License files: Not found
+
+### docs-maintenance
+- Result: `manual_review_required`
+- Files: 1
+- Indicators: 1
+- External hosts: None detected
+- License files: Not found
+- `credential_access` — SKILL.md:20
+
+### aspnet-core
+- Result: `manual_review_required`
+- Files: 17
+- Indicators: 46
+- External hosts: github.com, learn.microsoft.com, raw.githubusercontent.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — references/realtime-grpc-and-background-work.md:4
+- `network_access` — references/realtime-grpc-and-background-work.md:5
+- `network_access` — references/realtime-grpc-and-background-work.md:6
+- `network_access` — references/apis-minimal-and-controllers.md:4
+- `network_access` — references/apis-minimal-and-controllers.md:5
+- `network_access` — references/apis-minimal-and-controllers.md:6
+- `network_access` — references/source-map.md:7
+- `network_access` — references/source-map.md:8
+- `network_access` — references/source-map.md:9
+- `network_access` — references/data-state-and-services.md:4
+- `network_access` — references/data-state-and-services.md:5
+- `network_access` — references/data-state-and-services.md:6
+- `network_access` — references/data-state-and-services.md:7
+- `network_access` — references/testing-performance-and-operations.md:4
+- `network_access` — references/testing-performance-and-operations.md:5
+- `network_access` — references/testing-performance-and-operations.md:6
+- `network_access` — references/testing-performance-and-operations.md:7
+- `network_access` — references/ui-razor-pages.md:4
+- `network_access` — references/ui-razor-pages.md:5
+- `network_access` — references/versioning-and-upgrades.md:4
+- `network_access` — references/versioning-and-upgrades.md:5
+- `network_access` — references/versioning-and-upgrades.md:6
+- `network_access` — references/versioning-and-upgrades.md:7
+- `network_access` — references/stack-selection.md:4
+- `network_access` — references/stack-selection.md:5
+- `network_access` — references/stack-selection.md:6
+- `network_access` — references/stack-selection.md:7
+- `network_access` — references/stack-selection.md:8
+- `network_access` — references/stack-selection.md:9
+- `network_access` — references/program-and-pipeline.md:4
+- `network_access` — references/program-and-pipeline.md:5
+- `network_access` — references/program-and-pipeline.md:6
+- `network_access` — references/program-and-pipeline.md:7
+- `network_access` — references/security-and-identity.md:4
+- `network_access` — references/security-and-identity.md:5
+- `network_access` — references/security-and-identity.md:6
+- `credential_access` — references/security-and-identity.md:57
+- `credential_access` — references/security-and-identity.md:71
+- `network_access` — references/ui-blazor.md:4
+- `network_access` — references/ui-blazor.md:5
+- `network_access` — references/ui-blazor.md:6
+- `network_access` — references/ui-mvc.md:4
+- `network_access` — references/ui-mvc.md:5
+- `network_access` — references/ui-mvc.md:6
+
+### chatgpt-apps
+- Result: `manual_review_required`
+- Files: 11
+- Indicators: 21
+- External hosts: developers.openai.com, github.com, localhost, platform.openai.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:249
+- `credential_access` — SKILL.md:278
+- `network_access` — references/search-fetch-standard.md:66
+- `network_access` — references/search-fetch-standard.md:67
+- `network_access` — references/apps-sdk-docs-workflow.md:7
+- `network_access` — references/apps-sdk-docs-workflow.md:8
+- `network_access` — references/apps-sdk-docs-workflow.md:9
+- `network_access` — references/apps-sdk-docs-workflow.md:10
+- `network_access` — references/apps-sdk-docs-workflow.md:11
+- `network_access` — references/apps-sdk-docs-workflow.md:15
+- `network_access` — references/apps-sdk-docs-workflow.md:16
+- `network_access` — references/apps-sdk-docs-workflow.md:17
+- `network_access` — references/apps-sdk-docs-workflow.md:18
+- `network_access` — references/apps-sdk-docs-workflow.md:82
+- `credential_access` — references/apps-sdk-docs-workflow.md:111
+- `network_access` — references/upstream-example-workflow.md:28
+- `network_access` — references/upstream-example-workflow.md:29
+- `network_access` — references/upstream-example-workflow.md:30
+- `network_access` — agents/openai.yaml:11
+
+### cli-creator
+- Result: `manual_review_required`
+- Files: 4
+- Indicators: 6
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:3
+- `network_access` — SKILL.md:16
+- `network_access` — SKILL.md:137
+- `credential_access` — SKILL.md:68
+
+### cloudflare-deploy
+- Result: `high_review_required`
+- Files: 312
+- Indicators: 1722
+- External hosts: ${accountid}.r2.cloudflarestorage.com, ${cloudflare_worker_domain.api.hostname}, ${env.account_id}.r2.cloudflarestorage.com, ..., 127.0.0.1, 8080-sandbox-abc123def456.yourdomain.com, abc123.r2.cloudflarestorage.com, analytics.example.com, any-host, api, api.cloudflare.com, api.com, api.example.com, api.honeycomb.io, api.partner.com, api.prod.com, app.example.com, assets.local, auth-worker.example.com, auth.example.com, batch, blog.cloudflare.com, cdn.example.com, cdn.jsdelivr.net, challenges.cloudflare.com, challenges.cloudflare.com;, cloud.google.com, cloudflareinsights.com;, code-server.dev, community.cloudflare.com, container, crontab.guru, customer-, dash.cloudflare.com, datatracker.ietf.org, demo.orange.cloudflare.dev, deploy.workers.cloudflare.com, developers.cloudflare.com, discord.cloudflare.com, discord.com, discord.gg, do, docs.realtime.cloudflare.com, esm.sh, example.com, fake, fake-host, files.example.com, foo.example.com, forms.gle, gateway.ai.cloudflare.com, github.com, hooks.example.com, iceberg.apache.org, ignored.host, imagedelivery.net, localhost, log.example.com, logging.example.com, logs.example.com, mcp.example.com, miniflare.dev, monitoring.example.com, myapp.example.com, owasp.org, producer.example.workers.dev, pub-${hashid}.r2.dev, py.iceberg.apache.org, raw.githubusercontent.com, registry.terraform.io, reports.example.com, rtc.live, rtc.live.cloudflare.com, staging-api.example.com, static.cloudflareinsights.com, static.cloudflareinsights.com;, track.example.com, web.dev, webhook.site, workers.cloudflare.com, www.apache.org, www.npmjs.com, www.pulumi.com, x, your-worker.workers.dev, yourdomain.com, {stream-id}.ingest.cloudflare.com
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — references/r2-data-catalog/configuration.md:41
+- `network_access` — references/r2-data-catalog/configuration.md:7
+- `network_access` — references/r2-data-catalog/configuration.md:24
+- `network_access` — references/r2-data-catalog/configuration.md:35
+- `network_access` — references/r2-data-catalog/configuration.md:42
+- `network_access` — references/r2-data-catalog/configuration.md:51
+- `network_access` — references/r2-data-catalog/configuration.md:67
+- `network_access` — references/r2-data-catalog/configuration.md:123
+- `network_access` — references/r2-data-catalog/configuration.md:146
+- `network_access` — references/r2-data-catalog/configuration.md:173
+- `credential_access` — references/r2-data-catalog/configuration.md:172
+- `credential_access` — references/r2-data-catalog/configuration.md:116
+- `credential_access` — references/r2-data-catalog/configuration.md:121
+- `network_access` — references/r2-data-catalog/gotchas.md:162
+- `network_access` — references/r2-data-catalog/gotchas.md:163
+- `network_access` — references/r2-data-catalog/gotchas.md:164
+- `network_access` — references/r2-data-catalog/gotchas.md:165
+- `network_access` — references/r2-data-catalog/README.md:81
+- `network_access` — references/r2-data-catalog/README.md:147
+- `network_access` — references/r2-data-catalog/README.md:148
+- `network_access` — references/r2-data-catalog/README.md:149
+- `credential_access` — references/r2-data-catalog/README.md:70
+- `credential_access` — references/r2-data-catalog/README.md:85
+- `credential_access` — references/r2-data-catalog/README.md:85
+- `network_access` — references/r2-data-catalog/api.md:3
+- `network_access` — references/r2-data-catalog/api.md:23
+- `credential_access` — references/secrets-store/configuration.md:13
+- `credential_access` — references/secrets-store/configuration.md:25
+- `credential_access` — references/secrets-store/configuration.md:45
+- `credential_access` — references/secrets-store/configuration.md:54
+- `credential_access` — references/secrets-store/configuration.md:69
+- `credential_access` — references/secrets-store/configuration.md:75
+- `credential_access` — references/secrets-store/configuration.md:131
+- `credential_access` — references/secrets-store/configuration.md:136
+- `credential_access` — references/secrets-store/configuration.md:169
+- `credential_access` — references/secrets-store/configuration.md:171
+- `credential_access` — references/secrets-store/configuration.md:181
+- `credential_access` — references/secrets-store/gotchas.md:12
+- `credential_access` — references/secrets-store/gotchas.md:21
+- `credential_access` — references/secrets-store/gotchas.md:65
+- `credential_access` — references/secrets-store/gotchas.md:70
+- `credential_access` — references/secrets-store/gotchas.md:75
+- `network_access` — references/secrets-store/patterns.md:14
+- `network_access` — references/secrets-store/patterns.md:18
+- `network_access` — references/secrets-store/patterns.md:58
+- `network_access` — references/secrets-store/patterns.md:84
+- `network_access` — references/secrets-store/patterns.md:97
+- `network_access` — references/secrets-store/patterns.md:101
+- `network_access` — references/secrets-store/patterns.md:106
+- `network_access` — references/secrets-store/patterns.md:120
+- `network_access` — references/secrets-store/patterns.md:172
+- `network_access` — references/secrets-store/patterns.md:19
+- `network_access` — references/secrets-store/patterns.md:23
+- `network_access` — references/secrets-store/patterns.md:101
+- `network_access` — references/secrets-store/patterns.md:106
+- `network_access` — references/secrets-store/patterns.md:120
+- `credential_access` — references/secrets-store/patterns.md:100
+- `credential_access` — references/secrets-store/patterns.md:110
+- `credential_access` — references/secrets-store/patterns.md:124
+- `credential_access` — references/secrets-store/patterns.md:140
+- `credential_access` — references/secrets-store/patterns.md:141
+- `credential_access` — references/secrets-store/patterns.md:141
+- `credential_access` — references/secrets-store/patterns.md:142
+- `credential_access` — references/secrets-store/patterns.md:144
+- `network_access` — references/secrets-store/api.md:70
+- `network_access` — references/secrets-store/api.md:17
+- `network_access` — references/secrets-store/api.md:19
+- `network_access` — references/secrets-store/api.md:30
+- `network_access` — references/secrets-store/api.md:33
+- `network_access` — references/secrets-store/api.md:19
+- `network_access` — references/secrets-store/api.md:33
+- `network_access` — references/secrets-store/api.md:65
+- `network_access` — references/secrets-store/api.md:71
+- `credential_access` — references/secrets-store/api.md:13
+- `credential_access` — references/secrets-store/api.md:18
+- `credential_access` — references/secrets-store/api.md:32
+- `credential_access` — references/secrets-store/api.md:54
+- `credential_access` — references/secrets-store/api.md:57
+- `credential_access` — references/secrets-store/api.md:60
+- `network_access` — references/workers-for-platforms/configuration.md:28
+- `network_access` — references/workers-for-platforms/configuration.md:131
+- `network_access` — references/workers-for-platforms/configuration.md:134
+- `network_access` — references/workers-for-platforms/configuration.md:137
+- `network_access` — references/workers-for-platforms/configuration.md:77
+- `network_access` — references/workers-for-platforms/configuration.md:86
+- `network_access` — references/workers-for-platforms/configuration.md:29
+- `network_access` — references/workers-for-platforms/gotchas.md:13
+- `network_access` — references/workers-for-platforms/gotchas.md:60
+- `network_access` — references/workers-for-platforms/gotchas.md:131
+- `network_access` — references/workers-for-platforms/gotchas.md:123
+- `network_access` — references/workers-for-platforms/patterns.md:12
+- `network_access` — references/workers-for-platforms/patterns.md:24
+- `network_access` — references/workers-for-platforms/patterns.md:64
+- `network_access` — references/workers-for-platforms/patterns.md:73
+- `network_access` — references/workers-for-platforms/patterns.md:148
+- `network_access` — references/workers-for-platforms/patterns.md:150
+- `network_access` — references/workers-for-platforms/README.md:18
+- `network_access` — references/workers-for-platforms/README.md:20
+- `network_access` — references/workers-for-platforms/README.md:20
+- `network_access` — references/workers-for-platforms/README.md:20
+- `network_access` — references/workers-for-platforms/README.md:88
+- `network_access` — references/workers-for-platforms/README.md:89
+- `network_access` — references/workers-for-platforms/api.md:6
+- `network_access` — references/workers-for-platforms/api.md:61
+- `network_access` — references/workers-for-platforms/api.md:77
+- `network_access` — references/workers-for-platforms/api.md:81
+- `network_access` — references/workers-for-platforms/api.md:84
+- `network_access` — references/workers-for-platforms/api.md:95
+- `network_access` — references/workers-for-platforms/api.md:109
+- `network_access` — references/workers-for-platforms/api.md:119
+- `network_access` — references/workers-for-platforms/api.md:49
+- `network_access` — references/workers-for-platforms/api.md:135
+- `network_access` — references/workers-for-platforms/api.md:138
+- `network_access` — references/workers-for-platforms/api.md:147
+- `network_access` — references/workers-for-platforms/api.md:155
+- `network_access` — references/workers-for-platforms/api.md:173
+- `network_access` — references/workers-for-platforms/api.md:186
+- `network_access` — references/workers-for-platforms/api.md:189
+- `network_access` — references/workers-for-platforms/api.md:7
+- `network_access` — references/workers-for-platforms/api.md:77
+- `credential_access` — references/workers-for-platforms/api.md:17
+- `credential_access` — references/workers-for-platforms/api.md:17
+- `network_access` — references/d1/configuration.md:39
+- `network_access` — references/d1/configuration.md:139
+- `credential_access` — references/d1/configuration.md:124
+- `credential_access` — references/d1/configuration.md:124
+- `credential_access` — references/d1/configuration.md:124
+- `credential_access` — references/d1/configuration.md:124
+- `credential_access` — references/d1/configuration.md:124
+- `credential_access` — references/d1/configuration.md:124
+- `network_access` — references/d1/patterns.md:86
+- `network_access` — references/d1/patterns.md:125
+- `network_access` — references/d1/api.md:135
+- `network_access` — references/d1/api.md:154
+- `network_access` — references/d1/api.md:181
+- `network_access` — references/d1/api.md:136
+- `network_access` — references/d1/api.md:155
+- `network_access` — references/pages/configuration.md:23
+- `network_access` — references/pages/configuration.md:26
+- `network_access` — references/pages/configuration.md:201
+- `credential_access` — references/pages/configuration.md:43
+- `credential_access` — references/pages/configuration.md:49
+- `credential_access` — references/pages/configuration.md:51
+- `credential_access` — references/pages/configuration.md:54
+- `network_access` — references/pages/gotchas.md:12
+- `network_access` — references/pages/gotchas.md:13
+- `network_access` — references/pages/gotchas.md:196
+- `network_access` — references/pages/gotchas.md:200
+- `network_access` — references/pages/gotchas.md:201
+- `network_access` — references/pages/gotchas.md:202
+- `credential_access` — references/pages/gotchas.md:81
+- `credential_access` — references/pages/gotchas.md:86
+- `credential_access` — references/pages/gotchas.md:90
+- `network_access` — references/pages/patterns.md:80
+- `network_access` — references/pages/patterns.md:80
+- `network_access` — references/pages/patterns.md:194
+- `credential_access` — references/pages/patterns.md:34
+- `credential_access` — references/pages/patterns.md:165
+- `credential_access` — references/pages/patterns.md:173
+- `credential_access` — references/pages/patterns.md:183
+- `network_access` — references/pages/README.md:61
+- `network_access` — references/pages/README.md:62
+- `network_access` — references/pages/README.md:63
+- `network_access` — references/pages/README.md:64
+- `network_access` — references/pages/api.md:136
+- `network_access` — references/pages/api.md:145
+- `credential_access` — references/pages/api.md:179
+- `credential_access` — references/pages/api.md:184
+- `credential_access` — references/pages/api.md:190
+- `network_access` — references/hyperdrive/gotchas.md:72
+- `network_access` — references/hyperdrive/gotchas.md:73
+- `network_access` — references/hyperdrive/gotchas.md:74
+- `network_access` — references/hyperdrive/gotchas.md:75
+- `network_access` — references/hyperdrive/gotchas.md:76
+- `network_access` — references/hyperdrive/gotchas.md:77
+- `credential_access` — references/hyperdrive/gotchas.md:20
+- `credential_access` — references/hyperdrive/gotchas.md:29
+- `credential_access` — references/hyperdrive/gotchas.md:30
+- `network_access` — references/hyperdrive/README.md:38
+- `network_access` — references/hyperdrive/api.md:31
+- `network_access` — references/turnstile/configuration.md:7
+- `network_access` — references/turnstile/configuration.md:13
+- `network_access` — references/turnstile/configuration.md:19
+- `network_access` — references/turnstile/configuration.md:30
+- `network_access` — references/turnstile/configuration.md:134
+- `network_access` — references/turnstile/configuration.md:135
+- `network_access` — references/turnstile/configuration.md:142
+- `network_access` — references/turnstile/configuration.md:143
+- `network_access` — references/turnstile/gotchas.md:13
+- `network_access` — references/turnstile/gotchas.md:13
+- `network_access` — references/turnstile/gotchas.md:51
+- `network_access` — references/turnstile/gotchas.md:126
+- `network_access` — references/turnstile/gotchas.md:127
+- `network_access` — references/turnstile/gotchas.md:216
+- `network_access` — references/turnstile/gotchas.md:217
+- `network_access` — references/turnstile/gotchas.md:218
+- `credential_access` — references/turnstile/gotchas.md:197
+- `credential_access` — references/turnstile/gotchas.md:198
+- `credential_access` — references/turnstile/gotchas.md:211
+- `credential_access` — references/turnstile/gotchas.md:197
+- `credential_access` — references/turnstile/gotchas.md:198
+- `credential_access` — references/turnstile/gotchas.md:205
+- `credential_access` — references/turnstile/gotchas.md:207
+- `credential_access` — references/turnstile/gotchas.md:211
+- `network_access` — references/turnstile/patterns.md:38
+- `network_access` — references/turnstile/patterns.md:63
+- `network_access` — references/turnstile/patterns.md:95
+- `network_access` — references/turnstile/patterns.md:109
+- `network_access` — references/turnstile/patterns.md:11
+- `network_access` — references/turnstile/patterns.md:26
+- `network_access` — references/turnstile/patterns.md:109
+- `network_access` — references/turnstile/patterns.md:151
+- `credential_access` — references/turnstile/patterns.md:186
+- `credential_access` — references/turnstile/patterns.md:190
+- `credential_access` — references/turnstile/patterns.md:191
+- `credential_access` — references/turnstile/patterns.md:134
+- `credential_access` — references/turnstile/patterns.md:137
+- `credential_access` — references/turnstile/patterns.md:186
+- `credential_access` — references/turnstile/patterns.md:190
+- `credential_access` — references/turnstile/patterns.md:191
+- `credential_access` — references/turnstile/patterns.md:190
+- `network_access` — references/turnstile/README.md:47
+- `network_access` — references/turnstile/README.md:51
+- `network_access` — references/turnstile/README.md:22
+- `network_access` — references/turnstile/README.md:34
+- `network_access` — references/turnstile/README.md:51
+- `network_access` — references/turnstile/README.md:98
+- `network_access` — references/turnstile/README.md:99
+- `network_access` — references/turnstile/api.md:124
+- `network_access` — references/turnstile/api.md:105
+- `network_access` — references/turnstile/api.md:124
+- `network_access` — references/turnstile/api.md:228
+- `network_access` — references/turnstile/api.md:231
+- `network_access` — references/turnstile/api.md:234
+- `network_access` — references/cron-triggers/configuration.md:114
+- `network_access` — references/cron-triggers/configuration.md:120
+- `network_access` — references/cron-triggers/configuration.md:128
+- `network_access` — references/cron-triggers/configuration.md:114
+- `network_access` — references/cron-triggers/configuration.md:120
+- `network_access` — references/cron-triggers/configuration.md:128
+- `network_access` — references/cron-triggers/configuration.md:168
+- `network_access` — references/cron-triggers/gotchas.md:58
+- `network_access` — references/cron-triggers/gotchas.md:61
+- `network_access` — references/cron-triggers/gotchas.md:124
+- `network_access` — references/cron-triggers/gotchas.md:146
+- `network_access` — references/cron-triggers/gotchas.md:58
+- `network_access` — references/cron-triggers/gotchas.md:61
+- `network_access` — references/cron-triggers/gotchas.md:194
+- `network_access` — references/cron-triggers/gotchas.md:195
+- `network_access` — references/cron-triggers/gotchas.md:196
+- `network_access` — references/cron-triggers/gotchas.md:197
+- `network_access` — references/cron-triggers/gotchas.md:198
+- `network_access` — references/cron-triggers/gotchas.md:199
+- `credential_access` — references/cron-triggers/gotchas.md:141
+- `network_access` — references/cron-triggers/patterns.md:156
+- `network_access` — references/cron-triggers/patterns.md:159
+- `network_access` — references/cron-triggers/patterns.md:8
+- `network_access` — references/cron-triggers/patterns.md:37
+- `network_access` — references/cron-triggers/patterns.md:51
+- `network_access` — references/cron-triggers/patterns.md:59
+- `network_access` — references/cron-triggers/patterns.md:72
+- `network_access` — references/cron-triggers/patterns.md:108
+- `network_access` — references/cron-triggers/patterns.md:8
+- `network_access` — references/cron-triggers/patterns.md:37
+- `network_access` — references/cron-triggers/patterns.md:37
+- `network_access` — references/cron-triggers/patterns.md:47
+- `network_access` — references/cron-triggers/patterns.md:47
+- `network_access` — references/cron-triggers/patterns.md:72
+- `network_access` — references/cron-triggers/patterns.md:156
+- `network_access` — references/cron-triggers/patterns.md:159
+- `credential_access` — references/cron-triggers/patterns.md:8
+- `credential_access` — references/cron-triggers/patterns.md:72
+- `network_access` — references/cron-triggers/README.md:71
+- `network_access` — references/cron-triggers/README.md:71
+- `network_access` — references/cron-triggers/api.md:124
+- `network_access` — references/cron-triggers/api.md:127
+- `network_access` — references/cron-triggers/api.md:124
+- `network_access` — references/cron-triggers/api.md:127
+- `network_access` — references/snippets/configuration.md:25
+- `network_access` — references/snippets/configuration.md:32
+- `network_access` — references/snippets/configuration.md:48
+- `network_access` — references/snippets/configuration.md:52
+- `network_access` — references/snippets/configuration.md:25
+- `network_access` — references/snippets/configuration.md:32
+- `network_access` — references/snippets/configuration.md:48
+- `network_access` — references/snippets/configuration.md:52
+- `network_access` — references/snippets/configuration.md:218
+- `network_access` — references/snippets/gotchas.md:59
+- `network_access` — references/snippets/gotchas.md:8
+- `network_access` — references/snippets/gotchas.md:16
+- `network_access` — references/snippets/gotchas.md:19
+- `network_access` — references/snippets/gotchas.md:19
+- `network_access` — references/snippets/gotchas.md:21
+- `network_access` — references/snippets/gotchas.md:64
+- `network_access` — references/snippets/gotchas.md:83
+- `network_access` — references/snippets/gotchas.md:59
+- `obfuscation` — references/snippets/gotchas.md:64
+- `network_access` — references/snippets/patterns.md:7
+- `network_access` — references/snippets/patterns.md:8
+- `network_access` — references/snippets/patterns.md:24
+- `network_access` — references/snippets/patterns.md:31
+- `network_access` — references/snippets/patterns.md:40
+- `network_access` — references/snippets/patterns.md:46
+- `network_access` — references/snippets/patterns.md:62
+- `network_access` — references/snippets/patterns.md:65
+- `network_access` — references/snippets/patterns.md:76
+- `network_access` — references/snippets/patterns.md:81
+- `network_access` — references/snippets/patterns.md:83
+- `network_access` — references/snippets/patterns.md:92
+- `network_access` — references/snippets/patterns.md:103
+- `network_access` — references/snippets/patterns.md:115
+- `network_access` — references/snippets/patterns.md:116
+- `network_access` — references/snippets/README.md:54
+- `network_access` — references/snippets/README.md:55
+- `network_access` — references/snippets/README.md:68
+- `network_access` — references/snippets/api.md:172
+- `network_access` — references/snippets/api.md:187
+- `network_access` — references/snippets/api.md:192
+- `network_access` — references/snippets/api.md:194
+- `network_access` — references/snippets/api.md:92
+- `network_access` — references/r2-sql/configuration.md:91
+- `network_access` — references/r2-sql/configuration.md:29
+- `network_access` — references/r2-sql/configuration.md:91
+- `credential_access` — references/r2-sql/configuration.md:78
+- `credential_access` — references/r2-sql/configuration.md:84
+- `network_access` — references/r2-sql/gotchas.md:14
+- `network_access` — references/r2-sql/gotchas.md:212
+- `credential_access` — references/r2-sql/gotchas.md:100
+- `credential_access` — references/r2-sql/gotchas.md:101
+- `network_access` — references/r2-sql/patterns.md:31
+- `network_access` — references/r2-sql/patterns.md:63
+- `network_access` — references/r2-sql/patterns.md:31
+- `network_access` — references/r2-sql/patterns.md:63
+- `network_access` — references/r2-sql/patterns.md:91
+- `network_access` — references/r2-sql/patterns.md:179
+- `network_access` — references/r2-sql/README.md:127
+- `network_access` — references/r2-sql/README.md:128
+- `network_access` — references/images/configuration.md:100
+- `network_access` — references/images/configuration.md:161
+- `network_access` — references/images/configuration.md:168
+- `network_access` — references/images/configuration.md:179
+- `network_access` — references/images/configuration.md:26
+- `network_access` — references/images/configuration.md:52
+- `network_access` — references/images/configuration.md:53
+- `network_access` — references/images/configuration.md:83
+- `network_access` — references/images/configuration.md:101
+- `network_access` — references/images/configuration.md:118
+- `network_access` — references/images/configuration.md:162
+- `network_access` — references/images/configuration.md:170
+- `network_access` — references/images/configuration.md:180
+- `network_access` — references/images/configuration.md:198
+- `credential_access` — references/images/configuration.md:46
+- `credential_access` — references/images/configuration.md:47
+- `credential_access` — references/images/configuration.md:46
+- `credential_access` — references/images/configuration.md:47
+- `credential_access` — references/images/configuration.md:169
+- `network_access` — references/images/gotchas.md:94
+- `network_access` — references/images/gotchas.md:95
+- `network_access` — references/images/gotchas.md:95
+- `network_access` — references/images/patterns.md:23
+- `network_access` — references/images/patterns.md:34
+- `network_access` — references/images/patterns.md:43
+- `network_access` — references/images/patterns.md:50
+- `network_access` — references/images/patterns.md:64
+- `network_access` — references/images/patterns.md:86
+- `network_access` — references/images/patterns.md:15
+- `network_access` — references/images/patterns.md:35
+- `network_access` — references/images/patterns.md:44
+- `network_access` — references/images/README.md:60
+- `network_access` — references/images/README.md:61
+- `network_access` — references/images/api.md:53
+- `network_access` — references/images/api.md:77
+- `network_access` — references/images/api.md:86
+- `network_access` — references/images/api.md:53
+- `network_access` — references/images/api.md:68
+- `network_access` — references/images/api.md:78
+- `network_access` — references/queues/patterns.md:8
+- `network_access` — references/queues/patterns.md:41
+- `network_access` — references/queues/patterns.md:124
+- `network_access` — references/queues/patterns.md:210
+- `network_access` — references/queues/patterns.md:210
+- `network_access` — references/queues/api.md:158
+- `network_access` — references/queues/api.md:170
+- `network_access` — references/queues/api.md:159
+- `network_access` — references/queues/api.md:171
+- `network_access` — references/workers-ai/configuration.md:28
+- `network_access` — references/workers-ai/configuration.md:46
+- `network_access` — references/workers-ai/configuration.md:47
+- `network_access` — references/workers-ai/configuration.md:65
+- `network_access` — references/workers-ai/gotchas.md:11
+- `network_access` — references/workers-ai/gotchas.md:111
+- `network_access` — references/workers-ai/README.md:93
+- `network_access` — references/workers-ai/README.md:25
+- `network_access` — references/workers-ai/README.md:93
+- `network_access` — references/workers-ai/README.md:107
+- `network_access` — references/workers-ai/README.md:172
+- `network_access` — references/workers-ai/api.md:94
+- `network_access` — references/workers-ai/api.md:94
+- `credential_access` — references/argo-smart-routing/configuration.md:137
+- `credential_access` — references/argo-smart-routing/configuration.md:114
+- `credential_access` — references/argo-smart-routing/configuration.md:137
+- `network_access` — references/argo-smart-routing/gotchas.md:107
+- `network_access` — references/argo-smart-routing/gotchas.md:108
+- `network_access` — references/argo-smart-routing/gotchas.md:109
+- `network_access` — references/argo-smart-routing/gotchas.md:110
+- `network_access` — references/argo-smart-routing/gotchas.md:111
+- `network_access` — references/argo-smart-routing/README.md:11
+- `network_access` — references/argo-smart-routing/README.md:13
+- `network_access` — references/argo-smart-routing/README.md:13
+- `network_access` — references/argo-smart-routing/README.md:87
+- `network_access` — references/argo-smart-routing/README.md:88
+- `network_access` — references/argo-smart-routing/README.md:89
+- `network_access` — references/argo-smart-routing/README.md:90
+- `credential_access` — references/argo-smart-routing/README.md:23
+- `credential_access` — references/argo-smart-routing/README.md:23
+- `network_access` — references/argo-smart-routing/api.md:25
+- `network_access` — references/argo-smart-routing/api.md:27
+- `network_access` — references/argo-smart-routing/api.md:82
+- `network_access` — references/argo-smart-routing/api.md:84
+- `network_access` — references/argo-smart-routing/api.md:7
+- `network_access` — references/argo-smart-routing/api.md:27
+- `network_access` — references/argo-smart-routing/api.md:84
+- `credential_access` — references/argo-smart-routing/api.md:63
+- `credential_access` — references/argo-smart-routing/api.md:52
+- `credential_access` — references/argo-smart-routing/api.md:52
+- `network_access` — references/ai-search/README.md:49
+- `network_access` — references/ai-search/README.md:136
+- `network_access` — references/ai-search/README.md:137
+- `network_access` — references/ai-search/README.md:138
+- `network_access` — references/ai-search/api.md:82
+- `network_access` — references/ai-search/api.md:82
+- `network_access` — references/stream/configuration.md:59
+- `network_access` — references/stream/configuration.md:76
+- `network_access` — references/stream/configuration.md:60
+- `network_access` — references/stream/configuration.md:77
+- `network_access` — references/stream/configuration.md:80
+- `network_access` — references/stream/configuration.md:98
+- `network_access` — references/stream/gotchas.md:102
+- `network_access` — references/stream/api-live.md:27
+- `network_access` — references/stream/api-live.md:52
+- `network_access` — references/stream/api-live.md:74
+- `network_access` — references/stream/api-live.md:126
+- `network_access` — references/stream/api-live.md:152
+- `network_access` — references/stream/api-live.md:28
+- `network_access` — references/stream/api-live.md:53
+- `network_access` — references/stream/api-live.md:75
+- `network_access` — references/stream/api-live.md:127
+- `network_access` — references/stream/api-live.md:153
+- `network_access` — references/stream/api-live.md:181
+- `network_access` — references/stream/patterns.md:24
+- `network_access` — references/stream/patterns.md:48
+- `network_access` — references/stream/patterns.md:111
+- `obfuscation` — references/stream/patterns.md:144
+- `network_access` — references/stream/README.md:48
+- `network_access` — references/stream/README.md:68
+- `network_access` — references/stream/README.md:49
+- `network_access` — references/stream/README.md:52
+- `network_access` — references/stream/README.md:58
+- `network_access` — references/stream/README.md:69
+- `network_access` — references/stream/README.md:88
+- `network_access` — references/stream/README.md:89
+- `network_access` — references/stream/README.md:90
+- `network_access` — references/stream/api.md:29
+- `network_access` — references/stream/api.md:85
+- `network_access` — references/stream/api.md:113
+- `network_access` — references/stream/api.md:129
+- `network_access` — references/stream/api.md:147
+- `network_access` — references/stream/api.md:38
+- `network_access` — references/stream/api.md:50
+- `network_access` — references/stream/api.md:61
+- `network_access` — references/stream/api.md:64
+- `network_access` — references/stream/api.md:71
+- `network_access` — references/stream/api.md:74
+- `network_access` — references/stream/api.md:77
+- `network_access` — references/stream/api.md:86
+- `network_access` — references/stream/api.md:114
+- `network_access` — references/stream/api.md:130
+- `network_access` — references/stream/api.md:148
+- `network_access` — references/realtime-sfu/configuration.md:109
+- `network_access` — references/realtime-sfu/configuration.md:5
+- `credential_access` — references/realtime-sfu/configuration.md:9
+- `credential_access` — references/realtime-sfu/configuration.md:131
+- `network_access` — references/realtime-sfu/gotchas.md:45
+- `network_access` — references/realtime-sfu/gotchas.md:85
+- `network_access` — references/realtime-sfu/patterns.md:75
+- `network_access` — references/realtime-sfu/patterns.md:137
+- `credential_access` — references/realtime-sfu/patterns.md:75
+- `credential_access` — references/realtime-sfu/patterns.md:76
+- `credential_access` — references/realtime-sfu/patterns.md:75
+- `credential_access` — references/realtime-sfu/patterns.md:76
+- `network_access` — references/realtime-sfu/README.md:55
+- `network_access` — references/realtime-sfu/README.md:61
+- `network_access` — references/realtime-sfu/README.md:62
+- `network_access` — references/realtime-sfu/README.md:63
+- `network_access` — references/realtime-sfu/README.md:64
+- `network_access` — references/realtime-sfu/README.md:65
+- `network_access` — references/realtime-sfu/api.md:6
+- `network_access` — references/realtime-sfu/api.md:104
+- `network_access` — references/realtime-sfu/api.md:120
+- `network_access` — references/realtime-sfu/api.md:136
+- `network_access` — references/realtime-sfu/api.md:149
+- `network_access` — references/realtime-sfu/api.md:6
+- `network_access` — references/smart-placement/configuration.md:87
+- `network_access` — references/smart-placement/configuration.md:145
+- `credential_access` — references/smart-placement/configuration.md:98
+- `network_access` — references/smart-placement/gotchas.md:133
+- `credential_access` — references/smart-placement/gotchas.md:127
+- `network_access` — references/smart-placement/patterns.md:7
+- `network_access` — references/smart-placement/patterns.md:31
+- `network_access` — references/smart-placement/patterns.md:33
+- `network_access` — references/smart-placement/patterns.md:45
+- `network_access` — references/smart-placement/patterns.md:67
+- `network_access` — references/smart-placement/patterns.md:79
+- `network_access` — references/smart-placement/patterns.md:84
+- `network_access` — references/smart-placement/patterns.md:85
+- `network_access` — references/smart-placement/patterns.md:101
+- `network_access` — references/smart-placement/patterns.md:105
+- `network_access` — references/smart-placement/patterns.md:114
+- `network_access` — references/smart-placement/patterns.md:132
+- `network_access` — references/smart-placement/patterns.md:142
+- `network_access` — references/smart-placement/patterns.md:143
+- `network_access` — references/smart-placement/patterns.md:80
+- `network_access` — references/smart-placement/patterns.md:142
+- `network_access` — references/smart-placement/patterns.md:143
+- `credential_access` — references/smart-placement/patterns.md:61
+- `credential_access` — references/smart-placement/patterns.md:81
+- `network_access` — references/smart-placement/README.md:103
+- `network_access` — references/smart-placement/README.md:104
+- `network_access` — references/smart-placement/api.md:8
+- `network_access` — references/smart-placement/api.md:131
+- `network_access` — references/smart-placement/api.md:69
+- `network_access` — references/smart-placement/api.md:177
+- `network_access` — references/smart-placement/api.md:179
+- `network_access` — references/smart-placement/api.md:8
+- `network_access` — references/smart-placement/api.md:132
+- `network_access` — references/web-analytics/configuration.md:20
+- `network_access` — references/web-analytics/configuration.md:20
+- `network_access` — references/web-analytics/configuration.md:28
+- `credential_access` — references/web-analytics/configuration.md:52
+- `credential_access` — references/web-analytics/configuration.md:52
+- `network_access` — references/web-analytics/gotchas.md:18
+- `network_access` — references/web-analytics/gotchas.md:18
+- `network_access` — references/web-analytics/integration.md:8
+- `network_access` — references/web-analytics/integration.md:45
+- `network_access` — references/web-analytics/integration.md:46
+- `network_access` — references/web-analytics/integration.md:55
+- `network_access` — references/web-analytics/patterns.md:48
+- `credential_access` — references/web-analytics/patterns.md:69
+- `credential_access` — references/web-analytics/patterns.md:69
+- `credential_access` — references/web-analytics/patterns.md:70
+- `credential_access` — references/web-analytics/patterns.md:71
+- `network_access` — references/web-analytics/README.md:69
+- `network_access` — references/web-analytics/README.md:69
+- `network_access` — references/web-analytics/README.md:139
+- `network_access` — references/web-analytics/README.md:140
+- `shell_execution` — references/do-storage/configuration.md:44
+- `network_access` — references/do-storage/configuration.md:60
+- `network_access` — references/do-storage/configuration.md:69
+- `shell_execution` — references/do-storage/gotchas.md:107
+- `shell_execution` — references/do-storage/gotchas.md:108
+- `shell_execution` — references/do-storage/gotchas.md:111
+- `shell_execution` — references/do-storage/gotchas.md:112
+- `network_access` — references/do-storage/gotchas.md:43
+- `network_access` — references/do-storage/gotchas.md:46
+- `network_access` — references/do-storage/gotchas.md:49
+- `network_access` — references/do-storage/gotchas.md:61
+- `network_access` — references/do-storage/gotchas.md:49
+- `network_access` — references/do-storage/gotchas.md:61
+- `shell_execution` — references/do-storage/patterns.md:12
+- `shell_execution` — references/do-storage/patterns.md:15
+- `shell_execution` — references/do-storage/patterns.md:16
+- `shell_execution` — references/do-storage/patterns.md:19
+- `shell_execution` — references/do-storage/patterns.md:20
+- `shell_execution` — references/do-storage/patterns.md:55
+- `shell_execution` — references/do-storage/patterns.md:56
+- `shell_execution` — references/do-storage/patterns.md:58
+- `shell_execution` — references/do-storage/patterns.md:76
+- `shell_execution` — references/do-storage/patterns.md:130
+- `shell_execution` — references/do-storage/patterns.md:136
+- `shell_execution` — references/do-storage/patterns.md:143
+- `shell_execution` — references/do-storage/patterns.md:144
+- `shell_execution` — references/do-storage/patterns.md:167
+- `shell_execution` — references/do-storage/patterns.md:169
+- `shell_execution` — references/do-storage/patterns.md:171
+- `credential_access` — references/do-storage/patterns.md:125
+- `credential_access` — references/do-storage/patterns.md:126
+- `shell_execution` — references/do-storage/README.md:27
+- `shell_execution` — references/do-storage/README.md:31
+- `shell_execution` — references/do-storage/api.md:6
+- `shell_execution` — references/do-storage/api.md:65
+- `shell_execution` — references/do-storage/api.md:66
+- `shell_execution` — references/do-storage/testing.md:57
+- `shell_execution` — references/do-storage/testing.md:84
+- `network_access` — references/kv/configuration.md:45
+- `credential_access` — references/kv/configuration.md:108
+- `credential_access` — references/kv/configuration.md:109
+- `credential_access` — references/kv/configuration.md:108
+- `credential_access` — references/kv/configuration.md:109
+- `network_access` — references/kv/patterns.md:26
+- `network_access` — references/kv/patterns.md:51
+- `network_access` — references/kv/patterns.md:26
+- `network_access` — references/kv/patterns.md:51
+- `network_access` — references/api/configuration.md:49
+- `network_access` — references/api/configuration.md:66
+- `network_access` — references/api/configuration.md:80
+- `credential_access` — references/api/configuration.md:37
+- `credential_access` — references/api/configuration.md:63
+- `credential_access` — references/api/configuration.md:28
+- `credential_access` — references/api/configuration.md:46
+- `credential_access` — references/api/configuration.md:13
+- `credential_access` — references/api/configuration.md:15
+- `credential_access` — references/api/configuration.md:18
+- `credential_access` — references/api/configuration.md:28
+- `credential_access` — references/api/configuration.md:46
+- `credential_access` — references/api/gotchas.md:132
+- `credential_access` — references/api/gotchas.md:211
+- `credential_access` — references/api/gotchas.md:132
+- `credential_access` — references/api/gotchas.md:211
+- `network_access` — references/api/README.md:11
+- `network_access` — references/api/README.md:13
+- `network_access` — references/api/README.md:63
+- `network_access` — references/api/api.md:49
+- `network_access` — references/api/api.md:58
+- `network_access` — references/api/api.md:49
+- `network_access` — references/api/api.md:58
+- `credential_access` — references/api/api.md:20
+- `credential_access` — references/api/api.md:24
+- `credential_access` — references/api/api.md:11
+- `credential_access` — references/api/api.md:11
+- `network_access` — references/api-shield/configuration.md:93
+- `network_access` — references/api-shield/configuration.md:93
+- `network_access` — references/api-shield/gotchas.md:125
+- `network_access` — references/api-shield/README.md:42
+- `network_access` — references/api-shield/README.md:43
+- `network_access` — references/api-shield/README.md:44
+- `network_access` — references/api-shield/api.md:45
+- `network_access` — references/api-shield/api.md:59
+- `network_access` — references/api-shield/api.md:73
+- `network_access` — references/api-shield/api.md:74
+- `network_access` — references/api-shield/api.md:73
+- `network_access` — references/api-shield/api.md:74
+- `network_access` — references/api-shield/api.md:141
+- `network_access` — references/waf/configuration.md:197
+- `network_access` — references/waf/configuration.md:198
+- `network_access` — references/waf/configuration.md:5
+- `network_access` — references/waf/configuration.md:198
+- `credential_access` — references/waf/configuration.md:26
+- `credential_access` — references/waf/configuration.md:30
+- `credential_access` — references/waf/configuration.md:42
+- `credential_access` — references/waf/configuration.md:53
+- `credential_access` — references/waf/configuration.md:26
+- `credential_access` — references/waf/configuration.md:30
+- `credential_access` — references/waf/configuration.md:42
+- `credential_access` — references/waf/configuration.md:53
+- `credential_access` — references/waf/patterns.md:163
+- `credential_access` — references/waf/patterns.md:164
+- `credential_access` — references/waf/patterns.md:163
+- `credential_access` — references/waf/patterns.md:164
+- `credential_access` — references/waf/patterns.md:17
+- `network_access` — references/waf/README.md:111
+- `network_access` — references/waf/README.md:112
+- `network_access` — references/waf/README.md:113
+- `credential_access` — references/waf/README.md:27
+- `credential_access` — references/waf/README.md:27
+- `credential_access` — references/waf/README.md:12
+- `credential_access` — references/waf/README.md:92
+- `credential_access` — references/waf/api.md:9
+- `credential_access` — references/waf/api.md:9
+- `network_access` — references/ai-gateway/configuration.md:10
+- `network_access` — references/ai-gateway/configuration.md:73
+- `network_access` — references/ai-gateway/configuration.md:77
+- `network_access` — references/ai-gateway/configuration.md:80
+- `network_access` — references/ai-gateway/configuration.md:84
+- `network_access` — references/ai-gateway/configuration.md:10
+- `network_access` — references/ai-gateway/configuration.md:37
+- `network_access` — references/ai-gateway/configuration.md:47
+- `network_access` — references/ai-gateway/configuration.md:59
+- `network_access` — references/ai-gateway/configuration.md:73
+- `network_access` — references/ai-gateway/configuration.md:100
+- `credential_access` — references/ai-gateway/configuration.md:99
+- `credential_access` — references/ai-gateway/configuration.md:100
+- `credential_access` — references/ai-gateway/configuration.md:100
+- `credential_access` — references/ai-gateway/configuration.md:101
+- `credential_access` — references/ai-gateway/configuration.md:58
+- `credential_access` — references/ai-gateway/configuration.md:58
+- `credential_access` — references/ai-gateway/configuration.md:99
+- `network_access` — references/ai-gateway/troubleshooting.md:69
+- `network_access` — references/ai-gateway/troubleshooting.md:15
+- `network_access` — references/ai-gateway/troubleshooting.md:69
+- `network_access` — references/ai-gateway/README.md:89
+- `network_access` — references/ai-gateway/README.md:70
+- `network_access` — references/ai-gateway/README.md:149
+- `network_access` — references/ai-gateway/README.md:150
+- `network_access` — references/ai-gateway/README.md:172
+- `network_access` — references/ai-gateway/README.md:173
+- `network_access` — references/ai-gateway/README.md:174
+- `network_access` — references/ai-gateway/README.md:175
+- `credential_access` — references/ai-gateway/README.md:35
+- `credential_access` — references/ai-gateway/README.md:36
+- `credential_access` — references/ai-gateway/README.md:40
+- `credential_access` — references/ai-gateway/README.md:69
+- `credential_access` — references/ai-gateway/README.md:35
+- `credential_access` — references/ai-gateway/README.md:36
+- `credential_access` — references/ai-gateway/README.md:40
+- `credential_access` — references/ai-gateway/README.md:69
+- `network_access` — references/ai-gateway/sdk-integration.md:97
+- `network_access` — references/ai-gateway/sdk-integration.md:100
+- `network_access` — references/ai-gateway/sdk-integration.md:51
+- `network_access` — references/ai-gateway/sdk-integration.md:64
+- `network_access` — references/ai-gateway/sdk-integration.md:92
+- `network_access` — references/ai-gateway/sdk-integration.md:100
+- `credential_access` — references/ai-gateway/sdk-integration.md:11
+- `credential_access` — references/ai-gateway/sdk-integration.md:12
+- `credential_access` — references/ai-gateway/sdk-integration.md:13
+- `credential_access` — references/ai-gateway/sdk-integration.md:16
+- `credential_access` — references/ai-gateway/sdk-integration.md:50
+- `credential_access` — references/ai-gateway/sdk-integration.md:63
+- `credential_access` — references/ai-gateway/sdk-integration.md:11
+- `credential_access` — references/ai-gateway/sdk-integration.md:12
+- `credential_access` — references/ai-gateway/sdk-integration.md:13
+- `credential_access` — references/ai-gateway/sdk-integration.md:16
+- `credential_access` — references/ai-gateway/sdk-integration.md:50
+- `credential_access` — references/ai-gateway/sdk-integration.md:63
+- `network_access` — references/workers-playground/configuration.md:36
+- `network_access` — references/workers-playground/configuration.md:60
+- `network_access` — references/workers-playground/configuration.md:63
+- `network_access` — references/workers-playground/configuration.md:5
+- `network_access` — references/workers-playground/configuration.md:54
+- `network_access` — references/workers-playground/configuration.md:108
+- `network_access` — references/workers-playground/gotchas.md:19
+- `network_access` — references/workers-playground/gotchas.md:24
+- `network_access` — references/workers-playground/gotchas.md:33
+- `network_access` — references/workers-playground/gotchas.md:44
+- `network_access` — references/workers-playground/gotchas.md:33
+- `network_access` — references/workers-playground/gotchas.md:44
+- `network_access` — references/workers-playground/patterns.md:7
+- `network_access` — references/workers-playground/patterns.md:27
+- `network_access` — references/workers-playground/patterns.md:38
+- `network_access` — references/workers-playground/patterns.md:41
+- `network_access` — references/workers-playground/patterns.md:52
+- `network_access` — references/workers-playground/patterns.md:62
+- `network_access` — references/workers-playground/patterns.md:74
+- `network_access` — references/workers-playground/patterns.md:75
+- `network_access` — references/workers-playground/patterns.md:79
+- `network_access` — references/workers-playground/patterns.md:102
+- `network_access` — references/workers-playground/patterns.md:120
+- `network_access` — references/workers-playground/patterns.md:122
+- `network_access` — references/workers-playground/patterns.md:62
+- `network_access` — references/workers-playground/patterns.md:79
+- `network_access` — references/workers-playground/patterns.md:90
+- `network_access` — references/workers-playground/patterns.md:122
+- `network_access` — references/workers-playground/README.md:27
+- `network_access` — references/workers-playground/README.md:37
+- `network_access` — references/workers-playground/README.md:48
+- `network_access` — references/workers-playground/README.md:49
+- `network_access` — references/workers-playground/README.md:63
+- `network_access` — references/workers-playground/README.md:66
+- `network_access` — references/workers-playground/README.md:7
+- `network_access` — references/workers-playground/README.md:49
+- `network_access` — references/workers-playground/README.md:60
+- `network_access` — references/workers-playground/README.md:124
+- `network_access` — references/workers-playground/README.md:125
+- `network_access` — references/workers-playground/README.md:126
+- `network_access` — references/workers-playground/README.md:127
+- `network_access` — references/workers-playground/api.md:7
+- `network_access` — references/workers-playground/api.md:53
+- `network_access` — references/workers-playground/api.md:60
+- `network_access` — references/workers-playground/api.md:64
+- `network_access` — references/workers-playground/api.md:79
+- `network_access` — references/workers-playground/api.md:53
+- `network_access` — references/workers-playground/api.md:60
+- `network_access` — references/terraform/configuration.md:143
+- `credential_access` — references/terraform/configuration.md:67
+- `network_access` — references/terraform/gotchas.md:150
+- `credential_access` — references/terraform/gotchas.md:22
+- `credential_access` — references/terraform/gotchas.md:22
+- `network_access` — references/terraform/patterns.md:47
+- `credential_access` — references/terraform/patterns.md:71
+- `credential_access` — references/terraform/patterns.md:71
+- `credential_access` — references/terraform/README.md:49
+- `network_access` — references/terraform/api.md:158
+- `network_access` — references/analytics-engine/configuration.md:39
+- `credential_access` — references/analytics-engine/gotchas.md:39
+- `credential_access` — references/analytics-engine/patterns.md:7
+- `credential_access` — references/analytics-engine/patterns.md:23
+- `network_access` — references/analytics-engine/README.md:92
+- `credential_access` — references/analytics-engine/README.md:23
+- `network_access` — references/analytics-engine/api.md:56
+- `network_access` — references/analytics-engine/api.md:31
+- `network_access` — references/analytics-engine/api.md:56
+- `network_access` — references/workflows/configuration.md:42
+- `network_access` — references/workflows/configuration.md:42
+- `credential_access` — references/workflows/configuration.md:51
+- `credential_access` — references/workflows/configuration.md:52
+- `credential_access` — references/workflows/configuration.md:59
+- `credential_access` — references/workflows/configuration.md:74
+- `credential_access` — references/workflows/configuration.md:79
+- `credential_access` — references/workflows/configuration.md:115
+- `credential_access` — references/workflows/configuration.md:128
+- `credential_access` — references/workflows/configuration.md:129
+- `credential_access` — references/workflows/configuration.md:130
+- `credential_access` — references/workflows/configuration.md:131
+- `network_access` — references/workflows/gotchas.md:89
+- `network_access` — references/workflows/gotchas.md:90
+- `network_access` — references/workflows/gotchas.md:91
+- `network_access` — references/workflows/gotchas.md:92
+- `network_access` — references/workflows/gotchas.md:93
+- `network_access` — references/workflows/gotchas.md:94
+- `network_access` — references/workflows/gotchas.md:95
+- `network_access` — references/workflows/patterns.md:40
+- `credential_access` — references/workflows/patterns.md:8
+- `credential_access` — references/workflows/patterns.md:10
+- `credential_access` — references/workflows/patterns.md:13
+- `credential_access` — references/workflows/patterns.md:26
+- `credential_access` — references/workflows/patterns.md:49
+- `credential_access` — references/workflows/patterns.md:53
+- `credential_access` — references/workflows/patterns.md:55
+- `credential_access` — references/workflows/patterns.md:56
+- `credential_access` — references/workflows/patterns.md:69
+- `credential_access` — references/workflows/patterns.md:75
+- `credential_access` — references/workflows/patterns.md:145
+- `credential_access` — references/workflows/patterns.md:146
+- `credential_access` — references/workflows/patterns.md:151
+- `credential_access` — references/workflows/README.md:33
+- `network_access` — references/workflows/api.md:176
+- `network_access` — references/workflows/api.md:179
+- `network_access` — references/workflows/api.md:182
+- `network_access` — references/workflows/api.md:53
+- `network_access` — references/workflows/api.md:77
+- `network_access` — references/workflows/api.md:88
+- `network_access` — references/workflows/api.md:90
+- `network_access` — references/workflows/api.md:77
+- `network_access` — references/workflows/api.md:88
+- `network_access` — references/workflows/api.md:90
+- `network_access` — references/workflows/api.md:176
+- `network_access` — references/workflows/api.md:179
+- `network_access` — references/workflows/api.md:182
+- `credential_access` — references/workflows/api.md:64
+- `credential_access` — references/workflows/api.md:78
+- `network_access` — references/containers/configuration.md:105
+- `network_access` — references/containers/configuration.md:130
+- `network_access` — references/containers/gotchas.md:3
+- `network_access` — references/containers/gotchas.md:9
+- `network_access` — references/containers/gotchas.md:16
+- `network_access` — references/containers/gotchas.md:30
+- `network_access` — references/containers/gotchas.md:34
+- `network_access` — references/containers/gotchas.md:102
+- `network_access` — references/containers/gotchas.md:162
+- `network_access` — references/containers/patterns.md:12
+- `network_access` — references/containers/patterns.md:16
+- `network_access` — references/containers/patterns.md:27
+- `network_access` — references/containers/patterns.md:30
+- `network_access` — references/containers/patterns.md:41
+- `network_access` — references/containers/patterns.md:44
+- `network_access` — references/containers/patterns.md:55
+- `network_access` — references/containers/patterns.md:61
+- `network_access` — references/containers/patterns.md:62
+- `network_access` — references/containers/patterns.md:69
+- `network_access` — references/containers/patterns.md:97
+- `network_access` — references/containers/patterns.md:104
+- `network_access` — references/containers/patterns.md:139
+- `network_access` — references/containers/patterns.md:143
+- `network_access` — references/containers/patterns.md:164
+- `network_access` — references/containers/patterns.md:187
+- `credential_access` — references/containers/patterns.md:157
+- `network_access` — references/containers/README.md:32
+- `network_access` — references/containers/README.md:35
+- `network_access` — references/containers/README.md:85
+- `network_access` — references/containers/api.md:68
+- `network_access` — references/containers/api.md:72
+- `network_access` — references/containers/api.md:73
+- `network_access` — references/containers/api.md:88
+- `network_access` — references/containers/api.md:104
+- `network_access` — references/containers/api.md:154
+- `network_access` — references/containers/api.md:181
+- `network_access` — references/containers/api.md:73
+- `network_access` — references/pages-functions/configuration.md:42
+- `network_access` — references/pages-functions/configuration.md:60
+- `network_access` — references/pages-functions/configuration.md:62
+- `credential_access` — references/pages-functions/configuration.md:16
+- `credential_access` — references/pages-functions/configuration.md:16
+- `credential_access` — references/pages-functions/configuration.md:78
+- `credential_access` — references/pages-functions/configuration.md:27
+- `credential_access` — references/pages-functions/configuration.md:75
+- `credential_access` — references/pages-functions/configuration.md:78
+- `credential_access` — references/pages-functions/configuration.md:80
+- `network_access` — references/pages-functions/gotchas.md:79
+- `network_access` — references/pages-functions/gotchas.md:80
+- `network_access` — references/pages-functions/gotchas.md:89
+- `network_access` — references/pages-functions/gotchas.md:90
+- `network_access` — references/pages-functions/gotchas.md:91
+- `network_access` — references/pages-functions/gotchas.md:92
+- `credential_access` — references/pages-functions/gotchas.md:8
+- `credential_access` — references/pages-functions/gotchas.md:9
+- `credential_access` — references/pages-functions/gotchas.md:20
+- `credential_access` — references/pages-functions/gotchas.md:30
+- `credential_access` — references/pages-functions/gotchas.md:30
+- `credential_access` — references/pages-functions/gotchas.md:34
+- `network_access` — references/pages-functions/patterns.md:14
+- `network_access` — references/pages-functions/patterns.md:125
+- `network_access` — references/pages-functions/patterns.md:130
+- `network_access` — references/pages-functions/patterns.md:137
+- `network_access` — references/pages-functions/patterns.md:14
+- `network_access` — references/pages-functions/patterns.md:108
+- `credential_access` — references/pages-functions/patterns.md:11
+- `credential_access` — references/pages-functions/patterns.md:13
+- `credential_access` — references/pages-functions/patterns.md:36
+- `credential_access` — references/pages-functions/patterns.md:58
+- `credential_access` — references/pages-functions/patterns.md:60
+- `credential_access` — references/pages-functions/patterns.md:74
+- `network_access` — references/pages-functions/api.md:98
+- `network_access` — references/pages-functions/api.md:118
+- `network_access` — references/pages-functions/api.md:127
+- `network_access` — references/pages-functions/api.md:133
+- `network_access` — references/pages-functions/api.md:138
+- `credential_access` — references/pages-functions/api.md:63
+- `credential_access` — references/pages-functions/api.md:64
+- `credential_access` — references/pages-functions/api.md:65
+- `credential_access` — references/pages-functions/api.md:75
+- `credential_access` — references/pages-functions/api.md:85
+- `credential_access` — references/pages-functions/api.md:87
+- `credential_access` — references/pages-functions/api.md:97
+- `credential_access` — references/pages-functions/api.md:97
+- `credential_access` — references/pages-functions/api.md:107
+- `credential_access` — references/pages-functions/api.md:118
+- `credential_access` — references/pages-functions/api.md:121
+- `credential_access` — references/pages-functions/api.md:115
+- `credential_access` — references/pages-functions/api.md:121
+- `network_access` — references/spectrum/README.md:25
+- `network_access` — references/spectrum/README.md:52
+- `network_access` — references/spectrum/api.md:174
+- `network_access` — references/spectrum/api.md:174
+- `credential_access` — references/spectrum/api.md:66
+- `credential_access` — references/spectrum/api.md:66
+- `network_access` — references/turn/configuration.md:70
+- `network_access` — references/turn/configuration.md:80
+- `network_access` — references/turn/configuration.md:88
+- `network_access` — references/turn/configuration.md:89
+- `credential_access` — references/turn/configuration.md:27
+- `credential_access` — references/turn/configuration.md:8
+- `credential_access` — references/turn/configuration.md:27
+- `credential_access` — references/turn/configuration.md:34
+- `credential_access` — references/turn/configuration.md:81
+- `credential_access` — references/turn/configuration.md:89
+- `credential_access` — references/turn/configuration.md:101
+- `network_access` — references/turn/gotchas.md:103
+- `network_access` — references/turn/gotchas.md:108
+- `network_access` — references/turn/gotchas.md:103
+- `network_access` — references/turn/gotchas.md:135
+- `credential_access` — references/turn/gotchas.md:9
+- `credential_access` — references/turn/gotchas.md:9
+- `credential_access` — references/turn/gotchas.md:73
+- `credential_access` — references/turn/gotchas.md:107
+- `credential_access` — references/turn/gotchas.md:108
+- `credential_access` — references/turn/gotchas.md:139
+- `credential_access` — references/turn/gotchas.md:143
+- `credential_access` — references/turn/gotchas.md:150
+- `credential_access` — references/turn/gotchas.md:154
+- `credential_access` — references/turn/gotchas.md:185
+- `credential_access` — references/turn/gotchas.md:193
+- `network_access` — references/turn/patterns.md:22
+- `network_access` — references/turn/patterns.md:80
+- `network_access` — references/turn/patterns.md:132
+- `network_access` — references/turn/patterns.md:133
+- `credential_access` — references/turn/patterns.md:22
+- `credential_access` — references/turn/patterns.md:76
+- `credential_access` — references/turn/patterns.md:80
+- `credential_access` — references/turn/patterns.md:103
+- `credential_access` — references/turn/patterns.md:116
+- `credential_access` — references/turn/patterns.md:133
+- `network_access` — references/turn/README.md:79
+- `network_access` — references/turn/README.md:80
+- `network_access` — references/turn/README.md:81
+- `network_access` — references/turn/README.md:82
+- `credential_access` — references/turn/README.md:21
+- `credential_access` — references/turn/README.md:31
+- `credential_access` — references/turn/README.md:58
+- `credential_access` — references/turn/README.md:58
+- `credential_access` — references/turn/README.md:58
+- `network_access` — references/turn/api.md:193
+- `network_access` — references/turn/api.md:9
+- `network_access` — references/turn/api.md:63
+- `network_access` — references/turn/api.md:105
+- `network_access` — references/turn/api.md:194
+- `credential_access` — references/turn/api.md:3
+- `credential_access` — references/turn/api.md:60
+- `credential_access` — references/turn/api.md:63
+- `credential_access` — references/turn/api.md:102
+- `credential_access` — references/turn/api.md:105
+- `credential_access` — references/turn/api.md:194
+- `network_access` — references/workerd/configuration.md:124
+- `credential_access` — references/workerd/configuration.md:68
+- `credential_access` — references/workerd/configuration.md:175
+- `network_access` — references/workerd/gotchas.md:55
+- `network_access` — references/workerd/gotchas.md:115
+- `network_access` — references/workerd/gotchas.md:137
+- `network_access` — references/workerd/patterns.md:165
+- `network_access` — references/workerd/patterns.md:179
+- `network_access` — references/workerd/patterns.md:46
+- `credential_access` — references/workerd/patterns.md:124
+- `shell_execution` — references/workerd/api.md:166
+- `network_access` — references/workerd/api.md:8
+- `network_access` — references/workerd/api.md:10
+- `network_access` — references/workerd/api.md:38
+- `network_access` — references/workerd/api.md:71
+- `network_access` — references/workerd/api.md:97
+- `network_access` — references/workerd/api.md:128
+- `network_access` — references/workerd/api.md:128
+- `network_access` — references/workerd/api.md:142
+- `network_access` — references/workerd/api.md:144
+- `credential_access` — references/workerd/api.md:69
+- `credential_access` — references/workerd/api.md:34
+- `obfuscation` — references/workerd/api.md:110
+- `credential_access` — references/pipelines/configuration.md:81
+- `credential_access` — references/pipelines/configuration.md:86
+- `credential_access` — references/pipelines/gotchas.md:54
+- `network_access` — references/pipelines/patterns.md:7
+- `network_access` — references/pipelines/README.md:43
+- `network_access` — references/pipelines/api.md:100
+- `network_access` — references/pipelines/api.md:105
+- `network_access` — references/pipelines/api.md:113
+- `network_access` — references/pipelines/api.md:16
+- `network_access` — references/pipelines/api.md:61
+- `network_access` — references/pipelines/api.md:89
+- `network_access` — references/pipelines/api.md:100
+- `network_access` — references/pipelines/api.md:105
+- `network_access` — references/pipelines/api.md:113
+- `network_access` — references/pipelines/api.md:151
+- `network_access` — references/static-assets/configuration.md:161
+- `network_access` — references/static-assets/patterns.md:7
+- `network_access` — references/static-assets/patterns.md:8
+- `network_access` — references/static-assets/patterns.md:16
+- `network_access` — references/static-assets/patterns.md:24
+- `network_access` — references/static-assets/patterns.md:30
+- `network_access` — references/static-assets/patterns.md:41
+- `network_access` — references/static-assets/patterns.md:44
+- `network_access` — references/static-assets/patterns.md:46
+- `network_access` — references/static-assets/patterns.md:57
+- `network_access` — references/static-assets/patterns.md:62
+- `network_access` — references/static-assets/patterns.md:79
+- `network_access` — references/static-assets/patterns.md:87
+- `network_access` — references/static-assets/patterns.md:98
+- `network_access` — references/static-assets/patterns.md:99
+- `network_access` — references/static-assets/patterns.md:113
+- `network_access` — references/static-assets/patterns.md:118
+- `network_access` — references/static-assets/patterns.md:120
+- `network_access` — references/static-assets/patterns.md:129
+- `network_access` — references/static-assets/patterns.md:133
+- `network_access` — references/static-assets/patterns.md:138
+- `network_access` — references/static-assets/patterns.md:147
+- `network_access` — references/static-assets/patterns.md:162
+- `network_access` — references/static-assets/patterns.md:173
+- `network_access` — references/static-assets/patterns.md:174
+- `network_access` — references/static-assets/patterns.md:16
+- `network_access` — references/static-assets/README.md:22
+- `network_access` — references/static-assets/README.md:23
+- `network_access` — references/static-assets/README.md:63
+- `network_access` — references/static-assets/README.md:64
+- `network_access` — references/static-assets/README.md:65
+- `network_access` — references/static-assets/api.md:15
+- `network_access` — references/static-assets/api.md:23
+- `network_access` — references/static-assets/api.md:26
+- `network_access` — references/static-assets/api.md:29
+- `network_access` — references/static-assets/api.md:32
+- `network_access` — references/static-assets/api.md:51
+- `network_access` — references/static-assets/api.md:52
+- `network_access` — references/static-assets/api.md:53
+- `network_access` — references/static-assets/api.md:158
+- `network_access` — references/static-assets/api.md:176
+- `network_access` — references/static-assets/api.md:193
+- `network_access` — references/static-assets/api.md:196
+- `network_access` — references/static-assets/api.md:26
+- `network_access` — references/static-assets/api.md:51
+- `network_access` — references/static-assets/api.md:52
+- `network_access` — references/workers/configuration.md:130
+- `credential_access` — references/workers/configuration.md:167
+- `credential_access` — references/workers/configuration.md:167
+- `credential_access` — references/workers/configuration.md:76
+- `credential_access` — references/workers/configuration.md:79
+- `credential_access` — references/workers/configuration.md:145
+- `network_access` — references/workers/gotchas.md:63
+- `network_access` — references/workers/gotchas.md:69
+- `network_access` — references/workers/gotchas.md:76
+- `network_access` — references/workers/gotchas.md:76
+- `network_access` — references/workers/patterns.md:11
+- `network_access` — references/workers/patterns.md:78
+- `network_access` — references/workers/patterns.md:79
+- `network_access` — references/workers/patterns.md:82
+- `network_access` — references/workers/patterns.md:82
+- `network_access` — references/workers/patterns.md:118
+- `network_access` — references/workers/patterns.md:183
+- `network_access` — references/workers/patterns.md:115
+- `network_access` — references/workers/README.md:19
+- `network_access` — references/workers/README.md:64
+- `network_access` — references/workers/README.md:78
+- `network_access` — references/workers/README.md:79
+- `network_access` — references/workers/README.md:80
+- `credential_access` — references/workers/README.md:38
+- `network_access` — references/workers/api.md:7
+- `network_access` — references/workers/api.md:15
+- `network_access` — references/workers/api.md:62
+- `network_access` — references/workers/api.md:156
+- `network_access` — references/workers/api.md:163
+- `network_access` — references/workers/api.md:180
+- `network_access` — references/workers/api.md:76
+- `network_access` — references/workers/api.md:77
+- `network_access` — references/workers/api.md:77
+- `network_access` — references/workers/api.md:163
+- `credential_access` — references/workers/api.md:52
+- `network_access` — references/workers/frameworks.md:102
+- `network_access` — references/workers/frameworks.md:103
+- `credential_access` — references/workers/frameworks.md:35
+- `network_access` — references/ddos/patterns.md:81
+- `network_access` — references/ddos/api.md:101
+- `network_access` — references/ddos/api.md:102
+- `credential_access` — references/ddos/api.md:32
+- `credential_access` — references/ddos/api.md:32
+- `network_access` — references/network-interconnect/configuration.md:15
+- `network_access` — references/network-interconnect/configuration.md:15
+- `network_access` — references/network-interconnect/configuration.md:17
+- `network_access` — references/network-interconnect/configuration.md:54
+- `network_access` — references/network-interconnect/configuration.md:54
+- `network_access` — references/network-interconnect/configuration.md:64
+- `network_access` — references/network-interconnect/configuration.md:66
+- `network_access` — references/network-interconnect/gotchas.md:65
+- `network_access` — references/network-interconnect/gotchas.md:103
+- `network_access` — references/network-interconnect/patterns.md:164
+- `network_access` — references/network-interconnect/patterns.md:165
+- `network_access` — references/network-interconnect/patterns.md:166
+- `credential_access` — references/network-interconnect/patterns.md:146
+- `network_access` — references/network-interconnect/README.md:32
+- `network_access` — references/network-interconnect/api.md:168
+- `network_access` — references/network-interconnect/api.md:172
+- `network_access` — references/network-interconnect/api.md:176
+- `network_access` — references/network-interconnect/api.md:181
+- `network_access` — references/network-interconnect/api.md:127
+- `network_access` — references/network-interconnect/api.md:8
+- `network_access` — references/network-interconnect/api.md:78
+- `network_access` — references/network-interconnect/api.md:127
+- `network_access` — references/network-interconnect/api.md:172
+- `network_access` — references/network-interconnect/api.md:176
+- `network_access` — references/network-interconnect/api.md:181
+- `network_access` — references/network-interconnect/api.md:197
+- `network_access` — references/network-interconnect/api.md:198
+- `network_access` — references/network-interconnect/api.md:199
+- `credential_access` — references/network-interconnect/api.md:156
+- `credential_access` — references/network-interconnect/api.md:94
+- `credential_access` — references/network-interconnect/api.md:94
+- `network_access` — references/bindings/configuration.md:160
+- `network_access` — references/bindings/configuration.md:70
+- `network_access` — references/bindings/configuration.md:133
+- `network_access` — references/bindings/configuration.md:188
+- `credential_access` — references/bindings/configuration.md:81
+- `network_access` — references/bindings/gotchas.md:12
+- `network_access` — references/bindings/gotchas.md:26
+- `network_access` — references/bindings/gotchas.md:207
+- `network_access` — references/bindings/gotchas.md:208
+- `credential_access` — references/bindings/gotchas.md:9
+- `credential_access` — references/bindings/gotchas.md:27
+- `credential_access` — references/bindings/gotchas.md:119
+- `credential_access` — references/bindings/gotchas.md:148
+- `credential_access` — references/bindings/gotchas.md:149
+- `network_access` — references/bindings/patterns.md:10
+- `network_access` — references/bindings/patterns.md:17
+- `network_access` — references/bindings/patterns.md:29
+- `network_access` — references/bindings/patterns.md:32
+- `network_access` — references/bindings/patterns.md:46
+- `network_access` — references/bindings/patterns.md:54
+- `network_access` — references/bindings/patterns.md:74
+- `network_access` — references/bindings/patterns.md:106
+- `network_access` — references/bindings/patterns.md:174
+- `network_access` — references/bindings/patterns.md:185
+- `network_access` — references/bindings/patterns.md:194
+- `network_access` — references/bindings/patterns.md:195
+- `network_access` — references/bindings/patterns.md:18
+- `network_access` — references/bindings/patterns.md:29
+- `network_access` — references/bindings/patterns.md:32
+- `network_access` — references/bindings/patterns.md:55
+- `network_access` — references/bindings/patterns.md:74
+- `network_access` — references/bindings/patterns.md:107
+- `network_access` — references/bindings/patterns.md:174
+- `network_access` — references/bindings/patterns.md:185
+- `network_access` — references/bindings/patterns.md:199
+- `network_access` — references/bindings/patterns.md:200
+- `credential_access` — references/bindings/patterns.md:67
+- `credential_access` — references/bindings/patterns.md:68
+- `credential_access` — references/bindings/patterns.md:69
+- `credential_access` — references/bindings/patterns.md:75
+- `credential_access` — references/bindings/patterns.md:82
+- `credential_access` — references/bindings/patterns.md:183
+- `credential_access` — references/bindings/patterns.md:194
+- `credential_access` — references/bindings/patterns.md:195
+- `credential_access` — references/bindings/patterns.md:182
+- `network_access` — references/bindings/README.md:34
+- `network_access` — references/bindings/README.md:36
+- `network_access` — references/bindings/README.md:96
+- `network_access` — references/bindings/README.md:121
+- `network_access` — references/bindings/README.md:122
+- `credential_access` — references/bindings/README.md:53
+- `network_access` — references/bindings/api.md:50
+- `network_access` — references/bindings/api.md:54
+- `network_access` — references/bindings/api.md:93
+- `network_access` — references/bindings/api.md:144
+- `network_access` — references/bindings/api.md:161
+- `network_access` — references/bindings/api.md:182
+- `network_access` — references/bindings/api.md:185
+- `network_access` — references/bindings/api.md:144
+- `network_access` — references/bindings/api.md:161
+- `network_access` — references/bindings/api.md:202
+- `network_access` — references/bindings/api.md:203
+- `credential_access` — references/bindings/api.md:71
+- `credential_access` — references/bindings/api.md:78
+- `credential_access` — references/bindings/api.md:24
+- `network_access` — references/cache-reserve/configuration.md:24
+- `network_access` — references/cache-reserve/configuration.md:29
+- `network_access` — references/cache-reserve/configuration.md:9
+- `network_access` — references/cache-reserve/configuration.md:24
+- `network_access` — references/cache-reserve/configuration.md:29
+- `credential_access` — references/cache-reserve/configuration.md:68
+- `credential_access` — references/cache-reserve/configuration.md:43
+- `credential_access` — references/cache-reserve/configuration.md:43
+- `network_access` — references/cache-reserve/gotchas.md:77
+- `network_access` — references/cache-reserve/gotchas.md:78
+- `network_access` — references/cache-reserve/gotchas.md:79
+- `network_access` — references/cache-reserve/gotchas.md:80
+- `network_access` — references/cache-reserve/gotchas.md:81
+- `network_access` — references/cache-reserve/gotchas.md:82
+- `network_access` — references/cache-reserve/gotchas.md:83
+- `network_access` — references/cache-reserve/patterns.md:72
+- `network_access` — references/cache-reserve/patterns.md:73
+- `network_access` — references/cache-reserve/patterns.md:103
+- `network_access` — references/cache-reserve/patterns.md:106
+- `network_access` — references/cache-reserve/README.md:115
+- `network_access` — references/cache-reserve/README.md:119
+- `network_access` — references/cache-reserve/README.md:125
+- `network_access` — references/cache-reserve/README.md:103
+- `network_access` — references/cache-reserve/README.md:115
+- `network_access` — references/cache-reserve/README.md:119
+- `network_access` — references/cache-reserve/README.md:125
+- `network_access` — references/cache-reserve/api.md:12
+- `network_access` — references/cache-reserve/api.md:18
+- `network_access` — references/cache-reserve/api.md:23
+- `network_access` — references/cache-reserve/api.md:25
+- `network_access` — references/cache-reserve/api.md:39
+- `network_access` — references/cache-reserve/api.md:44
+- `network_access` — references/cache-reserve/api.md:50
+- `network_access` — references/cache-reserve/api.md:66
+- `network_access` — references/cache-reserve/api.md:91
+- `network_access` — references/cache-reserve/api.md:109
+- `network_access` — references/cache-reserve/api.md:67
+- `network_access` — references/cache-reserve/api.md:82
+- `network_access` — references/cache-reserve/api.md:83
+- `network_access` — references/cache-reserve/api.md:92
+- `network_access` — references/cache-reserve/api.md:110
+- `network_access` — references/c3/configuration.md:18
+- `credential_access` — references/zaraz/configuration.md:7
+- `credential_access` — references/zaraz/gotchas.md:9
+- `network_access` — references/zaraz/patterns.md:47
+- `network_access` — references/zaraz/README.md:105
+- `network_access` — references/zaraz/README.md:106
+- `network_access` — references/zaraz/README.md:107
+- `shell_execution` — references/durable-objects/gotchas.md:120
+- `network_access` — references/durable-objects/gotchas.md:97
+- `shell_execution` — references/durable-objects/patterns.md:54
+- `shell_execution` — references/durable-objects/patterns.md:56
+- `shell_execution` — references/durable-objects/patterns.md:130
+- `shell_execution` — references/durable-objects/patterns.md:140
+- `shell_execution` — references/durable-objects/patterns.md:146
+- `shell_execution` — references/durable-objects/patterns.md:150
+- `shell_execution` — references/durable-objects/patterns.md:184
+- `network_access` — references/durable-objects/patterns.md:14
+- `network_access` — references/durable-objects/patterns.md:17
+- `network_access` — references/durable-objects/patterns.md:21
+- `network_access` — references/durable-objects/patterns.md:21
+- `network_access` — references/durable-objects/patterns.md:30
+- `network_access` — references/durable-objects/patterns.md:34
+- `network_access` — references/durable-objects/patterns.md:80
+- `shell_execution` — references/durable-objects/README.md:98
+- `network_access` — references/durable-objects/README.md:55
+- `network_access` — references/durable-objects/README.md:58
+- `network_access` — references/durable-objects/README.md:59
+- `network_access` — references/durable-objects/README.md:60
+- `network_access` — references/durable-objects/README.md:63
+- `network_access` — references/durable-objects/README.md:109
+- `network_access` — references/durable-objects/README.md:143
+- `network_access` — references/durable-objects/README.md:144
+- `network_access` — references/durable-objects/README.md:145
+- `network_access` — references/durable-objects/README.md:148
+- `network_access` — references/durable-objects/README.md:170
+- `network_access` — references/durable-objects/README.md:171
+- `network_access` — references/durable-objects/README.md:172
+- `shell_execution` — references/durable-objects/api.md:90
+- `network_access` — references/durable-objects/api.md:18
+- `network_access` — references/durable-objects/api.md:137
+- `network_access` — references/email-routing/configuration.md:52
+- `network_access` — references/email-routing/configuration.md:53
+- `network_access` — references/email-routing/configuration.md:74
+- `network_access` — references/email-routing/configuration.md:53
+- `network_access` — references/email-routing/configuration.md:74
+- `credential_access` — references/email-routing/configuration.md:92
+- `credential_access` — references/email-routing/configuration.md:101
+- `network_access` — references/email-routing/gotchas.md:121
+- `network_access` — references/email-routing/gotchas.md:121
+- `network_access` — references/email-routing/README.md:87
+- `network_access` — references/email-routing/README.md:88
+- `network_access` — references/email-routing/README.md:89
+- `network_access` — references/email-routing/api.md:166
+- `network_access` — references/email-routing/api.md:183
+- `network_access` — references/email-routing/api.md:133
+- `network_access` — references/email-routing/api.md:141
+- `network_access` — references/email-routing/api.md:142
+- `network_access` — references/email-routing/api.md:161
+- `network_access` — references/email-routing/api.md:166
+- `network_access` — references/email-routing/api.md:183
+- `credential_access` — references/pulumi/configuration.md:31
+- `network_access` — references/pulumi/gotchas.md:108
+- `network_access` — references/pulumi/gotchas.md:174
+- `network_access` — references/pulumi/gotchas.md:175
+- `network_access` — references/pulumi/gotchas.md:176
+- `network_access` — references/pulumi/gotchas.md:177
+- `network_access` — references/pulumi/gotchas.md:178
+- `credential_access` — references/pulumi/README.md:31
+- `credential_access` — references/pulumi/README.md:34
+- `credential_access` — references/pulumi/README.md:34
+- `credential_access` — references/pulumi/README.md:37
+- `credential_access` — references/pulumi/README.md:31
+- `credential_access` — references/pulumi/README.md:34
+- `credential_access` — references/pulumi/README.md:34
+- `credential_access` — references/pulumi/README.md:37
+- `network_access` — references/pulumi/api.md:54
+- `network_access` — references/pulumi/api.md:72
+- `network_access` — references/pulumi/api.md:55
+- `network_access` — references/pulumi/api.md:73
+- `credential_access` — references/pulumi/api.md:139
+- `network_access` — references/tail-workers/configuration.md:14
+- `network_access` — references/tail-workers/configuration.md:101
+- `network_access` — references/tail-workers/gotchas.md:176
+- `network_access` — references/tail-workers/gotchas.md:15
+- `network_access` — references/tail-workers/gotchas.md:22
+- `network_access` — references/tail-workers/gotchas.md:31
+- `network_access` — references/tail-workers/gotchas.md:124
+- `network_access` — references/tail-workers/gotchas.md:166
+- `network_access` — references/tail-workers/gotchas.md:176
+- `network_access` — references/tail-workers/patterns.md:35
+- `network_access` — references/tail-workers/patterns.md:56
+- `network_access` — references/tail-workers/patterns.md:121
+- `network_access` — references/tail-workers/patterns.md:127
+- `network_access` — references/tail-workers/patterns.md:146
+- `network_access` — references/tail-workers/patterns.md:164
+- `network_access` — references/tail-workers/patterns.md:164
+- `network_access` — references/tail-workers/README.md:73
+- `network_access` — references/tail-workers/api.md:142
+- `network_access` — references/agents-sdk/configuration.md:64
+- `network_access` — references/agents-sdk/configuration.md:76
+- `network_access` — references/agents-sdk/configuration.md:86
+- `network_access` — references/agents-sdk/configuration.md:97
+- `network_access` — references/agents-sdk/configuration.md:173
+- `credential_access` — references/agents-sdk/configuration.md:152
+- `credential_access` — references/agents-sdk/configuration.md:35
+- `credential_access` — references/agents-sdk/gotchas.md:62
+- `credential_access` — references/agents-sdk/api.md:102
+- `credential_access` — references/agents-sdk/api.md:117
+- `credential_access` — references/agents-sdk/api.md:158
+- `network_access` — references/observability/configuration.md:123
+- `network_access` — references/observability/configuration.md:61
+- `network_access` — references/observability/configuration.md:100
+- `network_access` — references/observability/configuration.md:100
+- `network_access` — references/observability/configuration.md:123
+- `credential_access` — references/observability/configuration.md:117
+- `network_access` — references/observability/gotchas.md:14
+- `network_access` — references/observability/gotchas.md:15
+- `network_access` — references/observability/gotchas.md:57
+- `network_access` — references/observability/gotchas.md:95
+- `network_access` — references/observability/gotchas.md:15
+- `network_access` — references/observability/gotchas.md:95
+- `network_access` — references/observability/patterns.md:23
+- `network_access` — references/observability/patterns.md:67
+- `network_access` — references/observability/patterns.md:97
+- `network_access` — references/observability/patterns.md:67
+- `network_access` — references/observability/patterns.md:97
+- `credential_access` — references/observability/patterns.md:69
+- `network_access` — references/observability/README.md:85
+- `network_access` — references/observability/README.md:86
+- `network_access` — references/observability/README.md:87
+- `network_access` — references/observability/api.md:5
+- `network_access` — references/observability/api.md:39
+- `network_access` — references/r2/configuration.md:23
+- `network_access` — references/r2/configuration.md:37
+- `network_access` — references/r2/configuration.md:70
+- `network_access` — references/r2/configuration.md:81
+- `credential_access` — references/r2/configuration.md:38
+- `credential_access` — references/r2/configuration.md:71
+- `network_access` — references/r2/gotchas.md:83
+- `network_access` — references/r2/gotchas.md:105
+- `network_access` — references/r2/gotchas.md:112
+- `credential_access` — references/r2/gotchas.md:106
+- `credential_access` — references/r2/gotchas.md:113
+- `credential_access` — references/r2/gotchas.md:172
+- `network_access` — references/r2/patterns.md:118
+- `network_access` — references/r2/patterns.md:119
+- `network_access` — references/r2/patterns.md:126
+- `network_access` — references/r2/patterns.md:159
+- `network_access` — references/r2/patterns.md:110
+- `network_access` — references/r2/patterns.md:190
+- `network_access` — references/r2/patterns.md:191
+- `credential_access` — references/r2/patterns.md:111
+- `network_access` — references/r2/api.md:100
+- `credential_access` — references/r2/api.md:101
+- `network_access` — references/tunnel/configuration.md:30
+- `network_access` — references/tunnel/configuration.md:43
+- `network_access` — references/tunnel/configuration.md:47
+- `network_access` — references/tunnel/configuration.md:51
+- `network_access` — references/tunnel/configuration.md:60
+- `network_access` — references/tunnel/configuration.md:67
+- `network_access` — references/tunnel/configuration.md:68
+- `network_access` — references/tunnel/configuration.md:128
+- `credential_access` — references/tunnel/configuration.md:26
+- `credential_access` — references/tunnel/configuration.md:107
+- `credential_access` — references/tunnel/configuration.md:124
+- `network_access` — references/tunnel/gotchas.md:121
+- `network_access` — references/tunnel/gotchas.md:132
+- `credential_access` — references/tunnel/gotchas.md:38
+- `credential_access` — references/tunnel/gotchas.md:42
+- `credential_access` — references/tunnel/gotchas.md:58
+- `credential_access` — references/tunnel/gotchas.md:60
+- `credential_access` — references/tunnel/gotchas.md:69
+- `credential_access` — references/tunnel/gotchas.md:89
+- `network_access` — references/tunnel/patterns.md:68
+- `network_access` — references/tunnel/patterns.md:80
+- `network_access` — references/tunnel/patterns.md:98
+- `network_access` — references/tunnel/patterns.md:125
+- `network_access` — references/tunnel/patterns.md:164
+- `credential_access` — references/tunnel/patterns.md:21
+- `credential_access` — references/tunnel/patterns.md:21
+- `credential_access` — references/tunnel/patterns.md:55
+- `credential_access` — references/tunnel/patterns.md:64
+- `permission_changes` — references/tunnel/patterns.md:190
+- `permission_changes` — references/tunnel/patterns.md:191
+- `network_access` — references/tunnel/README.md:92
+- `network_access` — references/tunnel/README.md:94
+- `credential_access` — references/tunnel/README.md:88
+- `network_access` — references/tunnel/networking.md:146
+- `network_access` — references/tunnel/networking.md:149
+- `network_access` — references/tunnel/networking.md:149
+- `network_access` — references/tunnel/api.md:28
+- `network_access` — references/tunnel/api.md:30
+- `network_access` — references/tunnel/api.md:52
+- `network_access` — references/tunnel/api.md:54
+- `network_access` — references/tunnel/api.md:71
+- `network_access` — references/tunnel/api.md:73
+- `network_access` — references/tunnel/api.md:89
+- `network_access` — references/tunnel/api.md:91
+- `network_access` — references/tunnel/api.md:122
+- `network_access` — references/tunnel/api.md:124
+- `network_access` — references/tunnel/api.md:173
+- `network_access` — references/tunnel/api.md:178
+- `network_access` — references/tunnel/api.md:186
+- `network_access` — references/tunnel/api.md:191
+- `network_access` — references/tunnel/api.md:5
+- `network_access` — references/tunnel/api.md:30
+- `network_access` — references/tunnel/api.md:54
+- `network_access` — references/tunnel/api.md:73
+- `network_access` — references/tunnel/api.md:91
+- `network_access` — references/tunnel/api.md:97
+- `network_access` — references/tunnel/api.md:112
+- `network_access` — references/tunnel/api.md:124
+- `network_access` — references/tunnel/api.md:173
+- `network_access` — references/tunnel/api.md:178
+- `network_access` — references/tunnel/api.md:186
+- `network_access` — references/tunnel/api.md:191
+- `credential_access` — references/tunnel/api.md:20
+- `credential_access` — references/tunnel/api.md:23
+- `credential_access` — references/tunnel/api.md:20
+- `credential_access` — references/tunnel/api.md:23
+- `network_access` — references/bot-management/patterns.md:71
+- `network_access` — references/bot-management/patterns.md:80
+- `network_access` — references/bot-management/patterns.md:92
+- `network_access` — references/bot-management/patterns.md:102
+- `network_access` — references/bot-management/patterns.md:140
+- `network_access` — references/bot-management/patterns.md:145
+- `network_access` — references/bot-management/patterns.md:157
+- `network_access` — references/bot-management/README.md:65
+- `network_access` — references/bot-management/README.md:70
+- `network_access` — references/bot-management/api.md:26
+- `network_access` — references/bot-management/api.md:30
+- `network_access` — references/bot-management/api.md:31
+- `network_access` — references/bot-management/api.md:35
+- `network_access` — references/bot-management/api.md:85
+- `network_access` — references/bot-management/api.md:89
+- `network_access` — references/bot-management/api.md:100
+- `network_access` — references/realtimekit/configuration.md:69
+- `network_access` — references/realtimekit/configuration.md:80
+- `network_access` — references/realtimekit/configuration.md:38
+- `network_access` — references/realtimekit/configuration.md:65
+- `network_access` — references/realtimekit/configuration.md:69
+- `network_access` — references/realtimekit/configuration.md:80
+- `network_access` — references/realtimekit/configuration.md:158
+- `credential_access` — references/realtimekit/configuration.md:63
+- `network_access` — references/realtimekit/gotchas.md:80
+- `credential_access` — references/realtimekit/gotchas.md:7
+- `credential_access` — references/realtimekit/gotchas.md:151
+- `network_access` — references/realtimekit/patterns.md:119
+- `network_access` — references/realtimekit/patterns.md:180
+- `network_access` — references/realtimekit/patterns.md:185
+- `network_access` — references/realtimekit/patterns.md:15
+- `network_access` — references/realtimekit/patterns.md:41
+- `network_access` — references/realtimekit/patterns.md:120
+- `network_access` — references/realtimekit/patterns.md:186
+- `network_access` — references/realtimekit/README.md:27
+- `network_access` — references/realtimekit/README.md:32
+- `network_access` — references/realtimekit/README.md:37
+- `network_access` — references/realtimekit/README.md:27
+- `network_access` — references/realtimekit/README.md:32
+- `network_access` — references/realtimekit/README.md:37
+- `network_access` — references/realtimekit/README.md:110
+- `network_access` — references/realtimekit/README.md:111
+- `network_access` — references/realtimekit/README.md:112
+- `network_access` — references/realtimekit/README.md:113
+- `network_access` — references/realtimekit/api.md:130
+- `network_access` — references/realtimekit/api.md:193
+- `network_access` — references/vectorize/README.md:130
+- `network_access` — references/vectorize/README.md:131
+- `network_access` — references/vectorize/README.md:132
+- `network_access` — references/vectorize/README.md:133
+- `network_access` — references/workers-vpc/configuration.md:33
+- `credential_access` — references/workers-vpc/configuration.md:113
+- `credential_access` — references/workers-vpc/configuration.md:113
+- `credential_access` — references/workers-vpc/configuration.md:69
+- `credential_access` — references/workers-vpc/configuration.md:100
+- `network_access` — references/workers-vpc/gotchas.md:38
+- `network_access` — references/workers-vpc/gotchas.md:154
+- `network_access` — references/workers-vpc/gotchas.md:75
+- `network_access` — references/workers-vpc/gotchas.md:84
+- `network_access` — references/workers-vpc/gotchas.md:117
+- `network_access` — references/workers-vpc/gotchas.md:159
+- `network_access` — references/workers-vpc/patterns.md:141
+- `network_access` — references/workers-vpc/patterns.md:198
+- `network_access` — references/workers-vpc/patterns.md:16
+- `network_access` — references/workers-vpc/patterns.md:17
+- `network_access` — references/workers-vpc/patterns.md:21
+- `network_access` — references/workers-vpc/patterns.md:25
+- `network_access` — references/workers-vpc/patterns.md:33
+- `network_access` — references/workers-vpc/patterns.md:53
+- `network_access` — references/workers-vpc/patterns.md:56
+- `network_access` — references/workers-vpc/patterns.md:67
+- `network_access` — references/workers-vpc/patterns.md:79
+- `network_access` — references/workers-vpc/patterns.md:93
+- `network_access` — references/workers-vpc/patterns.md:110
+- `network_access` — references/workers-vpc/patterns.md:121
+- `network_access` — references/workers-vpc/patterns.md:145
+- `network_access` — references/workers-vpc/patterns.md:161
+- `network_access` — references/workers-vpc/patterns.md:169
+- `network_access` — references/workers-vpc/patterns.md:186
+- `network_access` — references/workers-vpc/patterns.md:189
+- `network_access` — references/workers-vpc/patterns.md:192
+- `network_access` — references/workers-vpc/README.md:38
+- `network_access` — references/workers-vpc/README.md:48
+- `network_access` — references/workers-vpc/README.md:113
+- `network_access` — references/workers-vpc/README.md:125
+- `network_access` — references/workers-vpc/README.md:126
+- `network_access` — references/workers-vpc/README.md:127
+- `network_access` — references/workers-vpc/README.md:56
+- `network_access` — references/workers-vpc/README.md:58
+- `network_access` — references/workers-vpc/README.md:62
+- `network_access` — references/workers-vpc/README.md:67
+- `network_access` — references/workers-vpc/api.md:162
+- `network_access` — references/workers-vpc/api.md:84
+- `network_access` — references/workers-vpc/api.md:87
+- `network_access` — references/workers-vpc/api.md:93
+- `network_access` — references/workers-vpc/api.md:96
+- `network_access` — references/workers-vpc/api.md:112
+- `network_access` — references/workers-vpc/api.md:133
+- `network_access` — references/workers-vpc/api.md:148
+- `network_access` — references/workers-vpc/api.md:152
+- `network_access` — references/workers-vpc/api.md:166
+- `network_access` — references/workers-vpc/api.md:168
+- `network_access` — references/workers-vpc/api.md:172
+- `network_access` — references/workers-vpc/api.md:177
+- `network_access` — references/workers-vpc/api.md:192
+- `network_access` — references/workers-vpc/api.md:195
+- `network_access` — references/workers-vpc/api.md:196
+- `network_access` — references/browser-rendering/configuration.md:54
+- `network_access` — references/browser-rendering/configuration.md:35
+- `network_access` — references/browser-rendering/configuration.md:55
+- `network_access` — references/browser-rendering/configuration.md:57
+- `network_access` — references/browser-rendering/gotchas.md:26
+- `network_access` — references/browser-rendering/patterns.md:9
+- `network_access` — references/browser-rendering/patterns.md:13
+- `network_access` — references/browser-rendering/README.md:78
+- `network_access` — references/browser-rendering/api.md:22
+- `network_access` — references/browser-rendering/api.md:5
+- `network_access` — references/browser-rendering/api.md:24
+- `network_access` — references/browser-rendering/api.md:41
+- `network_access` — references/browser-rendering/api.md:71
+- `shell_execution` — references/sandbox/configuration.md:86
+- `shell_execution` — references/sandbox/configuration.md:113
+- `network_access` — references/sandbox/configuration.md:74
+- `shell_execution` — references/sandbox/gotchas.md:13
+- `shell_execution` — references/sandbox/gotchas.md:29
+- `shell_execution` — references/sandbox/gotchas.md:127
+- `shell_execution` — references/sandbox/gotchas.md:131
+- `shell_execution` — references/sandbox/gotchas.md:138
+- `shell_execution` — references/sandbox/gotchas.md:153
+- `shell_execution` — references/sandbox/gotchas.md:176
+- `network_access` — references/sandbox/gotchas.md:161
+- `network_access` — references/sandbox/gotchas.md:186
+- `network_access` — references/sandbox/gotchas.md:190
+- `network_access` — references/sandbox/gotchas.md:191
+- `network_access` — references/sandbox/gotchas.md:192
+- `network_access` — references/sandbox/gotchas.md:193
+- `network_access` — references/sandbox/gotchas.md:194
+- `shell_execution` — references/sandbox/patterns.md:40
+- `shell_execution` — references/sandbox/patterns.md:120
+- `shell_execution` — references/sandbox/patterns.md:138
+- `shell_execution` — references/sandbox/patterns.md:140
+- `shell_execution` — references/sandbox/patterns.md:150
+- `shell_execution` — references/sandbox/patterns.md:186
+- `shell_execution` — references/sandbox/patterns.md:197
+- `shell_execution` — references/sandbox/patterns.md:200
+- `network_access` — references/sandbox/patterns.md:40
+- `network_access` — references/sandbox/patterns.md:7
+- `network_access` — references/sandbox/patterns.md:33
+- `network_access` — references/sandbox/patterns.md:58
+- `network_access` — references/sandbox/patterns.md:88
+- `network_access` — references/sandbox/patterns.md:111
+- `network_access` — references/sandbox/patterns.md:134
+- `network_access` — references/sandbox/patterns.md:169
+- `network_access` — references/sandbox/patterns.md:40
+- `network_access` — references/sandbox/patterns.md:197
+- `network_access` — references/sandbox/patterns.md:200
+- `shell_execution` — references/sandbox/README.md:29
+- `shell_execution` — references/sandbox/README.md:70
+- `network_access` — references/sandbox/README.md:23
+- `shell_execution` — references/sandbox/api.md:7
+- `shell_execution` — references/sandbox/api.md:11
+- `shell_execution` — references/sandbox/api.md:87
+- `shell_execution` — references/sandbox/api.md:148
+- `shell_execution` — references/sandbox/api.md:167
+- `shell_execution` — references/sandbox/api.md:180
+- `network_access` — references/sandbox/api.md:125
+- `credential_access` — references/sandbox/api.md:13
+- `network_access` — references/wrangler/configuration.md:128
+- `network_access` — references/wrangler/configuration.md:130
+- `network_access` — references/wrangler/configuration.md:60
+- `credential_access` — references/wrangler/configuration.md:15
+- `destructive_operations` — references/wrangler/gotchas.md:166
+- `network_access` — references/wrangler/gotchas.md:112
+- `network_access` — references/wrangler/gotchas.md:119
+- `network_access` — references/wrangler/gotchas.md:186
+- `network_access` — references/wrangler/gotchas.md:187
+- `network_access` — references/wrangler/gotchas.md:188
+- `network_access` — references/wrangler/gotchas.md:189
+- `network_access` — references/wrangler/gotchas.md:190
+- `network_access` — references/wrangler/patterns.md:90
+- `network_access` — references/wrangler/patterns.md:117
+- `network_access` — references/wrangler/patterns.md:137
+- `network_access` — references/wrangler/patterns.md:154
+- `network_access` — references/wrangler/patterns.md:159
+- `network_access` — references/wrangler/patterns.md:180
+- `network_access` — references/wrangler/patterns.md:194
+- `network_access` — references/wrangler/patterns.md:199
+- `network_access` — references/wrangler/patterns.md:90
+- `network_access` — references/wrangler/patterns.md:117
+- `network_access` — references/wrangler/patterns.md:137
+- `network_access` — references/wrangler/patterns.md:159
+- `credential_access` — references/wrangler/patterns.md:28
+- `credential_access` — references/wrangler/patterns.md:31
+- `network_access` — references/wrangler/api.md:29
+- `network_access` — references/wrangler/api.md:165
+- `network_access` — references/wrangler/api.md:166
+- `network_access` — references/wrangler/api.md:29
+- `network_access` — references/wrangler/api.md:83
+- `network_access` — references/wrangler/api.md:165
+- `network_access` — references/wrangler/auth.md:29
+- `credential_access` — references/wrangler/auth.md:23
+- `credential_access` — references/wrangler/auth.md:51
+- `network_access` — references/email-workers/configuration.md:64
+- `network_access` — references/email-workers/configuration.md:18
+- `network_access` — references/email-workers/configuration.md:64
+- `credential_access` — references/email-workers/configuration.md:94
+- `credential_access` — references/email-workers/configuration.md:95
+- `network_access` — references/email-workers/gotchas.md:22
+- `network_access` — references/email-workers/gotchas.md:26
+- `network_access` — references/email-workers/patterns.md:97
+- `network_access` — references/email-workers/README.md:147
+- `network_access` — references/email-workers/README.md:148
+- `network_access` — references/email-workers/README.md:149
+- `network_access` — references/email-workers/README.md:150
+- `network_access` — references/email-workers/README.md:151
+- `network_access` — references/miniflare/configuration.md:32
+- `network_access` — references/miniflare/configuration.md:92
+- `credential_access` — references/miniflare/configuration.md:91
+- `credential_access` — references/miniflare/gotchas.md:147
+- `credential_access` — references/miniflare/gotchas.md:147
+- `credential_access` — references/miniflare/gotchas.md:147
+- `credential_access` — references/miniflare/gotchas.md:147
+- `network_access` — references/miniflare/patterns.md:64
+- `network_access` — references/miniflare/patterns.md:98
+- `network_access` — references/miniflare/patterns.md:125
+- `network_access` — references/miniflare/patterns.md:144
+- `network_access` — references/miniflare/patterns.md:64
+- `network_access` — references/miniflare/patterns.md:85
+- `network_access` — references/miniflare/patterns.md:98
+- `network_access` — references/miniflare/patterns.md:153
+- `network_access` — references/miniflare/patterns.md:178
+- `credential_access` — references/miniflare/patterns.md:137
+- `network_access` — references/miniflare/README.md:76
+- `network_access` — references/miniflare/README.md:83
+- `shell_execution` — references/miniflare/api.md:123
+- `network_access` — references/miniflare/api.md:36
+- `network_access` — references/miniflare/api.md:113
+- `network_access` — references/miniflare/api.md:38
+- `network_access` — references/miniflare/api.md:47
+- `network_access` — references/miniflare/api.md:113
+- `network_access` — references/miniflare/api.md:131
+- `network_access` — references/miniflare/api.md:181
+- `network_access` — references/miniflare/api.md:184
+- `credential_access` — references/miniflare/api.md:74
+- `credential_access` — references/miniflare/api.md:78
+- `credential_access` — references/miniflare/api.md:83
+
+### define-goal
+- Result: `manual_review_required`
+- Files: 3
+- Indicators: 2
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+
+### figma
+- Result: `manual_review_required`
+- Files: 8
+- Indicators: 3
+- External hosts: mcp.figma.com, www.figma.com
+- License files: Not found
+- `network_access` — LICENSE.txt:1
+- `network_access` — references/figma-mcp-config.md:7
+- `network_access` — agents/openai.yaml:14
+
+### figma-code-connect-components
+- Result: `manual_review_required`
+- Files: 8
+- Indicators: 13
+- External hosts: developers.figma.com, figma.com, help.figma.com, mcp.figma.com, www.figma.com
+- License files: Not found
+- `network_access` — LICENSE.TXT:1
+- `network_access` — SKILL.md:22
+- `network_access` — SKILL.md:59
+- `network_access` — SKILL.md:179
+- `network_access` — SKILL.md:191
+- `network_access` — SKILL.md:204
+- `network_access` — SKILL.md:218
+- `network_access` — SKILL.md:219
+- `network_access` — SKILL.md:233
+- `network_access` — SKILL.md:327
+- `network_access` — SKILL.md:348
+- `network_access` — SKILL.md:349
+- `network_access` — agents/openai.yaml:14
+
+### figma-create-design-system-rules
+- Result: `manual_review_required`
+- Files: 8
+- Indicators: 4
+- External hosts: developers.figma.com, help.figma.com, mcp.figma.com, www.figma.com
+- License files: Not found
+- `network_access` — LICENSE.TXT:1
+- `network_access` — SKILL.md:536
+- `network_access` — SKILL.md:537
+- `network_access` — agents/openai.yaml:14
+
+### figma-create-new-file
+- Result: `manual_review_required`
+- Files: 7
+- Indicators: 2
+- External hosts: mcp.figma.com, www.figma.com
+- License files: Not found
+- `network_access` — LICENSE.TXT:1
+- `network_access` — agents/openai.yaml:14
+
+### figma-generate-design
+- Result: `manual_review_required`
+- Files: 7
+- Indicators: 2
+- External hosts: mcp.figma.com, www.figma.com
+- License files: Not found
+- `network_access` — LICENSE.TXT:1
+- `network_access` — agents/openai.yaml:14
+
+### figma-generate-library
+- Result: `manual_review_required`
+- Files: 23
+- Indicators: 5
+- External hosts: mcp.figma.com, www.figma.com, www.w3.org, your-storybook.com
+- License files: Not found
+- `network_access` — LICENSE.TXT:1
+- `network_access` — references/component-creation.md:538
+- `network_access` — references/component-creation.md:673
+- `network_access` — references/component-creation.md:970
+- `network_access` — agents/openai.yaml:14
+
+### figma-implement-design
+- Result: `manual_review_required`
+- Files: 6
+- Indicators: 10
+- External hosts: developers.figma.com, figma.com, help.figma.com, mcp.figma.com, www.figma.com
+- License files: Not found
+- `network_access` — LICENSE.txt:1
+- `network_access` — SKILL.md:23
+- `network_access` — SKILL.md:39
+- `network_access` — SKILL.md:50
+- `network_access` — SKILL.md:167
+- `network_access` — SKILL.md:184
+- `network_access` — SKILL.md:256
+- `network_access` — SKILL.md:257
+- `network_access` — SKILL.md:258
+- `network_access` — agents/openai.yaml:14
+
+### figma-use
+- Result: `manual_review_required`
+- Files: 29
+- Indicators: 353
+- External hosts: ..., api.figma.com, developer.mozilla.org, developers.figma.com, en.wikipedia.org, example.com, figma.com, github.com, help.figma.com, learn.microsoft.com, mcp.figma.com, mynewssite.com, oreillymedia.github.io, picsum.photos, raw.githubusercontent.com, sparanoid.com, static.figma.com, www.example.com, www.figma.com, www.typescriptlang.org, www.w3.org, www.youtube.com
+- License files: Not found
+- `network_access` — LICENSE.TXT:1
+- `network_access` — references/plugin-api-standalone.d.ts:1
+- `network_access` — references/plugin-api-standalone.d.ts:9
+- `network_access` — references/plugin-api-standalone.d.ts:22
+- `network_access` — references/plugin-api-standalone.d.ts:30
+- `network_access` — references/plugin-api-standalone.d.ts:34
+- `network_access` — references/plugin-api-standalone.d.ts:44
+- `network_access` — references/plugin-api-standalone.d.ts:83
+- `network_access` — references/plugin-api-standalone.d.ts:122
+- `network_access` — references/plugin-api-standalone.d.ts:128
+- `network_access` — references/plugin-api-standalone.d.ts:154
+- `network_access` — references/plugin-api-standalone.d.ts:160
+- `network_access` — references/plugin-api-standalone.d.ts:164
+- `network_access` — references/plugin-api-standalone.d.ts:351
+- `network_access` — references/plugin-api-standalone.d.ts:357
+- `network_access` — references/plugin-api-standalone.d.ts:364
+- `network_access` — references/plugin-api-standalone.d.ts:370
+- `network_access` — references/plugin-api-standalone.d.ts:394
+- `network_access` — references/plugin-api-standalone.d.ts:400
+- `network_access` — references/plugin-api-standalone.d.ts:406
+- `network_access` — references/plugin-api-standalone.d.ts:412
+- `network_access` — references/plugin-api-standalone.d.ts:416
+- `network_access` — references/plugin-api-standalone.d.ts:584
+- `network_access` — references/plugin-api-standalone.d.ts:585
+- `network_access` — references/plugin-api-standalone.d.ts:586
+- `network_access` — references/plugin-api-standalone.d.ts:587
+- `network_access` — references/plugin-api-standalone.d.ts:588
+- `network_access` — references/plugin-api-standalone.d.ts:589
+- `network_access` — references/plugin-api-standalone.d.ts:654
+- `network_access` — references/plugin-api-standalone.d.ts:683
+- `network_access` — references/plugin-api-standalone.d.ts:689
+- `network_access` — references/plugin-api-standalone.d.ts:710
+- `network_access` — references/plugin-api-standalone.d.ts:728
+- `network_access` — references/plugin-api-standalone.d.ts:732
+- `network_access` — references/plugin-api-standalone.d.ts:734
+- `network_access` — references/plugin-api-standalone.d.ts:758
+- `network_access` — references/plugin-api-standalone.d.ts:759
+- `network_access` — references/plugin-api-standalone.d.ts:780
+- `network_access` — references/plugin-api-standalone.d.ts:781
+- `network_access` — references/plugin-api-standalone.d.ts:782
+- `network_access` — references/plugin-api-standalone.d.ts:888
+- `network_access` — references/plugin-api-standalone.d.ts:888
+- `network_access` — references/plugin-api-standalone.d.ts:1020
+- `network_access` — references/plugin-api-standalone.d.ts:1020
+- `network_access` — references/plugin-api-standalone.d.ts:1028
+- `network_access` — references/plugin-api-standalone.d.ts:1351
+- `network_access` — references/plugin-api-standalone.d.ts:1587
+- `network_access` — references/plugin-api-standalone.d.ts:1593
+- `network_access` — references/plugin-api-standalone.d.ts:1605
+- `network_access` — references/plugin-api-standalone.d.ts:1610
+- `network_access` — references/plugin-api-standalone.d.ts:1626
+- `network_access` — references/plugin-api-standalone.d.ts:1680
+- `network_access` — references/plugin-api-standalone.d.ts:1683
+- `network_access` — references/plugin-api-standalone.d.ts:2008
+- `network_access` — references/plugin-api-standalone.d.ts:2014
+- `network_access` — references/plugin-api-standalone.d.ts:2185
+- `network_access` — references/plugin-api-standalone.d.ts:2209
+- `network_access` — references/plugin-api-standalone.d.ts:2370
+- `network_access` — references/plugin-api-standalone.d.ts:2412
+- `network_access` — references/plugin-api-standalone.d.ts:2418
+- `network_access` — references/plugin-api-standalone.d.ts:2475
+- `network_access` — references/plugin-api-standalone.d.ts:2508
+- `network_access` — references/plugin-api-standalone.d.ts:2524
+- `network_access` — references/plugin-api-standalone.d.ts:2529
+- `network_access` — references/plugin-api-standalone.d.ts:2550
+- `network_access` — references/plugin-api-standalone.d.ts:2562
+- `network_access` — references/plugin-api-standalone.d.ts:2566
+- `network_access` — references/plugin-api-standalone.d.ts:2572
+- `network_access` — references/plugin-api-standalone.d.ts:2586
+- `network_access` — references/plugin-api-standalone.d.ts:2592
+- `network_access` — references/plugin-api-standalone.d.ts:2598
+- `network_access` — references/plugin-api-standalone.d.ts:2602
+- `network_access` — references/plugin-api-standalone.d.ts:2639
+- `network_access` — references/plugin-api-standalone.d.ts:2646
+- `network_access` — references/plugin-api-standalone.d.ts:2689
+- `network_access` — references/plugin-api-standalone.d.ts:2797
+- `network_access` — references/plugin-api-standalone.d.ts:2807
+- `network_access` — references/plugin-api-standalone.d.ts:2824
+- `network_access` — references/plugin-api-standalone.d.ts:2831
+- `network_access` — references/plugin-api-standalone.d.ts:2839
+- `network_access` — references/plugin-api-standalone.d.ts:2845
+- `network_access` — references/plugin-api-standalone.d.ts:2869
+- `network_access` — references/plugin-api-standalone.d.ts:2884
+- `network_access` — references/plugin-api-standalone.d.ts:2884
+- `network_access` — references/plugin-api-standalone.d.ts:2959
+- `network_access` — references/plugin-api-standalone.d.ts:2982
+- `network_access` — references/plugin-api-standalone.d.ts:3051
+- `network_access` — references/plugin-api-standalone.d.ts:3084
+- `network_access` — references/plugin-api-standalone.d.ts:3164
+- `network_access` — references/plugin-api-standalone.d.ts:3173
+- `network_access` — references/plugin-api-standalone.d.ts:3186
+- `network_access` — references/plugin-api-standalone.d.ts:3192
+- `network_access` — references/plugin-api-standalone.d.ts:3268
+- `network_access` — references/plugin-api-standalone.d.ts:3281
+- `network_access` — references/plugin-api-standalone.d.ts:3290
+- `network_access` — references/plugin-api-standalone.d.ts:3307
+- `network_access` — references/plugin-api-standalone.d.ts:3372
+- `network_access` — references/plugin-api-standalone.d.ts:3376
+- `network_access` — references/plugin-api-standalone.d.ts:3389
+- `network_access` — references/plugin-api-standalone.d.ts:3398
+- `network_access` — references/plugin-api-standalone.d.ts:3415
+- `network_access` — references/plugin-api-standalone.d.ts:3424
+- `network_access` — references/plugin-api-standalone.d.ts:3433
+- `network_access` — references/plugin-api-standalone.d.ts:3446
+- `network_access` — references/plugin-api-standalone.d.ts:3455
+- `network_access` — references/plugin-api-standalone.d.ts:3464
+- `network_access` — references/plugin-api-standalone.d.ts:3474
+- `network_access` — references/plugin-api-standalone.d.ts:3487
+- `network_access` — references/plugin-api-standalone.d.ts:3497
+- `network_access` — references/plugin-api-standalone.d.ts:3630
+- `network_access` — references/plugin-api-standalone.d.ts:3634
+- `network_access` — references/plugin-api-standalone.d.ts:3678
+- `network_access` — references/plugin-api-standalone.d.ts:3686
+- `network_access` — references/plugin-api-standalone.d.ts:3695
+- `network_access` — references/plugin-api-standalone.d.ts:3964
+- `network_access` — references/plugin-api-standalone.d.ts:4007
+- `network_access` — references/plugin-api-standalone.d.ts:4046
+- `network_access` — references/plugin-api-standalone.d.ts:4069
+- `network_access` — references/plugin-api-standalone.d.ts:4078
+- `network_access` — references/plugin-api-standalone.d.ts:4099
+- `network_access` — references/plugin-api-standalone.d.ts:4103
+- `network_access` — references/plugin-api-standalone.d.ts:4136
+- `network_access` — references/plugin-api-standalone.d.ts:4146
+- `network_access` — references/plugin-api-standalone.d.ts:4160
+- `network_access` — references/plugin-api-standalone.d.ts:4174
+- `network_access` — references/plugin-api-standalone.d.ts:4178
+- `network_access` — references/plugin-api-standalone.d.ts:4207
+- `network_access` — references/plugin-api-standalone.d.ts:4248
+- `network_access` — references/plugin-api-standalone.d.ts:4258
+- `network_access` — references/plugin-api-standalone.d.ts:4262
+- `network_access` — references/plugin-api-standalone.d.ts:4269
+- `network_access` — references/plugin-api-standalone.d.ts:4288
+- `network_access` — references/plugin-api-standalone.d.ts:4300
+- `network_access` — references/plugin-api-standalone.d.ts:4355
+- `network_access` — references/plugin-api-standalone.d.ts:4375
+- `network_access` — references/plugin-api-standalone.d.ts:4411
+- `network_access` — references/plugin-api-standalone.d.ts:4447
+- `network_access` — references/plugin-api-standalone.d.ts:4479
+- `network_access` — references/plugin-api-standalone.d.ts:4487
+- `network_access` — references/plugin-api-standalone.d.ts:4530
+- `network_access` — references/plugin-api-standalone.d.ts:4548
+- `network_access` — references/plugin-api-standalone.d.ts:4552
+- `network_access` — references/plugin-api-standalone.d.ts:4559
+- `network_access` — references/plugin-api-standalone.d.ts:4604
+- `network_access` — references/plugin-api-standalone.d.ts:4632
+- `network_access` — references/plugin-api-standalone.d.ts:4642
+- `network_access` — references/plugin-api-standalone.d.ts:4651
+- `network_access` — references/plugin-api-standalone.d.ts:4665
+- `network_access` — references/plugin-api-standalone.d.ts:4669
+- `network_access` — references/plugin-api-standalone.d.ts:4689
+- `network_access` — references/plugin-api-standalone.d.ts:4694
+- `network_access` — references/plugin-api-standalone.d.ts:4698
+- `network_access` — references/plugin-api-standalone.d.ts:4702
+- `network_access` — references/plugin-api-standalone.d.ts:4731
+- `network_access` — references/plugin-api-standalone.d.ts:4752
+- `network_access` — references/plugin-api-standalone.d.ts:4773
+- `network_access` — references/plugin-api-standalone.d.ts:4790
+- `network_access` — references/plugin-api-standalone.d.ts:4802
+- `network_access` — references/plugin-api-standalone.d.ts:4823
+- `network_access` — references/plugin-api-standalone.d.ts:4844
+- `network_access` — references/plugin-api-standalone.d.ts:4871
+- `network_access` — references/plugin-api-standalone.d.ts:4877
+- `network_access` — references/plugin-api-standalone.d.ts:5001
+- `network_access` — references/plugin-api-standalone.d.ts:5055
+- `network_access` — references/plugin-api-standalone.d.ts:5062
+- `network_access` — references/plugin-api-standalone.d.ts:5125
+- `network_access` — references/plugin-api-standalone.d.ts:5133
+- `network_access` — references/plugin-api-standalone.d.ts:5143
+- `network_access` — references/plugin-api-standalone.d.ts:5176
+- `network_access` — references/plugin-api-standalone.d.ts:5180
+- `network_access` — references/plugin-api-standalone.d.ts:5201
+- `network_access` — references/plugin-api-standalone.d.ts:5217
+- `network_access` — references/plugin-api-standalone.d.ts:5229
+- `network_access` — references/plugin-api-standalone.d.ts:5240
+- `network_access` — references/plugin-api-standalone.d.ts:5244
+- `network_access` — references/plugin-api-standalone.d.ts:5265
+- `network_access` — references/plugin-api-standalone.d.ts:5272
+- `network_access` — references/plugin-api-standalone.d.ts:5282
+- `network_access` — references/plugin-api-standalone.d.ts:5353
+- `network_access` — references/plugin-api-standalone.d.ts:5363
+- `network_access` — references/plugin-api-standalone.d.ts:5368
+- `network_access` — references/plugin-api-standalone.d.ts:5368
+- `network_access` — references/plugin-api-standalone.d.ts:5370
+- `network_access` — references/plugin-api-standalone.d.ts:5407
+- `network_access` — references/plugin-api-standalone.d.ts:5410
+- `network_access` — references/plugin-api-standalone.d.ts:5422
+- `network_access` — references/plugin-api-standalone.d.ts:5428
+- `network_access` — references/plugin-api-standalone.d.ts:5441
+- `network_access` — references/plugin-api-standalone.d.ts:5498
+- `network_access` — references/plugin-api-standalone.d.ts:5541
+- `network_access` — references/plugin-api-standalone.d.ts:5546
+- `network_access` — references/plugin-api-standalone.d.ts:5550
+- `network_access` — references/plugin-api-standalone.d.ts:5550
+- `network_access` — references/plugin-api-standalone.d.ts:5559
+- `network_access` — references/plugin-api-standalone.d.ts:5609
+- `network_access` — references/plugin-api-standalone.d.ts:5626
+- `network_access` — references/plugin-api-standalone.d.ts:5635
+- `network_access` — references/plugin-api-standalone.d.ts:5651
+- `network_access` — references/plugin-api-standalone.d.ts:5675
+- `network_access` — references/plugin-api-standalone.d.ts:5758
+- `network_access` — references/plugin-api-standalone.d.ts:5771
+- `network_access` — references/plugin-api-standalone.d.ts:5785
+- `network_access` — references/plugin-api-standalone.d.ts:5864
+- `network_access` — references/plugin-api-standalone.d.ts:5875
+- `network_access` — references/plugin-api-standalone.d.ts:5897
+- `network_access` — references/plugin-api-standalone.d.ts:5915
+- `network_access` — references/plugin-api-standalone.d.ts:5921
+- `network_access` — references/plugin-api-standalone.d.ts:6021
+- `network_access` — references/plugin-api-standalone.d.ts:6034
+- `network_access` — references/plugin-api-standalone.d.ts:6133
+- `network_access` — references/plugin-api-standalone.d.ts:6268
+- `network_access` — references/plugin-api-standalone.d.ts:6285
+- `network_access` — references/plugin-api-standalone.d.ts:6300
+- `network_access` — references/plugin-api-standalone.d.ts:6337
+- `network_access` — references/plugin-api-standalone.d.ts:6386
+- `network_access` — references/plugin-api-standalone.d.ts:6401
+- `network_access` — references/plugin-api-standalone.d.ts:6410
+- `network_access` — references/plugin-api-standalone.d.ts:6434
+- `network_access` — references/plugin-api-standalone.d.ts:6570
+- `network_access` — references/plugin-api-standalone.d.ts:6694
+- `network_access` — references/plugin-api-standalone.d.ts:6879
+- `network_access` — references/plugin-api-standalone.d.ts:6920
+- `network_access` — references/plugin-api-standalone.d.ts:6924
+- `network_access` — references/plugin-api-standalone.d.ts:6929
+- `network_access` — references/plugin-api-standalone.d.ts:6937
+- `network_access` — references/plugin-api-standalone.d.ts:7062
+- `network_access` — references/plugin-api-standalone.d.ts:7125
+- `network_access` — references/plugin-api-standalone.d.ts:7228
+- `network_access` — references/plugin-api-standalone.d.ts:7232
+- `network_access` — references/plugin-api-standalone.d.ts:7244
+- `network_access` — references/plugin-api-standalone.d.ts:7248
+- `network_access` — references/plugin-api-standalone.d.ts:7308
+- `network_access` — references/plugin-api-standalone.d.ts:7313
+- `network_access` — references/plugin-api-standalone.d.ts:7326
+- `network_access` — references/plugin-api-standalone.d.ts:7330
+- `network_access` — references/plugin-api-standalone.d.ts:7338
+- `network_access` — references/plugin-api-standalone.d.ts:7358
+- `network_access` — references/plugin-api-standalone.d.ts:7363
+- `network_access` — references/plugin-api-standalone.d.ts:7372
+- `network_access` — references/plugin-api-standalone.d.ts:7379
+- `network_access` — references/plugin-api-standalone.d.ts:7388
+- `network_access` — references/plugin-api-standalone.d.ts:7394
+- `network_access` — references/plugin-api-standalone.d.ts:7403
+- `network_access` — references/plugin-api-standalone.d.ts:7409
+- `network_access` — references/plugin-api-standalone.d.ts:7436
+- `network_access` — references/plugin-api-standalone.d.ts:7442
+- `network_access` — references/plugin-api-standalone.d.ts:7466
+- `network_access` — references/plugin-api-standalone.d.ts:7470
+- `network_access` — references/plugin-api-standalone.d.ts:7483
+- `network_access` — references/plugin-api-standalone.d.ts:7497
+- `network_access` — references/plugin-api-standalone.d.ts:7510
+- `network_access` — references/plugin-api-standalone.d.ts:7535
+- `network_access` — references/plugin-api-standalone.d.ts:7553
+- `network_access` — references/plugin-api-standalone.d.ts:7558
+- `network_access` — references/plugin-api-standalone.d.ts:7575
+- `network_access` — references/plugin-api-standalone.d.ts:7579
+- `network_access` — references/plugin-api-standalone.d.ts:7649
+- `network_access` — references/plugin-api-standalone.d.ts:7702
+- `network_access` — references/plugin-api-standalone.d.ts:7706
+- `network_access` — references/plugin-api-standalone.d.ts:7706
+- `network_access` — references/plugin-api-standalone.d.ts:7712
+- `network_access` — references/plugin-api-standalone.d.ts:7756
+- `network_access` — references/plugin-api-standalone.d.ts:7756
+- `network_access` — references/plugin-api-standalone.d.ts:7867
+- `network_access` — references/plugin-api-standalone.d.ts:7873
+- `network_access` — references/plugin-api-standalone.d.ts:7905
+- `network_access` — references/plugin-api-standalone.d.ts:7926
+- `network_access` — references/plugin-api-standalone.d.ts:7937
+- `network_access` — references/plugin-api-standalone.d.ts:7964
+- `network_access` — references/plugin-api-standalone.d.ts:7982
+- `network_access` — references/plugin-api-standalone.d.ts:7988
+- `network_access` — references/plugin-api-standalone.d.ts:7995
+- `network_access` — references/plugin-api-standalone.d.ts:8062
+- `network_access` — references/plugin-api-standalone.d.ts:8062
+- `network_access` — references/plugin-api-standalone.d.ts:8068
+- `network_access` — references/plugin-api-standalone.d.ts:8084
+- `network_access` — references/plugin-api-standalone.d.ts:8088
+- `network_access` — references/plugin-api-standalone.d.ts:8103
+- `network_access` — references/plugin-api-standalone.d.ts:8117
+- `network_access` — references/plugin-api-standalone.d.ts:8147
+- `network_access` — references/plugin-api-standalone.d.ts:8167
+- `network_access` — references/plugin-api-standalone.d.ts:8180
+- `network_access` — references/plugin-api-standalone.d.ts:8188
+- `network_access` — references/plugin-api-standalone.d.ts:8235
+- `network_access` — references/plugin-api-standalone.d.ts:8417
+- `network_access` — references/plugin-api-standalone.d.ts:8441
+- `network_access` — references/plugin-api-standalone.d.ts:8445
+- `network_access` — references/plugin-api-standalone.d.ts:8453
+- `network_access` — references/plugin-api-standalone.d.ts:8454
+- `network_access` — references/plugin-api-standalone.d.ts:8455
+- `network_access` — references/plugin-api-standalone.d.ts:8456
+- `network_access` — references/plugin-api-standalone.d.ts:8659
+- `network_access` — references/plugin-api-standalone.d.ts:8788
+- `network_access` — references/plugin-api-standalone.d.ts:8953
+- `network_access` — references/plugin-api-standalone.d.ts:8957
+- `network_access` — references/plugin-api-standalone.d.ts:9020
+- `network_access` — references/plugin-api-standalone.d.ts:9031
+- `network_access` — references/plugin-api-standalone.d.ts:9054
+- `network_access` — references/plugin-api-standalone.d.ts:9088
+- `network_access` — references/plugin-api-standalone.d.ts:9250
+- `network_access` — references/plugin-api-standalone.d.ts:9251
+- `network_access` — references/plugin-api-standalone.d.ts:9252
+- `network_access` — references/plugin-api-standalone.d.ts:9342
+- `network_access` — references/plugin-api-standalone.d.ts:9562
+- `network_access` — references/plugin-api-standalone.d.ts:9623
+- `network_access` — references/plugin-api-standalone.d.ts:9627
+- `network_access` — references/plugin-api-standalone.d.ts:9634
+- `network_access` — references/plugin-api-standalone.d.ts:9640
+- `network_access` — references/plugin-api-standalone.d.ts:9676
+- `network_access` — references/plugin-api-standalone.d.ts:9707
+- `network_access` — references/plugin-api-standalone.d.ts:9743
+- `network_access` — references/plugin-api-standalone.d.ts:9830
+- `network_access` — references/plugin-api-standalone.d.ts:9860
+- `network_access` — references/plugin-api-standalone.d.ts:9949
+- `network_access` — references/plugin-api-standalone.d.ts:10078
+- `network_access` — references/plugin-api-standalone.d.ts:10116
+- `network_access` — references/plugin-api-standalone.d.ts:10201
+- `network_access` — references/plugin-api-standalone.d.ts:10243
+- `network_access` — references/plugin-api-standalone.d.ts:10465
+- `network_access` — references/plugin-api-standalone.d.ts:10480
+- `network_access` — references/plugin-api-standalone.d.ts:10571
+- `network_access` — references/plugin-api-standalone.d.ts:10587
+- `network_access` — references/plugin-api-standalone.d.ts:10597
+- `network_access` — references/plugin-api-standalone.d.ts:10616
+- `network_access` — references/plugin-api-standalone.d.ts:10620
+- `network_access` — references/plugin-api-standalone.d.ts:10637
+- `network_access` — references/plugin-api-standalone.d.ts:10643
+- `network_access` — references/plugin-api-standalone.d.ts:10679
+- `network_access` — references/plugin-api-standalone.d.ts:10752
+- `network_access` — references/plugin-api-standalone.d.ts:10765
+- `network_access` — references/plugin-api-standalone.d.ts:10782
+- `network_access` — references/plugin-api-standalone.d.ts:10807
+- `network_access` — references/plugin-api-standalone.d.ts:10820
+- `network_access` — references/plugin-api-standalone.d.ts:10833
+- `network_access` — references/plugin-api-standalone.d.ts:10850
+- `network_access` — references/plugin-api-standalone.d.ts:10911
+- `network_access` — references/plugin-api-standalone.d.ts:10915
+- `network_access` — references/plugin-api-standalone.d.ts:10952
+- `network_access` — references/plugin-api-standalone.d.ts:10957
+- `network_access` — references/plugin-api-standalone.d.ts:10968
+- `network_access` — references/plugin-api-standalone.d.ts:11078
+- `network_access` — references/plugin-api-standalone.d.ts:11144
+- `network_access` — references/plugin-api-standalone.d.ts:11165
+- `network_access` — references/plugin-api-standalone.d.ts:11180
+- `network_access` — references/plugin-api-standalone.d.ts:11197
+- `network_access` — references/plugin-api-standalone.d.ts:11256
+- `network_access` — references/plugin-api-standalone.d.ts:11260
+- `network_access` — references/plugin-api-standalone.d.ts:11274
+- `network_access` — references/plugin-api-standalone.d.ts:11284
+- `network_access` — references/api-reference.md:245
+- `network_access` — references/api-reference.md:247
+- `network_access` — references/plugin-api-patterns.md:115
+- `network_access` — agents/openai.yaml:14
+
+### gh-address-comments
+- Result: `manual_review_required`
+- Files: 6
+- Indicators: 3
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `shell_execution` — scripts/fetch_comments.py:96
+
+### gh-fix-ci
+- Result: `manual_review_required`
+- Files: 6
+- Indicators: 6
+- External hosts: github.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:68
+- `shell_execution` — scripts/inspect_pr_checks.py:59
+- `shell_execution` — scripts/inspect_pr_checks.py:69
+- `shell_execution` — scripts/inspect_pr_checks.py:139
+
+### hatch-pet
+- Result: `manual_review_required`
+- Files: 14
+- Indicators: 4
+- External hosts: example.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:184
+- `credential_access` — SKILL.md:38
+
+### jupyter-notebook
+- Result: `manual_review_required`
+- Files: 12
+- Indicators: 2
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+
+### linear
+- Result: `manual_review_required`
+- Files: 5
+- Indicators: 5
+- External hosts: mcp.linear.app, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — SKILL.md:27
+- `network_access` — SKILL.md:37
+- `network_access` — agents/openai.yaml:14
+
+### migrate-to-codex
+- Result: `manual_review_required`
+- Files: 19
+- Indicators: 18
+- External hosts: code.claude.com, developers.openai.com, docs.claude.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — references/differences.md:152
+- `network_access` — references/differences.md:153
+- `network_access` — references/differences.md:154
+- `network_access` — references/differences.md:155
+- `network_access` — references/differences.md:156
+- `network_access` — references/differences.md:157
+- `network_access` — references/differences.md:158
+- `network_access` — references/differences.md:159
+- `network_access` — references/differences.md:160
+- `network_access` — references/differences.md:161
+- `network_access` — references/differences.md:162
+- `network_access` — references/differences.md:163
+- `network_access` — references/differences.md:164
+- `network_access` — references/differences.md:165
+- `network_access` — references/differences.md:166
+- `network_access` — references/differences.md:167
+
+### netlify-deploy
+- Result: `manual_review_required`
+- Files: 8
+- Indicators: 27
+- External hosts: 507f1f77bcf86cd799439011-my-app.netlify.app, api.example.com, app.netlify.com, docs.netlify.com, example.com, github.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:68
+- `network_access` — SKILL.md:87
+- `network_access` — SKILL.md:177
+- `network_access` — SKILL.md:240
+- `network_access` — SKILL.md:241
+- `credential_access` — SKILL.md:229
+- `credential_access` — SKILL.md:229
+- `network_access` — references/netlify-toml.md:100
+- `network_access` — references/netlify-toml.md:175
+- `network_access` — references/netlify-toml.md:258
+- `network_access` — references/netlify-toml.md:259
+- `network_access` — references/deployment-patterns.md:56
+- `network_access` — references/deployment-patterns.md:64
+- `network_access` — references/deployment-patterns.md:66
+- `network_access` — references/deployment-patterns.md:86
+- `network_access` — references/deployment-patterns.md:301
+- `network_access` — references/deployment-patterns.md:302
+- `network_access` — references/deployment-patterns.md:303
+- `credential_access` — references/deployment-patterns.md:152
+- `credential_access` — references/deployment-patterns.md:152
+- `credential_access` — references/deployment-patterns.md:149
+- `credential_access` — references/deployment-patterns.md:152
+- `network_access` — references/cli-commands.md:161
+- `network_access` — references/cli-commands.md:162
+- `credential_access` — references/cli-commands.md:95
+
+### notion-knowledge-capture
+- Result: `manual_review_required`
+- Files: 18
+- Indicators: 17
+- External hosts: github.com, localhost, mcp.notion.com
+- License files: Not found
+- `network_access` — SKILL.md:22
+- `network_access` — examples/conversation-to-faq.md:110
+- `credential_access` — examples/conversation-to-faq.md:91
+- `credential_access` — examples/conversation-to-faq.md:91
+- `credential_access` — examples/conversation-to-faq.md:91
+- `credential_access` — examples/conversation-to-faq.md:91
+- `credential_access` — examples/conversation-to-faq.md:17
+- `credential_access` — examples/conversation-to-faq.md:91
+- `credential_access` — examples/conversation-to-faq.md:91
+- `credential_access` — examples/conversation-to-faq.md:91
+- `credential_access` — examples/conversation-to-faq.md:91
+- `credential_access` — examples/conversation-to-faq.md:91
+- `credential_access` — examples/conversation-to-faq.md:91
+- `credential_access` — examples/conversation-to-faq.md:152
+- `permission_changes` — examples/conversation-to-faq.md:110
+- `network_access` — examples/how-to-guide.md:65
+- `network_access` — agents/openai.yaml:14
+
+### notion-meeting-intelligence
+- Result: `manual_review_required`
+- Files: 19
+- Indicators: 5
+- External hosts: mcp.notion.com
+- License files: Not found
+- `network_access` — SKILL.md:22
+- `network_access` — examples/executive-review.md:21
+- `network_access` — examples/sprint-planning.md:22
+- `network_access` — examples/customer-meeting.md:21
+- `network_access` — agents/openai.yaml:14
+
+### notion-research-documentation
+- Result: `manual_review_required`
+- Files: 23
+- Indicators: 7
+- External hosts: mcp.notion.com, notion.so
+- License files: Not found
+- `network_access` — SKILL.md:22
+- `network_access` — examples/trip-planning.md:16
+- `network_access` — examples/market-research.md:16
+- `network_access` — reference/citations.md:8
+- `network_access` — reference/citations.md:14
+- `network_access` — reference/advanced-search.md:71
+- `network_access` — agents/openai.yaml:14
+
+### notion-spec-to-implementation
+- Result: `manual_review_required`
+- Files: 19
+- Indicators: 4
+- External hosts: mcp.notion.com
+- License files: Not found
+- `network_access` — SKILL.md:23
+- `network_access` — evaluations/basic-spec-implementation.json:20
+- `network_access` — evaluations/spec-to-tasks.json:32
+- `network_access` — agents/openai.yaml:14
+
+### openai-docs
+- Result: `manual_review_required`
+- Files: 10
+- Indicators: 16
+- External hosts: developers.openai.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:48
+- `network_access` — SKILL.md:20
+- `network_access` — SKILL.md:110
+- `network_access` — SKILL.md:121
+- `network_access` — SKILL.md:138
+- `network_access` — SKILL.md:140
+- `network_access` — scripts/resolve-latest-model-info.js:39
+- `network_access` — scripts/resolve-latest-model-info.js:7
+- `network_access` — scripts/resolve-latest-model-info.js:8
+- `credential_access` — scripts/resolve-latest-model-info.js:12
+- `credential_access` — scripts/resolve-latest-model-info.js:13
+- `credential_access` — scripts/resolve-latest-model-info.js:12
+- `credential_access` — scripts/resolve-latest-model-info.js:13
+- `network_access` — agents/openai.yaml:14
+
+### pdf
+- Result: `manual_review_required`
+- Files: 4
+- Indicators: 3
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `permission_changes` — SKILL.md:44
+
+### playwright
+- Result: `manual_review_required`
+- Files: 9
+- Indicators: 17
+- External hosts: demo.playwright.dev, example.com, playwright.dev, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:48
+- `network_access` — SKILL.md:74
+- `network_access` — SKILL.md:96
+- `network_access` — SKILL.md:107
+- `network_access` — SKILL.md:116
+- `network_access` — references/workflows.md:10
+- `network_access` — references/workflows.md:19
+- `network_access` — references/workflows.md:31
+- `network_access` — references/workflows.md:60
+- `network_access` — references/workflows.md:62
+- `network_access` — references/workflows.md:69
+- `network_access` — references/cli.md:22
+- `network_access` — references/cli.md:85
+- `network_access` — references/cli.md:107
+- `network_access` — references/cli.md:115
+
+### playwright-interactive
+- Result: `manual_review_required`
+- Files: 6
+- Indicators: 6
+- External hosts: 127.0.0.1, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:141
+- `network_access` — SKILL.md:164
+- `network_access` — SKILL.md:185
+- `network_access` — SKILL.md:688
+
+### render-deploy
+- Result: `manual_review_required`
+- Files: 21
+- Indicators: 66
+- External hosts: api.example.com, bitbucket.org, dashboard.render.com, github.com, gitlab.com, internal-api.render-internal.com, mcp.render.com, nextjs-app.onrender.com, raw.githubusercontent.com, render.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:111
+- `network_access` — SKILL.md:111
+- `network_access` — SKILL.md:123
+- `network_access` — SKILL.md:131
+- `network_access` — SKILL.md:148
+- `network_access` — SKILL.md:153
+- `network_access` — SKILL.md:164
+- `network_access` — SKILL.md:174
+- `network_access` — SKILL.md:202
+- `network_access` — SKILL.md:341
+- `network_access` — SKILL.md:342
+- `network_access` — SKILL.md:343
+- `network_access` — SKILL.md:345
+- `network_access` — SKILL.md:349
+- `network_access` — SKILL.md:354
+- `network_access` — SKILL.md:354
+- `credential_access` — SKILL.md:436
+- `network_access` — references/configuration-guide.md:235
+- `network_access` — references/configuration-guide.md:236
+- `network_access` — references/configuration-guide.md:21
+- `network_access` — references/configuration-guide.md:603
+- `credential_access` — references/configuration-guide.md:174
+- `credential_access` — references/configuration-guide.md:200
+- `credential_access` — references/configuration-guide.md:362
+- `credential_access` — references/configuration-guide.md:371
+- `credential_access` — references/configuration-guide.md:159
+- `credential_access` — references/configuration-guide.md:347
+- `credential_access` — references/configuration-guide.md:348
+- `credential_access` — references/configuration-guide.md:514
+- `credential_access` — references/configuration-guide.md:567
+- `credential_access` — references/configuration-guide.md:159
+- `credential_access` — references/configuration-guide.md:347
+- `credential_access` — references/configuration-guide.md:348
+- `credential_access` — references/configuration-guide.md:514
+- `credential_access` — references/configuration-guide.md:567
+- `credential_access` — references/configuration-guide.md:31
+- `network_access` — references/blueprint-spec.md:311
+- `network_access` — references/blueprint-spec.md:716
+- `network_access` — references/blueprint-spec.md:717
+- `network_access` — references/blueprint-spec.md:718
+- `credential_access` — references/blueprint-spec.md:338
+- `credential_access` — references/blueprint-spec.md:253
+- `network_access` — references/deployment-details.md:43
+- `credential_access` — references/deployment-details.md:88
+- `credential_access` — references/deployment-details.md:78
+- `credential_access` — references/deployment-details.md:78
+- `credential_access` — references/deployment-details.md:64
+- `credential_access` — references/runtimes.md:338
+- `network_access` — references/direct-creation.md:18
+- `network_access` — references/direct-creation.md:34
+- `network_access` — references/direct-creation.md:39
+- `network_access` — references/direct-creation.md:49
+- `credential_access` — references/direct-creation.md:86
+- `network_access` — references/service-types.md:22
+- `network_access` — references/service-types.md:383
+- `credential_access` — references/service-types.md:99
+- `credential_access` — references/service-types.md:43
+- `credential_access` — references/service-types.md:43
+- `network_access` — agents/openai.yaml:14
+- `credential_access` — assets/node-express.yaml:24
+- `credential_access` — assets/docker.yaml:28
+- `credential_access` — assets/go-api.yaml:26
+- `network_access` — assets/nextjs-postgres.yaml:23
+- `network_access` — assets/static-site.yaml:53
+
+### screenshot
+- Result: `manual_review_required`
+- Files: 11
+- Indicators: 13
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `shell_execution` — scripts/take_screenshot.py:110
+- `shell_execution` — scripts/take_screenshot.py:193
+- `shell_execution` — scripts/take_screenshot.py:207
+- `shell_execution` — scripts/take_screenshot.py:237
+- `shell_execution` — scripts/take_screenshot.py:247
+- `shell_execution` — scripts/take_screenshot.py:401
+- `credential_access` — scripts/take_screenshot.py:47
+- `credential_access` — scripts/take_screenshot.py:63
+- `credential_access` — scripts/take_screenshot.py:83
+- `credential_access` — scripts/take_screenshot.py:89
+- `credential_access` — scripts/take_screenshot.py:231
+
+### security-best-practices
+- Result: `manual_review_required`
+- Files: 13
+- Indicators: 591
+- External hosts: ..., accounts.example.com, advisories.gitlab.com, api.jquery.com, app.example.com, blog.jquery.com, cdn.example, cdn.example.com, cheatsheetseries.owasp.org, create-react-app.dev, datatracker.ietf.org, developer.mozilla.org, docs.djangoproject.com, docs.npmjs.com, docs.pydantic.dev, example.com, expressjs.com, fastapi.tiangolo.com, flask.palletsprojects.com, github.com, go.dev, html5sec.org, jinja.palletsprojects.com, jquery.com, legacy.reactjs.org, link.vuejs.org, nextjs.org, nodejs.org, nvd.nist.gov, owasp.org, pkg.go.dev, portswigger.net, pypi.org, react.dev, starlette.dev, vite.dev, vuejs.org, web.dev, werkzeug.palletsprojects.com, www.apache.org, www.djangoproject.com, www.npmjs.com, www.rfc-editor.org, www.w3.org, …
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `shell_execution` — references/python-fastapi-web-server-security.md:785
+- `shell_execution` — references/python-fastapi-web-server-security.md:786
+- `network_access` — references/python-fastapi-web-server-security.md:968
+- `network_access` — references/python-fastapi-web-server-security.md:969
+- `network_access` — references/python-fastapi-web-server-security.md:970
+- `network_access` — references/python-fastapi-web-server-security.md:971
+- `network_access` — references/python-fastapi-web-server-security.md:972
+- `network_access` — references/python-fastapi-web-server-security.md:976
+- `network_access` — references/python-fastapi-web-server-security.md:977
+- `network_access` — references/python-fastapi-web-server-security.md:978
+- `network_access` — references/python-fastapi-web-server-security.md:979
+- `network_access` — references/python-fastapi-web-server-security.md:983
+- `network_access` — references/python-fastapi-web-server-security.md:984
+- `network_access` — references/python-fastapi-web-server-security.md:985
+- `network_access` — references/python-fastapi-web-server-security.md:986
+- `network_access` — references/python-fastapi-web-server-security.md:987
+- `network_access` — references/python-fastapi-web-server-security.md:988
+- `network_access` — references/python-fastapi-web-server-security.md:989
+- `network_access` — references/python-fastapi-web-server-security.md:990
+- `network_access` — references/python-fastapi-web-server-security.md:991
+- `network_access` — references/python-fastapi-web-server-security.md:992
+- `network_access` — references/python-fastapi-web-server-security.md:993
+- `network_access` — references/python-fastapi-web-server-security.md:994
+- `network_access` — references/python-fastapi-web-server-security.md:995
+- `network_access` — references/python-fastapi-web-server-security.md:996
+- `network_access` — references/python-fastapi-web-server-security.md:1000
+- `network_access` — references/python-fastapi-web-server-security.md:1004
+- `network_access` — references/python-fastapi-web-server-security.md:1005
+- `network_access` — references/python-fastapi-web-server-security.md:1006
+- `network_access` — references/python-fastapi-web-server-security.md:1008
+- `network_access` — references/python-fastapi-web-server-security.md:1008
+- `network_access` — references/python-fastapi-web-server-security.md:1009
+- `network_access` — references/python-fastapi-web-server-security.md:1009
+- `network_access` — references/python-fastapi-web-server-security.md:1010
+- `network_access` — references/python-fastapi-web-server-security.md:1011
+- `network_access` — references/python-fastapi-web-server-security.md:1011
+- `network_access` — references/python-fastapi-web-server-security.md:1012
+- `network_access` — references/python-fastapi-web-server-security.md:1012
+- `network_access` — references/python-fastapi-web-server-security.md:1013
+- `network_access` — references/python-fastapi-web-server-security.md:1014
+- `network_access` — references/python-fastapi-web-server-security.md:1015
+- `network_access` — references/python-fastapi-web-server-security.md:1015
+- `network_access` — references/python-fastapi-web-server-security.md:1016
+- `network_access` — references/python-fastapi-web-server-security.md:1017
+- `network_access` — references/python-fastapi-web-server-security.md:1018
+- `network_access` — references/python-fastapi-web-server-security.md:1019
+- `network_access` — references/python-fastapi-web-server-security.md:1019
+- `network_access` — references/python-fastapi-web-server-security.md:1020
+- `network_access` — references/python-fastapi-web-server-security.md:1020
+- `network_access` — references/python-fastapi-web-server-security.md:1021
+- `network_access` — references/python-fastapi-web-server-security.md:1021
+- `network_access` — references/python-fastapi-web-server-security.md:1022
+- `network_access` — references/python-fastapi-web-server-security.md:1022
+- `network_access` — references/python-fastapi-web-server-security.md:1023
+- `network_access` — references/python-fastapi-web-server-security.md:1023
+- `network_access` — references/python-fastapi-web-server-security.md:1024
+- `network_access` — references/python-fastapi-web-server-security.md:1025
+- `network_access` — references/python-fastapi-web-server-security.md:1026
+- `network_access` — references/python-fastapi-web-server-security.md:1027
+- `network_access` — references/python-fastapi-web-server-security.md:1027
+- `network_access` — references/python-fastapi-web-server-security.md:1028
+- `network_access` — references/python-fastapi-web-server-security.md:1028
+- `network_access` — references/python-fastapi-web-server-security.md:1029
+- `network_access` — references/python-fastapi-web-server-security.md:1029
+- `network_access` — references/python-fastapi-web-server-security.md:1030
+- `network_access` — references/python-fastapi-web-server-security.md:1030
+- `network_access` — references/python-fastapi-web-server-security.md:1031
+- `network_access` — references/python-fastapi-web-server-security.md:1032
+- `network_access` — references/python-fastapi-web-server-security.md:1033
+- `network_access` — references/python-fastapi-web-server-security.md:1034
+- `network_access` — references/python-fastapi-web-server-security.md:1035
+- `network_access` — references/python-fastapi-web-server-security.md:1036
+- `network_access` — references/python-fastapi-web-server-security.md:1036
+- `credential_access` — references/python-fastapi-web-server-security.md:240
+- `credential_access` — references/python-fastapi-web-server-security.md:245
+- `credential_access` — references/python-fastapi-web-server-security.md:921
+- `credential_access` — references/python-fastapi-web-server-security.md:16
+- `credential_access` — references/python-fastapi-web-server-security.md:17
+- `credential_access` — references/python-fastapi-web-server-security.md:23
+- `credential_access` — references/python-fastapi-web-server-security.md:559
+- `credential_access` — references/python-fastapi-web-server-security.md:583
+- `shell_execution` — references/python-flask-web-server-security.md:506
+- `shell_execution` — references/python-flask-web-server-security.md:507
+- `network_access` — references/python-flask-web-server-security.md:537
+- `network_access` — references/python-flask-web-server-security.md:675
+- `network_access` — references/python-flask-web-server-security.md:676
+- `network_access` — references/python-flask-web-server-security.md:677
+- `network_access` — references/python-flask-web-server-security.md:678
+- `network_access` — references/python-flask-web-server-security.md:679
+- `network_access` — references/python-flask-web-server-security.md:680
+- `network_access` — references/python-flask-web-server-security.md:683
+- `network_access` — references/python-flask-web-server-security.md:684
+- `network_access` — references/python-flask-web-server-security.md:687
+- `network_access` — references/python-flask-web-server-security.md:688
+- `network_access` — references/python-flask-web-server-security.md:689
+- `network_access` — references/python-flask-web-server-security.md:690
+- `network_access` — references/python-flask-web-server-security.md:691
+- `network_access` — references/python-flask-web-server-security.md:692
+- `network_access` — references/python-flask-web-server-security.md:693
+- `network_access` — references/python-flask-web-server-security.md:694
+- `network_access` — references/python-flask-web-server-security.md:695
+- `network_access` — references/python-flask-web-server-security.md:696
+- `network_access` — references/python-flask-web-server-security.md:697
+- `network_access` — references/python-flask-web-server-security.md:700
+- `network_access` — references/python-flask-web-server-security.md:701
+- `network_access` — references/python-flask-web-server-security.md:702
+- `network_access` — references/python-flask-web-server-security.md:705
+- `credential_access` — references/python-flask-web-server-security.md:170
+- `credential_access` — references/python-flask-web-server-security.md:644
+- `credential_access` — references/python-flask-web-server-security.md:13
+- `credential_access` — references/python-flask-web-server-security.md:93
+- `credential_access` — references/python-flask-web-server-security.md:155
+- `credential_access` — references/python-flask-web-server-security.md:159
+- `credential_access` — references/python-flask-web-server-security.md:160
+- `credential_access` — references/python-flask-web-server-security.md:164
+- `credential_access` — references/python-flask-web-server-security.md:165
+- `credential_access` — references/python-flask-web-server-security.md:166
+- `credential_access` — references/python-flask-web-server-security.md:169
+- `credential_access` — references/python-flask-web-server-security.md:169
+- `credential_access` — references/python-flask-web-server-security.md:176
+- `credential_access` — references/python-flask-web-server-security.md:181
+- `credential_access` — references/python-flask-web-server-security.md:644
+- `credential_access` — references/python-flask-web-server-security.md:644
+- `credential_access` — references/python-flask-web-server-security.md:594
+- `credential_access` — references/python-flask-web-server-security.md:663
+- `shell_execution` — references/javascript-general-web-frontend-security.md:219
+- `shell_execution` — references/javascript-general-web-frontend-security.md:227
+- `shell_execution` — references/javascript-general-web-frontend-security.md:233
+- `shell_execution` — references/javascript-general-web-frontend-security.md:245
+- `shell_execution` — references/javascript-general-web-frontend-security.md:645
+- `network_access` — references/javascript-general-web-frontend-security.md:492
+- `network_access` — references/javascript-general-web-frontend-security.md:492
+- `network_access` — references/javascript-general-web-frontend-security.md:559
+- `network_access` — references/javascript-general-web-frontend-security.md:583
+- `network_access` — references/javascript-general-web-frontend-security.md:588
+- `network_access` — references/javascript-general-web-frontend-security.md:588
+- `network_access` — references/javascript-general-web-frontend-security.md:670
+- `network_access` — references/javascript-general-web-frontend-security.md:691
+- `network_access` — references/javascript-general-web-frontend-security.md:692
+- `network_access` — references/javascript-general-web-frontend-security.md:693
+- `network_access` — references/javascript-general-web-frontend-security.md:694
+- `network_access` — references/javascript-general-web-frontend-security.md:698
+- `network_access` — references/javascript-general-web-frontend-security.md:699
+- `network_access` — references/javascript-general-web-frontend-security.md:700
+- `network_access` — references/javascript-general-web-frontend-security.md:701
+- `network_access` — references/javascript-general-web-frontend-security.md:701
+- `network_access` — references/javascript-general-web-frontend-security.md:705
+- `network_access` — references/javascript-general-web-frontend-security.md:709
+- `network_access` — references/javascript-general-web-frontend-security.md:710
+- `network_access` — references/javascript-general-web-frontend-security.md:711
+- `network_access` — references/javascript-general-web-frontend-security.md:715
+- `network_access` — references/javascript-general-web-frontend-security.md:716
+- `network_access` — references/javascript-general-web-frontend-security.md:720
+- `network_access` — references/javascript-general-web-frontend-security.md:721
+- `network_access` — references/javascript-general-web-frontend-security.md:722
+- `network_access` — references/javascript-general-web-frontend-security.md:726
+- `network_access` — references/javascript-general-web-frontend-security.md:728
+- `network_access` — references/javascript-general-web-frontend-security.md:728
+- `network_access` — references/javascript-general-web-frontend-security.md:729
+- `network_access` — references/javascript-general-web-frontend-security.md:729
+- `network_access` — references/javascript-general-web-frontend-security.md:730
+- `network_access` — references/javascript-general-web-frontend-security.md:731
+- `network_access` — references/javascript-general-web-frontend-security.md:732
+- `network_access` — references/javascript-general-web-frontend-security.md:732
+- `network_access` — references/javascript-general-web-frontend-security.md:733
+- `network_access` — references/javascript-general-web-frontend-security.md:733
+- `network_access` — references/javascript-general-web-frontend-security.md:734
+- `network_access` — references/javascript-general-web-frontend-security.md:734
+- `network_access` — references/javascript-general-web-frontend-security.md:735
+- `network_access` — references/javascript-general-web-frontend-security.md:735
+- `network_access` — references/javascript-general-web-frontend-security.md:736
+- `network_access` — references/javascript-general-web-frontend-security.md:736
+- `network_access` — references/javascript-general-web-frontend-security.md:737
+- `network_access` — references/javascript-general-web-frontend-security.md:737
+- `network_access` — references/javascript-general-web-frontend-security.md:738
+- `network_access` — references/javascript-general-web-frontend-security.md:738
+- `network_access` — references/javascript-general-web-frontend-security.md:739
+- `network_access` — references/javascript-general-web-frontend-security.md:739
+- `network_access` — references/javascript-general-web-frontend-security.md:740
+- `network_access` — references/javascript-general-web-frontend-security.md:740
+- `network_access` — references/javascript-general-web-frontend-security.md:741
+- `network_access` — references/javascript-general-web-frontend-security.md:741
+- `network_access` — references/javascript-general-web-frontend-security.md:742
+- `network_access` — references/javascript-general-web-frontend-security.md:742
+- `network_access` — references/javascript-general-web-frontend-security.md:743
+- `network_access` — references/javascript-general-web-frontend-security.md:743
+- `network_access` — references/javascript-general-web-frontend-security.md:744
+- `network_access` — references/javascript-general-web-frontend-security.md:744
+- `network_access` — references/javascript-general-web-frontend-security.md:745
+- `network_access` — references/javascript-general-web-frontend-security.md:745
+- `network_access` — references/javascript-general-web-frontend-security.md:746
+- `network_access` — references/javascript-general-web-frontend-security.md:746
+- `network_access` — references/javascript-general-web-frontend-security.md:747
+- `network_access` — references/javascript-general-web-frontend-security.md:747
+- `credential_access` — references/javascript-general-web-frontend-security.md:521
+- `shell_execution` — references/javascript-typescript-nextjs-web-server-security.md:872
+- `shell_execution` — references/javascript-typescript-nextjs-web-server-security.md:892
+- `shell_execution` — references/javascript-typescript-nextjs-web-server-security.md:897
+- `shell_execution` — references/javascript-typescript-nextjs-web-server-security.md:866
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:715
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:726
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:726
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:731
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:977
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1083
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:198
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1003
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1013
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1110
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1111
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1112
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1113
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1114
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1115
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1116
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1117
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1118
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1119
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1120
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1121
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1125
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1126
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1127
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1131
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1133
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1134
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1135
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1136
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1137
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1138
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1139
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1140
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1141
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1142
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1143
+- `network_access` — references/javascript-typescript-nextjs-web-server-security.md:1144
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:16
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:229
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:235
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:263
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:604
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:610
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:924
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:1059
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:16
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:221
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:222
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:227
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:227
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:227
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:229
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:233
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:235
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:240
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:263
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:604
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:610
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:924
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:1058
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:1059
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:233
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:16
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:771
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:780
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:785
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:917
+- `credential_access` — references/javascript-typescript-nextjs-web-server-security.md:1089
+- `network_access` — references/javascript-jquery-web-frontend-security.md:329
+- `network_access` — references/javascript-jquery-web-frontend-security.md:346
+- `network_access` — references/javascript-jquery-web-frontend-security.md:347
+- `network_access` — references/javascript-jquery-web-frontend-security.md:202
+- `network_access` — references/javascript-jquery-web-frontend-security.md:613
+- `network_access` — references/javascript-jquery-web-frontend-security.md:614
+- `network_access` — references/javascript-jquery-web-frontend-security.md:615
+- `network_access` — references/javascript-jquery-web-frontend-security.md:616
+- `network_access` — references/javascript-jquery-web-frontend-security.md:617
+- `network_access` — references/javascript-jquery-web-frontend-security.md:618
+- `network_access` — references/javascript-jquery-web-frontend-security.md:619
+- `network_access` — references/javascript-jquery-web-frontend-security.md:620
+- `network_access` — references/javascript-jquery-web-frontend-security.md:621
+- `network_access` — references/javascript-jquery-web-frontend-security.md:622
+- `network_access` — references/javascript-jquery-web-frontend-security.md:626
+- `network_access` — references/javascript-jquery-web-frontend-security.md:627
+- `network_access` — references/javascript-jquery-web-frontend-security.md:628
+- `network_access` — references/javascript-jquery-web-frontend-security.md:629
+- `network_access` — references/javascript-jquery-web-frontend-security.md:633
+- `network_access` — references/javascript-jquery-web-frontend-security.md:634
+- `network_access` — references/javascript-jquery-web-frontend-security.md:635
+- `network_access` — references/javascript-jquery-web-frontend-security.md:636
+- `network_access` — references/javascript-jquery-web-frontend-security.md:637
+- `network_access` — references/javascript-jquery-web-frontend-security.md:641
+- `network_access` — references/javascript-jquery-web-frontend-security.md:642
+- `network_access` — references/javascript-jquery-web-frontend-security.md:643
+- `network_access` — references/javascript-jquery-web-frontend-security.md:644
+- `network_access` — references/javascript-jquery-web-frontend-security.md:645
+- `network_access` — references/javascript-jquery-web-frontend-security.md:646
+- `network_access` — references/javascript-jquery-web-frontend-security.md:647
+- `network_access` — references/javascript-jquery-web-frontend-security.md:648
+- `network_access` — references/javascript-jquery-web-frontend-security.md:650
+- `network_access` — references/javascript-jquery-web-frontend-security.md:651
+- `network_access` — references/javascript-jquery-web-frontend-security.md:652
+- `network_access` — references/javascript-jquery-web-frontend-security.md:653
+- `network_access` — references/javascript-jquery-web-frontend-security.md:654
+- `network_access` — references/javascript-jquery-web-frontend-security.md:655
+- `network_access` — references/javascript-jquery-web-frontend-security.md:656
+- `network_access` — references/javascript-jquery-web-frontend-security.md:657
+- `network_access` — references/javascript-jquery-web-frontend-security.md:658
+- `network_access` — references/javascript-jquery-web-frontend-security.md:659
+- `network_access` — references/javascript-jquery-web-frontend-security.md:660
+- `network_access` — references/javascript-jquery-web-frontend-security.md:661
+- `network_access` — references/javascript-jquery-web-frontend-security.md:662
+- `network_access` — references/javascript-jquery-web-frontend-security.md:663
+- `network_access` — references/javascript-jquery-web-frontend-security.md:664
+- `network_access` — references/javascript-jquery-web-frontend-security.md:665
+- `network_access` — references/javascript-jquery-web-frontend-security.md:666
+- `network_access` — references/javascript-jquery-web-frontend-security.md:667
+- `network_access` — references/javascript-jquery-web-frontend-security.md:668
+- `network_access` — references/javascript-jquery-web-frontend-security.md:669
+- `network_access` — references/javascript-jquery-web-frontend-security.md:670
+- `network_access` — references/javascript-jquery-web-frontend-security.md:671
+- `network_access` — references/javascript-jquery-web-frontend-security.md:672
+- `network_access` — references/javascript-jquery-web-frontend-security.md:673
+- `network_access` — references/javascript-jquery-web-frontend-security.md:674
+- `network_access` — references/javascript-jquery-web-frontend-security.md:675
+- `network_access` — references/javascript-jquery-web-frontend-security.md:676
+- `network_access` — references/javascript-jquery-web-frontend-security.md:677
+- `network_access` — references/javascript-jquery-web-frontend-security.md:678
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:503
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:635
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:640
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:753
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:754
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:755
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:756
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:760
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:761
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:762
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:766
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:767
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:768
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:769
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:770
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:774
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:775
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:776
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:778
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:778
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:779
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:779
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:780
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:780
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:781
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:781
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:782
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:782
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:783
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:783
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:784
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:785
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:785
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:786
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:786
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:787
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:787
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:788
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:789
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:789
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:790
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:791
+- `network_access` — references/javascript-typescript-vue-web-frontend-security.md:791
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:222
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:50
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:180
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:181
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:191
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:191
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:191
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:191
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:201
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:222
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:713
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:713
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:713
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:713
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:192
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:713
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:533
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:192
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:172
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:187
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:498
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:503
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:508
+- `credential_access` — references/javascript-typescript-vue-web-frontend-security.md:733
+- `shell_execution` — references/javascript-typescript-react-web-frontend-security.md:775
+- `shell_execution` — references/javascript-typescript-react-web-frontend-security.md:884
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:564
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:635
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:641
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:446
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:922
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:923
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:924
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:928
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:929
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:930
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:931
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:932
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:933
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:934
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:938
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:939
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:940
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:941
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:942
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:943
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:944
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:948
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:949
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:953
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:957
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:958
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:962
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:964
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:965
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:966
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:967
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:968
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:969
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:970
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:971
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:972
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:973
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:974
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:975
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:976
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:977
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:978
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:979
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:984
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:985
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:986
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:987
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:988
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:989
+- `network_access` — references/javascript-typescript-react-web-frontend-security.md:990
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:146
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:154
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:146
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:147
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:148
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:154
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:154
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:146
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:564
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:571
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:631
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:635
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:644
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:649
+- `credential_access` — references/javascript-typescript-react-web-frontend-security.md:895
+- `shell_execution` — references/golang-general-backend-security.md:811
+- `network_access` — references/golang-general-backend-security.md:803
+- `network_access` — references/golang-general-backend-security.md:804
+- `network_access` — references/golang-general-backend-security.md:805
+- `network_access` — references/golang-general-backend-security.md:806
+- `network_access` — references/golang-general-backend-security.md:807
+- `network_access` — references/golang-general-backend-security.md:808
+- `network_access` — references/golang-general-backend-security.md:809
+- `network_access` — references/golang-general-backend-security.md:810
+- `network_access` — references/golang-general-backend-security.md:811
+- `network_access` — references/golang-general-backend-security.md:812
+- `network_access` — references/golang-general-backend-security.md:813
+- `network_access` — references/golang-general-backend-security.md:814
+- `network_access` — references/golang-general-backend-security.md:815
+- `network_access` — references/golang-general-backend-security.md:816
+- `network_access` — references/golang-general-backend-security.md:817
+- `network_access` — references/golang-general-backend-security.md:818
+- `network_access` — references/golang-general-backend-security.md:819
+- `network_access` — references/golang-general-backend-security.md:822
+- `network_access` — references/golang-general-backend-security.md:823
+- `network_access` — references/golang-general-backend-security.md:824
+- `network_access` — references/golang-general-backend-security.md:825
+- `network_access` — references/golang-general-backend-security.md:826
+- `credential_access` — references/golang-general-backend-security.md:185
+- `credential_access` — references/golang-general-backend-security.md:184
+- `credential_access` — references/golang-general-backend-security.md:188
+- `credential_access` — references/golang-general-backend-security.md:13
+- `credential_access` — references/golang-general-backend-security.md:14
+- `credential_access` — references/golang-general-backend-security.md:174
+- `credential_access` — references/golang-general-backend-security.md:390
+- `credential_access` — references/golang-general-backend-security.md:400
+- `shell_execution` — references/python-django-web-server-security.md:505
+- `shell_execution` — references/python-django-web-server-security.md:506
+- `network_access` — references/python-django-web-server-security.md:855
+- `network_access` — references/python-django-web-server-security.md:856
+- `network_access` — references/python-django-web-server-security.md:857
+- `network_access` — references/python-django-web-server-security.md:858
+- `network_access` — references/python-django-web-server-security.md:859
+- `network_access` — references/python-django-web-server-security.md:860
+- `network_access` — references/python-django-web-server-security.md:861
+- `network_access` — references/python-django-web-server-security.md:862
+- `network_access` — references/python-django-web-server-security.md:863
+- `network_access` — references/python-django-web-server-security.md:864
+- `network_access` — references/python-django-web-server-security.md:865
+- `network_access` — references/python-django-web-server-security.md:871
+- `network_access` — references/python-django-web-server-security.md:874
+- `network_access` — references/python-django-web-server-security.md:874
+- `network_access` — references/python-django-web-server-security.md:875
+- `network_access` — references/python-django-web-server-security.md:876
+- `network_access` — references/python-django-web-server-security.md:877
+- `network_access` — references/python-django-web-server-security.md:878
+- `network_access` — references/python-django-web-server-security.md:878
+- `network_access` — references/python-django-web-server-security.md:879
+- `network_access` — references/python-django-web-server-security.md:879
+- `network_access` — references/python-django-web-server-security.md:880
+- `network_access` — references/python-django-web-server-security.md:880
+- `network_access` — references/python-django-web-server-security.md:881
+- `network_access` — references/python-django-web-server-security.md:881
+- `network_access` — references/python-django-web-server-security.md:882
+- `credential_access` — references/python-django-web-server-security.md:170
+- `credential_access` — references/python-django-web-server-security.md:170
+- `credential_access` — references/python-django-web-server-security.md:199
+- `credential_access` — references/python-django-web-server-security.md:14
+- `credential_access` — references/python-django-web-server-security.md:105
+- `credential_access` — references/python-django-web-server-security.md:105
+- `credential_access` — references/python-django-web-server-security.md:112
+- `credential_access` — references/python-django-web-server-security.md:180
+- `credential_access` — references/python-django-web-server-security.md:186
+- `credential_access` — references/python-django-web-server-security.md:193
+- `credential_access` — references/python-django-web-server-security.md:194
+- `credential_access` — references/python-django-web-server-security.md:199
+- `credential_access` — references/python-django-web-server-security.md:199
+- `credential_access` — references/python-django-web-server-security.md:206
+- `credential_access` — references/python-django-web-server-security.md:759
+- `credential_access` — references/python-django-web-server-security.md:811
+- `shell_execution` — references/javascript-express-web-server-security.md:143
+- `shell_execution` — references/javascript-express-web-server-security.md:771
+- `shell_execution` — references/javascript-express-web-server-security.md:794
+- `shell_execution` — references/javascript-express-web-server-security.md:1082
+- `shell_execution` — references/javascript-express-web-server-security.md:780
+- `shell_execution` — references/javascript-express-web-server-security.md:794
+- `shell_execution` — references/javascript-express-web-server-security.md:780
+- `shell_execution` — references/javascript-express-web-server-security.md:787
+- `shell_execution` — references/javascript-express-web-server-security.md:788
+- `shell_execution` — references/javascript-express-web-server-security.md:794
+- `network_access` — references/javascript-express-web-server-security.md:827
+- `network_access` — references/javascript-express-web-server-security.md:832
+- `network_access` — references/javascript-express-web-server-security.md:1109
+- `network_access` — references/javascript-express-web-server-security.md:1110
+- `network_access` — references/javascript-express-web-server-security.md:1111
+- `network_access` — references/javascript-express-web-server-security.md:1112
+- `network_access` — references/javascript-express-web-server-security.md:1116
+- `network_access` — references/javascript-express-web-server-security.md:1120
+- `network_access` — references/javascript-express-web-server-security.md:1121
+- `network_access` — references/javascript-express-web-server-security.md:1125
+- `network_access` — references/javascript-express-web-server-security.md:1126
+- `network_access` — references/javascript-express-web-server-security.md:1127
+- `network_access` — references/javascript-express-web-server-security.md:1128
+- `network_access` — references/javascript-express-web-server-security.md:1129
+- `network_access` — references/javascript-express-web-server-security.md:1130
+- `network_access` — references/javascript-express-web-server-security.md:1131
+- `network_access` — references/javascript-express-web-server-security.md:1132
+- `network_access` — references/javascript-express-web-server-security.md:1133
+- `network_access` — references/javascript-express-web-server-security.md:1134
+- `network_access` — references/javascript-express-web-server-security.md:1138
+- `network_access` — references/javascript-express-web-server-security.md:1139
+- `network_access` — references/javascript-express-web-server-security.md:1141
+- `network_access` — references/javascript-express-web-server-security.md:1142
+- `network_access` — references/javascript-express-web-server-security.md:1143
+- `network_access` — references/javascript-express-web-server-security.md:1144
+- `network_access` — references/javascript-express-web-server-security.md:1145
+- `network_access` — references/javascript-express-web-server-security.md:1146
+- `network_access` — references/javascript-express-web-server-security.md:1147
+- `network_access` — references/javascript-express-web-server-security.md:1148
+- `network_access` — references/javascript-express-web-server-security.md:1149
+- `network_access` — references/javascript-express-web-server-security.md:1150
+- `network_access` — references/javascript-express-web-server-security.md:1151
+- `network_access` — references/javascript-express-web-server-security.md:1152
+- `network_access` — references/javascript-express-web-server-security.md:1153
+- `network_access` — references/javascript-express-web-server-security.md:1154
+- `network_access` — references/javascript-express-web-server-security.md:1155
+- `network_access` — references/javascript-express-web-server-security.md:1156
+- `network_access` — references/javascript-express-web-server-security.md:1157
+- `network_access` — references/javascript-express-web-server-security.md:1158
+- `credential_access` — references/javascript-express-web-server-security.md:406
+- `credential_access` — references/javascript-express-web-server-security.md:414
+- `credential_access` — references/javascript-express-web-server-security.md:419
+- `credential_access` — references/javascript-express-web-server-security.md:425
+
+### security-ownership-map
+- Result: `manual_review_required`
+- Files: 8
+- Indicators: 5
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `shell_execution` — scripts/build_ownership_map.py:360
+- `shell_execution` — scripts/community_maintainers.py:324
+- `shell_execution` — scripts/run_ownership_map.py:195
+
+### security-threat-model
+- Result: `manual_review_required`
+- Files: 5
+- Indicators: 6
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `credential_access` — SKILL.md:30
+- `credential_access` — SKILL.md:34
+- `credential_access` — references/prompt-template.md:142
+- `credential_access` — references/prompt-template.md:148
+
+### sentry
+- Result: `manual_review_required`
+- Files: 5
+- Indicators: 5
+- External hosts: cli.sentry.dev, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:18
+- `network_access` — SKILL.md:18
+- `credential_access` — SKILL.md:12
+
+### speech
+- Result: `manual_review_required`
+- Files: 16
+- Indicators: 3
+- External hosts: platform.openai.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:50
+
+### transcribe
+- Result: `manual_review_required`
+- Files: 7
+- Indicators: 2
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+
+### vercel-deploy
+- Result: `high_review_required`
+- Files: 6
+- Indicators: 8
+- External hosts: codex-deploy-skills.vercel.sh
+- License files: Not found
+- `network_access` — SKILL.md:65
+- `credential_access` — SKILL.md:31
+- `destructive_operations` — scripts/deploy.sh:175
+- `network_access` — scripts/deploy.sh:239
+- `network_access` — scripts/deploy.sh:266
+- `network_access` — scripts/deploy.sh:9
+- `credential_access` — scripts/deploy.sh:204
+- `credential_access` — scripts/deploy.sh:205
+
+### winui-app
+- Result: `manual_review_required`
+- Files: 21
+- Indicators: 56
+- External hosts: aka.ms, github.com, learn.microsoft.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — config.yaml:1
+- `network_access` — references/shell-navigation-and-windowing.md:6
+- `network_access` — references/shell-navigation-and-windowing.md:7
+- `network_access` — references/shell-navigation-and-windowing.md:8
+- `network_access` — references/shell-navigation-and-windowing.md:9
+- `network_access` — references/windows-app-sdk-lifecycle-notifications-and-deployment.md:6
+- `network_access` — references/windows-app-sdk-lifecycle-notifications-and-deployment.md:7
+- `network_access` — references/windows-app-sdk-lifecycle-notifications-and-deployment.md:8
+- `network_access` — references/windows-app-sdk-lifecycle-notifications-and-deployment.md:9
+- `network_access` — references/controls-layout-and-adaptive-ui.md:6
+- `network_access` — references/controls-layout-and-adaptive-ui.md:7
+- `network_access` — references/controls-layout-and-adaptive-ui.md:8
+- `network_access` — references/motion-animations-and-polish.md:6
+- `network_access` — references/motion-animations-and-polish.md:7
+- `network_access` — references/motion-animations-and-polish.md:8
+- `network_access` — references/testing-debugging-and-review-checklists.md:6
+- `network_access` — references/testing-debugging-and-review-checklists.md:7
+- `network_access` — references/testing-debugging-and-review-checklists.md:8
+- `network_access` — references/styling-theming-materials-and-icons.md:6
+- `network_access` — references/styling-theming-materials-and-icons.md:7
+- `network_access` — references/styling-theming-materials-and-icons.md:8
+- `network_access` — references/styling-theming-materials-and-icons.md:9
+- `network_access` — references/styling-theming-materials-and-icons.md:10
+- `network_access` — references/styling-theming-materials-and-icons.md:11
+- `network_access` — references/community-toolkit-controls-and-helpers.md:6
+- `network_access` — references/community-toolkit-controls-and-helpers.md:7
+- `network_access` — references/foundation-setup-and-project-selection.md:6
+- `network_access` — references/foundation-setup-and-project-selection.md:7
+- `network_access` — references/foundation-setup-and-project-selection.md:8
+- `network_access` — references/foundation-setup-and-project-selection.md:9
+- `network_access` — references/build-run-and-launch-verification.md:6
+- `network_access` — references/build-run-and-launch-verification.md:7
+- `network_access` — references/build-run-and-launch-verification.md:8
+- `network_access` — references/sample-source-map.md:6
+- `network_access` — references/sample-source-map.md:7
+- `network_access` — references/sample-source-map.md:8
+- `network_access` — references/sample-source-map.md:9
+- `network_access` — references/accessibility-input-and-localization.md:6
+- `network_access` — references/accessibility-input-and-localization.md:7
+- `network_access` — references/accessibility-input-and-localization.md:8
+- `network_access` — references/accessibility-input-and-localization.md:9
+- `network_access` — references/accessibility-input-and-localization.md:10
+- `network_access` — references/foundation-template-first-recovery.md:6
+- `network_access` — references/foundation-template-first-recovery.md:7
+- `network_access` — references/foundation-template-first-recovery.md:8
+- `network_access` — references/foundation-template-first-recovery.md:9
+- `network_access` — references/foundation-winui-app-structure.md:6
+- `network_access` — references/foundation-winui-app-structure.md:7
+- `network_access` — references/foundation-environment-audit-and-remediation.md:6
+- `network_access` — references/foundation-environment-audit-and-remediation.md:7
+- `network_access` — references/foundation-environment-audit-and-remediation.md:8
+- `network_access` — references/foundation-environment-audit-and-remediation.md:9
+- `network_access` — references/performance-diagnostics-and-responsiveness.md:6
+- `network_access` — references/performance-diagnostics-and-responsiveness.md:7
+
+### yeet
+- Result: `manual_review_required`
+- Files: 5
+- Indicators: 2
+- External hosts: www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+
+### imagegen
+- Result: `manual_review_required`
+- Files: 11
+- Indicators: 3
+- External hosts: platform.openai.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:262
+
+### openai-docs
+- Result: `manual_review_required`
+- Files: 10
+- Indicators: 16
+- External hosts: developers.openai.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — SKILL.md:54
+- `network_access` — SKILL.md:26
+- `network_access` — SKILL.md:116
+- `network_access` — SKILL.md:127
+- `network_access` — SKILL.md:144
+- `network_access` — SKILL.md:146
+- `network_access` — scripts/resolve-latest-model-info.js:39
+- `network_access` — scripts/resolve-latest-model-info.js:7
+- `network_access` — scripts/resolve-latest-model-info.js:8
+- `credential_access` — scripts/resolve-latest-model-info.js:12
+- `credential_access` — scripts/resolve-latest-model-info.js:13
+- `credential_access` — scripts/resolve-latest-model-info.js:12
+- `credential_access` — scripts/resolve-latest-model-info.js:13
+- `network_access` — agents/openai.yaml:14
+
+### plugin-creator
+- Result: `manual_review_required`
+- Files: 5
+- Indicators: 14
+- External hosts: docs.example.com, github.com, openai.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:3
+- `network_access` — LICENSE.txt:195
+- `network_access` — references/plugin-json-spec.md:11
+- `network_access` — references/plugin-json-spec.md:13
+- `network_access` — references/plugin-json-spec.md:14
+- `network_access` — references/plugin-json-spec.md:28
+- `network_access` — references/plugin-json-spec.md:29
+- `network_access` — references/plugin-json-spec.md:30
+- `network_access` — scripts/create_basic_plugin.py:51
+- `network_access` — scripts/create_basic_plugin.py:53
+- `network_access` — scripts/create_basic_plugin.py:54
+- `network_access` — scripts/create_basic_plugin.py:68
+- `network_access` — scripts/create_basic_plugin.py:69
+- `network_access` — scripts/create_basic_plugin.py:70
+
+### skill-creator
+- Result: `manual_review_required`
+- Files: 7
+- Indicators: 4
+- External hosts: api.githubcopilot.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — references/openai_yaml.md:22
+- `permission_changes` — scripts/init_skill.py:238
+
+### skill-installer
+- Result: `manual_review_required`
+- Files: 8
+- Indicators: 20
+- External hosts: api.github.com, codeload.github.com, github.com, www.apache.org
+- License files: Not found
+- `network_access` — LICENSE.txt:4
+- `network_access` — LICENSE.txt:196
+- `network_access` — SKILL.md:10
+- `network_access` — SKILL.md:40
+- `network_access` — SKILL.md:54
+- `network_access` — SKILL.md:57
+- `credential_access` — SKILL.md:55
+- `network_access` — scripts/list-skills.py:58
+- `credential_access` — scripts/list-skills.py:35
+- `network_access` — scripts/github_utils.py:7
+- `network_access` — scripts/github_utils.py:15
+- `network_access` — scripts/github_utils.py:16
+- `network_access` — scripts/github_utils.py:21
+- `credential_access` — scripts/github_utils.py:12
+- `credential_access` — scripts/github_utils.py:12
+- `shell_execution` — scripts/install-skill-from-github.py:100
+- `network_access` — scripts/install-skill-from-github.py:81
+- `network_access` — scripts/install-skill-from-github.py:180
+- `network_access` — scripts/install-skill-from-github.py:250
+- `credential_access` — scripts/install-skill-from-github.py:46
+
+### pull-request-prep
+- Result: `no_static_indicators_found`
+- Files: 1
+- Indicators: 0
+- External hosts: None detected
+- License files: Not found
+
+### release-readiness
+- Result: `manual_review_required`
+- Files: 1
+- Indicators: 2
+- External hosts: None detected
+- License files: Not found
+- `credential_access` — SKILL.md:20
+- `credential_access` — SKILL.md:20
+
+### research-with-sources
+- Result: `no_static_indicators_found`
+- Files: 1
+- Indicators: 0
+- External hosts: None detected
+- License files: Not found
+
+### reverse-engineer-anything
+- Result: `manual_review_required`
+- Files: 9
+- Indicators: 113
+- External hosts: 127.0.0.1, github.com, learn.chatgpt.com, ppa.launchpadcontent.net
+- License files: Not found
+- `network_access` — SKILL.md:103
+- `network_access` — SKILL.md:106
+- `network_access` — SKILL.md:112
+- `network_access` — SKILL.md:125
+- `network_access` — SKILL.md:171
+- `network_access` — SKILL.md:179
+- `network_access` — SKILL.md:187
+- `network_access` — SKILL.md:195
+- `network_access` — SKILL.md:203
+- `network_access` — SKILL.md:212
+- `network_access` — SKILL.md:220
+- `network_access` — SKILL.md:233
+- `network_access` — SKILL.md:243
+- `network_access` — SKILL.md:254
+- `network_access` — SKILL.md:265
+- `network_access` — SKILL.md:280
+- `network_access` — SKILL.md:288
+- `network_access` — SKILL.md:296
+- `network_access` — SKILL.md:304
+- `network_access` — SKILL.md:312
+- `network_access` — SKILL.md:320
+- `network_access` — SKILL.md:329
+- `network_access` — SKILL.md:335
+- `network_access` — SKILL.md:346
+- `network_access` — SKILL.md:357
+- `network_access` — SKILL.md:372
+- `network_access` — SKILL.md:380
+- `network_access` — SKILL.md:390
+- `network_access` — SKILL.md:400
+- `network_access` — SKILL.md:410
+- `network_access` — SKILL.md:420
+- `network_access` — SKILL.md:427
+- `network_access` — SKILL.md:435
+- `network_access` — SKILL.md:443
+- `network_access` — SKILL.md:452
+- `network_access` — SKILL.md:457
+- `network_access` — SKILL.md:462
+- `network_access` — SKILL.md:482
+- `network_access` — SKILL.md:483
+- `network_access` — SKILL.md:486
+- `network_access` — SKILL.md:506
+- `network_access` — references/android-applications.md:25
+- `network_access` — references/javascript-applications.md:9
+- `network_access` — references/javascript-applications.md:93
+- `network_access` — references/evidence-workflows.md:50
+- `network_access` — references/native-and-artifacts.md:63
+- `network_access` — references/native-and-artifacts.md:73
+- `network_access` — references/native-and-artifacts.md:96
+- `network_access` — references/native-and-artifacts.md:106
+- `network_access` — references/native-and-artifacts.md:124
+- `network_access` — references/native-and-artifacts.md:143
+- `network_access` — references/native-and-artifacts.md:144
+- `network_access` — references/native-and-artifacts.md:156
+- `network_access` — references/native-and-artifacts.md:170
+- `network_access` — references/native-and-artifacts.md:183
+- `network_access` — references/native-and-artifacts.md:197
+- `network_access` — references/native-and-artifacts.md:210
+- `network_access` — references/native-and-artifacts.md:222
+- `network_access` — references/native-and-artifacts.md:233
+- `network_access` — references/native-and-artifacts.md:248
+- `network_access` — references/native-and-artifacts.md:263
+- `network_access` — references/native-and-artifacts.md:279
+- `network_access` — references/native-and-artifacts.md:293
+- `network_access` — references/native-and-artifacts.md:309
+- `network_access` — references/native-and-artifacts.md:324
+- `network_access` — references/native-and-artifacts.md:343
+- `network_access` — references/native-and-artifacts.md:364
+- `network_access` — references/native-and-artifacts.md:374
+- `network_access` — references/native-and-artifacts.md:388
+- `network_access` — references/native-and-artifacts.md:401
+- `network_access` — references/native-and-artifacts.md:416
+- `network_access` — references/native-and-artifacts.md:431
+- `network_access` — references/native-and-artifacts.md:564
+- `network_access` — references/native-and-artifacts.md:585
+- `network_access` — references/native-and-artifacts.md:619
+- `network_access` — references/native-and-artifacts.md:770
+- `network_access` — references/native-and-artifacts.md:799
+- `network_access` — references/native-and-artifacts.md:815
+- `network_access` — references/native-and-artifacts.md:833
+- `network_access` — references/native-and-artifacts.md:847
+- `network_access` — references/native-and-artifacts.md:854
+- `network_access` — references/native-and-artifacts.md:886
+- `network_access` — references/native-and-artifacts.md:896
+- `network_access` — references/native-and-artifacts.md:923
+- `network_access` — references/native-and-artifacts.md:933
+- `network_access` — references/native-and-artifacts.md:940
+- `network_access` — references/native-and-artifacts.md:947
+- `network_access` — references/native-and-artifacts.md:956
+- `network_access` — references/native-and-artifacts.md:963
+- `network_access` — references/native-and-artifacts.md:984
+- `network_access` — references/native-and-artifacts.md:1010
+- `network_access` — references/native-and-artifacts.md:1027
+- `network_access` — references/native-and-artifacts.md:1048
+- `network_access` — references/environments.md:45
+- `network_access` — references/environments.md:287
+- `network_access` — references/environments.md:374
+- `credential_access` — references/environments.md:398
+- `credential_access` — references/environments.md:21
+- `credential_access` — references/environments.md:184
+- `network_access` — references/runtime-observation.md:50
+- `network_access` — references/runtime-observation.md:51
+- `network_access` — references/runtime-observation.md:52
+- `network_access` — references/runtime-observation.md:53
+- `network_access` — references/runtime-observation.md:139
+- `credential_access` — references/runtime-observation.md:74
+- `network_access` — references/desktop-build.md:99
+- `network_access` — references/desktop-build.md:158
+- `credential_access` — references/desktop-build.md:799
+- `credential_access` — references/desktop-build.md:54
+- `permission_changes` — references/desktop-build.md:57
+- `network_access` — references/connection-and-recovery.md:14
+- `network_access` — references/connection-and-recovery.md:56
+- `network_access` — references/connection-and-recovery.md:211
+
+### security-review
+- Result: `manual_review_required`
+- Files: 1
+- Indicators: 1
+- External hosts: None detected
+- License files: Not found
+- `credential_access` — SKILL.md:44
+
+### skill-authoring
+- Result: `no_static_indicators_found`
+- Files: 1
+- Indicators: 0
+- External hosts: None detected
+- License files: Not found
+
+### systematic-debugging
+- Result: `manual_review_required`
+- Files: 1
+- Indicators: 1
+- External hosts: None detected
+- License files: Not found
+- `credential_access` — SKILL.md:39
+
+### test-driven-changes
+- Result: `no_static_indicators_found`
+- Files: 1
+- Indicators: 0
+- External hosts: None detected
+- License files: Not found

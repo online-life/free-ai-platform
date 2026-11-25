@@ -1,0 +1,11 @@
+Free AI Platform
+Copyright 2026 Mr. Joe
+
+This repository is licensed under the Apache License, Version 2.0.
+
+The source-package builder excludes installed dependencies and generated
+dependency bundles. `package.json` and `pnpm-lock.yaml` identify dependencies
+and resolved versions, but the lockfile does not contain their license texts.
+Each upstream package's declared license and notice remains applicable. Any
+distribution that includes third-party dependency code or assets must carry
+the notices required for the exact components shipped.

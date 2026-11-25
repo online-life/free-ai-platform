@@ -1,0 +1,164 @@
+FREE AI — LAYER 01 RESUME REPORT
+Timestamp: 20261121-034634
+Project: /opt/free-ai
+Database URL: temporary local placeholder; no DB connection
+Prisma schema loaded from apps/api/prisma/schema.prisma
+┌─────────────────────────────────────────────────────────┐
+│  Update available 6.19.0 -> 8.0.0-rc.34                 │
+│                                                         │
+│  This is a major update - please follow the guide at    │
+│  https://pris.ly/d/major-version-upgrade                │
+│                                                         │
+│  Run the following to update                            │
+│    npm i --save-dev prisma@latest                       │
+│    npm i @prisma/client@latest                          │
+└─────────────────────────────────────────────────────────┘
+The schema at apps/api/prisma/schema.prisma is valid 🚀
+[PASS] Prisma schema validation
+========== PRISMA CLIENT GENERATION ==========
+Prisma schema loaded from apps/api/prisma/schema.prisma
+
+✔ Generated Prisma Client (v6.19.0) to ./node_modules/.pnpm/@prisma+client@6.19.0_prisma@6.19.0_typescript@5.9.3__typescript@5.9.3/node_modules/@prisma/client in 215ms
+
+Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+Tip: Want to turn off tips and other hints? https://pris.ly/tip-4-nohints
+
+[PASS] PRISMA CLIENT GENERATION
+[PASS] Migration generated from Prisma schema
+Migration lines: 508
+========== PRISMA VALIDATION ==========
+Prisma schema loaded from apps/api/prisma/schema.prisma
+The schema at apps/api/prisma/schema.prisma is valid 🚀
+[PASS] PRISMA VALIDATION
+========== PRISMA CLIENT GENERATION ==========
+Prisma schema loaded from apps/api/prisma/schema.prisma
+
+✔ Generated Prisma Client (v6.19.0) to ./node_modules/.pnpm/@prisma+client@6.19.0_prisma@6.19.0_typescript@5.9.3__typescript@5.9.3/node_modules/@prisma/client in 133ms
+
+Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+Tip: Need your database queries to be 1000x faster? Accelerate offers you that and more: https://pris.ly/tip-2-accelerate
+
+[PASS] PRISMA CLIENT GENERATION
+========== TYPESCRIPT TYPECHECK ==========
+apps/api/src/modules/audit/audit-event.ts(1,33): error TS2307: Cannot find module '@free-ai/contracts' or its corresponding type declarations.
+apps/api/src/modules/audit/audit-event.ts(2,26): error TS2307: Cannot find module '@free-ai/shared' or its corresponding type declarations.
+apps/api/src/modules/audit/audit.service.ts(22,7): error TS2375: Type '{ tenantId: string; projectId: string | null; actorUserId: string | null; action: string; resourceType: string; resourceId: string | null; correlationId: string; metadata: object | undefined; }' is not assignable to type '(Without<AuditLogCreateInput, AuditLogUncheckedCreateInput> & AuditLogUncheckedCreateInput) | (Without<...> & AuditLogCreateInput)' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ tenantId: string; projectId: string | null; actorUserId: string | null; action: string; resourceType: string; resourceId: string | null; correlationId: string; metadata: object | undefined; }' is not assignable to type 'Without<AuditLogCreateInput, AuditLogUncheckedCreateInput> & AuditLogUncheckedCreateInput' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Type '{ tenantId: string; projectId: string | null; actorUserId: string | null; action: string; resourceType: string; resourceId: string | null; correlationId: string; metadata: object | undefined; }' is not assignable to type 'AuditLogUncheckedCreateInput' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Types of property 'metadata' are incompatible.
+        Type 'object | undefined' is not assignable to type 'NullableJsonNullValueInput | InputJsonValue'.
+          Type 'undefined' is not assignable to type 'NullableJsonNullValueInput | InputJsonValue'.
+apps/api/src/modules/authentication/authentication.service.ts(54,7): error TS2375: Type '{ tenantId: string; userId: string; tokenHash: string; expiresAt: Date; ipAddress: string | undefined; userAgent: string | undefined; }' is not assignable to type '(Without<SessionCreateInput, SessionUncheckedCreateInput> & SessionUncheckedCreateInput) | (Without<...> & SessionCreateInput)' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Type '{ tenantId: string; userId: string; tokenHash: string; expiresAt: Date; ipAddress: string | undefined; userAgent: string | undefined; }' is not assignable to type 'Without<SessionCreateInput, SessionUncheckedCreateInput> & SessionUncheckedCreateInput' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+    Type '{ tenantId: string; userId: string; tokenHash: string; expiresAt: Date; ipAddress: string | undefined; userAgent: string | undefined; }' is not assignable to type 'SessionUncheckedCreateInput' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+      Types of property 'ipAddress' are incompatible.
+        Type 'string | undefined' is not assignable to type 'string | null'.
+          Type 'undefined' is not assignable to type 'string | null'.
+apps/api/src/modules/authorization/policy.ts(4,8): error TS2307: Cannot find module '@free-ai/contracts' or its corresponding type declarations.
+apps/api/src/modules/authorization/policy.ts(25,6): error TS7006: Parameter 'permission' implicitly has an 'any' type.
+apps/api/src/modules/authorization/policy.ts(30,22): error TS7006: Parameter 'permission' implicitly has an 'any' type.
+apps/api/src/modules/authorization/policy.ts(34,22): error TS7006: Parameter 'permission' implicitly has an 'any' type.
+apps/api/src/modules/events/event-envelope.ts(1,36): error TS2307: Cannot find module '@free-ai/contracts' or its corresponding type declarations.
+apps/api/src/modules/events/event-envelope.ts(2,26): error TS2307: Cannot find module '@free-ai/shared' or its corresponding type declarations.
+apps/api/src/modules/events/outbox.service.ts(15,9): error TS2322: Type 'Record<string, unknown>' is not assignable to type 'JsonNull | InputJsonValue'.
+  Type 'Record<string, unknown>' is missing the following properties from type 'readonly (InputJsonValue | null)[]': length, concat, join, slice, and 20 more.
+apps/api/src/modules/projects/project-scope.ts(1,32): error TS2307: Cannot find module '@free-ai/shared' or its corresponding type declarations.
+[FAIL] TYPESCRIPT TYPECHECK (exit 2)
+========== LAYER 01 UNIT TESTS ==========
+
+ RUN  v3.2.7 /opt/free-ai
+
+ ✓ tests/layer-01/migration-security.test.ts (6 tests) 4ms
+ ✓ tests/layer-01/schema-structure.test.ts (16 tests) 5ms
+ ✓ tests/layer-01/security.test.ts (9 tests) 10ms
+
+ Test Files  3 passed (3)
+      Tests  31 passed (31)
+   Start at  03:46:46
+   Duration  363ms (transform 129ms, setup 0ms, collect 167ms, tests 18ms, environment 0ms, prepare 229ms)
+
+[PASS] LAYER 01 UNIT TESTS
+========== GIT DIFF CHECK ==========
+[PASS] GIT DIFF CHECK
+========== MIGRATION INVENTORY ==========
+508 apps/api/prisma/migrations/0001_layer01_security/migration.sql
+========== SOURCE INVENTORY ==========
+apps/api/src/infrastructure/database/prisma.ts
+apps/api/src/infrastructure/database/tenant-context.ts
+apps/api/src/infrastructure/database/transaction.ts
+apps/api/src/main.ts
+apps/api/src/middleware/authentication.middleware.ts
+apps/api/src/middleware/tenant.middleware.ts
+apps/api/src/modules/audit/audit-event.ts
+apps/api/src/modules/audit/audit.service.ts
+apps/api/src/modules/authentication/authentication.service.ts
+apps/api/src/modules/authentication/session-token.ts
+apps/api/src/modules/authorization/authorization.service.ts
+apps/api/src/modules/authorization/policy.ts
+apps/api/src/modules/events/event-envelope.ts
+apps/api/src/modules/events/outbox.service.ts
+apps/api/src/modules/identity/identity.service.ts
+apps/api/src/modules/observability/health.ts
+apps/api/src/modules/projects/project-scope.ts
+apps/api/src/modules/secrets/encryption.ts
+apps/api/src/modules/settings/settings.service.ts
+apps/api/src/modules/storage/storage-policy.ts
+========== TEST INVENTORY ==========
+tests/layer-01/migration-security.test.ts
+tests/layer-01/schema-structure.test.ts
+tests/layer-01/security.test.ts
+========== GIT STATUS ==========
+## main
+ M .gitignore
+ M AGENTS.md
+ M CLAUDE.md
+?? .env.example
+?? .npmrc
+?? .repair-backups/
+?? apps/
+?? docs/00-governance/
+?? docs/03-specifications/
+?? docs/08-data-design/
+?? docs/09-api-contracts/
+?? docs/10-event-contracts/
+?? docs/11-security/
+?? docs/12-testing/
+?? docs/13-operations/
+?? docs/14-technology-decisions/
+?? docs/15-prelaunch/
+?? docs/16-standards/
+?? docs/17-architecture/
+?? docs/18-data-design/
+?? docs/19-contracts/
+?? docs/20-security/
+?? docs/21-technology-decisions/
+?? docs/22-layer-01/
+?? package.json
+?? packages/
+?? pnpm-lock.yaml
+?? pnpm-workspace.yaml
+?? scripts/build-layer-01.sh
+?? scripts/check-architecture.mjs
+?? scripts/check-contracts.mjs
+?? scripts/check-layer-01-core.mjs
+?? scripts/check-layer-01.mjs
+?? scripts/check-structure.mjs
+?? scripts/complete-layer-01-core.sh
+?? scripts/finalize-layer-01.sh
+?? scripts/harden-workspace.sh
+?? scripts/package-builder/
+?? scripts/prepare-prelaunch.sh
+?? scripts/resume-layer-01.sh
+?? scripts/test-layer-01-audit.mjs
+?? scripts/test-layer-01.sh
+?? services/
+?? tests/
+?? tsconfig.base.json
+========== FINAL SUMMARY ==========
+PASS: 7
+FAIL: 1
+BLOCKED: 0
+REPORT: docs/22-layer-01/FINAL-REPORT-20261121-034634.txt
+RESULT: NOT ACCEPTED — REVIEW FAILURES

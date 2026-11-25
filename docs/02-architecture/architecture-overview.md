@@ -1,4 +1,4 @@
-# Free AI Architecture Overview
+# Free AI Platform Architecture Overview
 
 ## Mission
 
@@ -11,6 +11,17 @@ Initial architecture: Modular Monolith with explicit module boundaries.
 
 Microservices are not the default starting point.
 They may be introduced later through documented architecture decisions.
+
+## Current authentication boundary
+
+Browser sessions use a random opaque identifier in an HttpOnly cookie; the
+server stores its digest in PostgreSQL and derives identity and permissions
+from that active row. CSRF tokens and exact Origin checks protect browser
+mutations. Production cookies are Secure and SameSite=Strict. The browser does
+not store authentication tokens in localStorage or sessionStorage. API bearer
+authentication remains available to non-browser clients. See
+`docs/20-security/authorization-model.md` and the final closure report for
+controls, test evidence, and limitations.
 
 ## Layer 1: Platform Core & Foundation
 
@@ -129,3 +140,20 @@ Intake
 - Secure execution isolation.
 - Complete auditability.
 - Verifiable acceptance tests.
+
+## Public website and provider identity boundary
+
+The static web application renders named public routes separately from the
+authenticated workspace. Private route hashes fall back to the public home
+without a server-verified session. The public content API returns only
+schema-validated site fields. Owner-controlled public content is stored in a
+singleton deployment setting (not project or tenant workspace content); writes
+require `platform.manage` and emit an audit event. Provider credentials,
+connection records, workspace content, and model records are excluded from
+the public response.
+
+The provider identity registry mirrors only connector types implemented in the
+API and uses neutral accessible marks because no verified official provider
+artwork is checked in. Project execution sends an optional model selection,
+which the server revalidates against current availability, privacy approval,
+and free/self-hosted eligibility.
